@@ -50,8 +50,11 @@
 		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
 		<File RelativePath=".\FD-ETF.f90"/>
 		<File RelativePath=".\GenETFM.f90"/>
+		<File RelativePath=".\GeomM.f90"/>
+		<File RelativePath=".\InputReadM.f90"/>
 		<File RelativePath=".\Intro.f90"/>
 		<File RelativePath=".\IntrType.f90"/>
+		<File RelativePath=".\ParamM.f90"/>
 		<File RelativePath=".\SerpentSolutionM.f90"/>
 		<File RelativePath=".\XSecM.f90"/></Filter>
 		<File RelativePath=".\ReadMe.txt"/></Files>
