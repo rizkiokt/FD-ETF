@@ -19,17 +19,24 @@ CONTAINS
     
     
     SUBROUTINE NewtonRun(ig)
+    IMPLICIT NONE
     
         DO WHILE(absF>tol)            
             CALL FormJacobian(ig)
             CALL GaussElim(x,J,F,nxy)
             CAll UpdateXSTr(ig,x)   
             CALL FormFunctionF(ig)
+            
+        END DO
+        
     
     END SUBROUTINE NewtonRun
     
     
-    SUBROUTINE FormFunctionF
+    SUBROUTINE FormFunctionF(ig)
+    IMPLICIT NONE
+        
+        DO 
     
         
     
