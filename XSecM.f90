@@ -63,7 +63,7 @@ MODULE XsecM
       ! Cross-section substitute data
       CONTAINS
       SUBROUTINE AllocXsec
-         USE TriGeomM, ONLY:nz, nxy, nsubmesh
+         USE GeomM, ONLY:nz, nxy
          USE ParamM, ONLY:mg,ng
          IMPLICIT NONE
 

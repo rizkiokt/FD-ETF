@@ -30,6 +30,7 @@ CONTAINS
       CHARACTER(LEN=200)           :: line
       CHARACTER(LEN=15)            :: word
       INTEGER(sik) :: tmp, i 
+      
        is_gen_ETF = .FALSE.
        DO
          READ(input_unit,"(a)") line
@@ -46,6 +47,7 @@ CONTAINS
              ELSE 
                  gen_ETF = .FALSE.
              END IF
+         END IF
                 
          IF (word == "PARAM") EXIT
          

@@ -1,9 +1,8 @@
 MODULE SerpentSolutionM
       USE IntrType, ONLY: sdk, sik
-      USE TriGeomM, ONLY: n, nz, nxy, arearad, areaz, ibcx, ibcy, ibcz
-      USE TriIndexM, ONLY: nsurface, lefttri, trineigh, trisurf, surftri, ncorn, tricorn, ixsid
+      USE GeomM, ONLY: n, nz, nxy, arearad, areaz, ibcx, ibcy, ibcz
       USE ParamM, ONLY: mg,ng
-      USE XSecM, ONLY: isCDF,xs_num
+      USE XSecM, ONLY: xs_num
       IMPLICIT NONE  
   
       REAL(sdk), POINTER, DIMENSION(:,:,:,:) :: serpphis,serpincurns,serpoutcurns,serpcurns,NFDcurndif,serpcpflux,serpcpcurns,cpratio
