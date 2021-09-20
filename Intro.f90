@@ -1,15 +1,14 @@
 SUBROUTINE Intro 
     USE IntrType, ONLY: sdk, sik
+    USE IOVarM, ONLY: input_unit, output_unit
     
     IMPLICIT NONE
 
-    INTEGER(sik), PARAMETER    :: input_unit=99
     INTEGER(sik), PARAMETER    :: lname=100
     CHARACTER(len=lname)  :: name, output_name
-    INTEGER(sik) :: ioflg, output_unit
+    INTEGER(sik) :: ioflg
     LOGICAL :: file_exists
     
-    output_unit = 66
     call getarg(1,name)    
 
     if (ichar(name(1:1)).eq.0 .or.ichar(name(1:1)).eq.32) name= 'input.inp'

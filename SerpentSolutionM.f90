@@ -1,6 +1,6 @@
 MODULE SerpentSolutionM
       USE IntrType, ONLY: sdk, sik
-      USE GeomM, ONLY: n, nz, nxy, arearad, areaz, ibcx, ibcy, ibcz
+      USE GeomM, ONLY: n, nz, nxy, ibcx, ibcy, ibcz, rad_neigh, area, xsid
       USE ParamM, ONLY: mg,ng
       USE XSecM, ONLY: xs_num
       IMPLICIT NONE  
@@ -20,8 +20,6 @@ CONTAINS
           
       
           ntot = nxy*nz
-          ns = 6 ! number of surfaces for each node
-          nc = 4 ! number of radial corners for each node
           nvs = 2*ns*mg ! length of vector array for surface variables 
           nvv = 2*mg ! length of vector array for volume variables
           nvc = 2*nc*mg
@@ -33,7 +31,6 @@ CONTAINS
           ALLOCATE(serpcpflux(mg,nc,nxy,nz),serpcpcurns(mg,nc,nxy,nz),cpratio(mg,nc,nxy,nz))
           ALLOCATE(serpflux(mg,nxy,nz))
           ALLOCATE(tempflux(ntot,mg), tempphis(ntot,ngs), tempcurns(ntot,ngs), tempincurns(ntot,ngs), tempoutcurns(ntot,ngs))
-          ALLOCATE(tempcpflux(ntot,ngc),tempcpcurns(ntot,ngc),tmpmg(mg),hetphic(mg,ncorn,nz))
           ALLOCATE(vv(nvv),vs(nvs),vc(nvc))
           
       END SUBROUTINE InitialSerpent
@@ -43,8 +40,7 @@ CONTAINS
          INTEGER(sik)       :: i, j, ixy, iz, is, ig, ic, iis, iic, icp
          CHARACTER(LEN=20)  :: word
          CHARACTER(LEN=15000):: line
-         REAL(sdk)          :: area
-         REAL(sdk)          :: diff(mg,nsurface,nz), maxdiff(3), avediff(3), diffz(mg,nxy,nz), maxdiffz, avediffz, difphis(mg,ns,nxy,nz)
+         REAL(sdk)          :: surf_area
          INTEGER(sik)       :: il, ir, count, isurf, locsurf(3), locxy, locz(3), locg(3)
          LOGICAL            :: lfound
 
@@ -95,18 +91,18 @@ CONTAINS
                  i = xsid(ixy,iz)
                  DO is = 1,ns
                      IF ((is == 5) .OR. (is == 6)) THEN
-                         area = areaz(ixy)
+                         surf_area = area(ixy,is,iz)
                          radial = .FALSE.
                      ELSE 
-                         area = arearad(iz)
+                         surf_area = area(ixy,is,iz)
                          radial = .TRUE.
                      END IF
                      DO ig = 1,mg
                          j = (is-1)*mg+ig
                          ! Surface currents in Serpent are area integrated values, therefore:
-                         serpincurns(ig,is,ixy,iz) = tempincurns(i,j)/area
-                         serpoutcurns(ig,is,ixy,iz) = tempoutcurns(i,j)/area
-                         serpcurns(ig,is,ixy,iz) = tempcurns(i,j)/area
+                         serpincurns(ig,is,ixy,iz) = tempincurns(i,j)/surf_area
+                         serpoutcurns(ig,is,ixy,iz) = tempoutcurns(i,j)/surf_area
+                         serpcurns(ig,is,ixy,iz) = tempcurns(i,j)/surf_area
                          !IF (is == 5) serpcurns(ig,is,ixy,iz) = -serpcurns(ig,is,ixy,iz)        
                      END DO
                  END DO
@@ -131,8 +127,8 @@ CONTAINS
             END DO
         END IF
         DO ixy = 1,nxy
-            DO is = 1,3
-                IF (trineigh(ixy,is) == 0 .AND. ibcx(1) == 2) THEN
+            DO is = 1,ns-2
+                IF (rad_neigh(ixy,is) == 0 .AND. ibcx(1) == 2) THEN
                     DO iz = 1,nz
                         DO ig = 1,mg
                             serpphis(ig,is,ixy,iz) = ABS(2.0*serpcurns(ig,is,ixy,iz))

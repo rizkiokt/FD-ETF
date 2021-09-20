@@ -161,8 +161,7 @@ CONTAINS
         DO ixy=1,nxy
             L2_norm = L2_norm + F(ixy)*F(ixy)
         END DO
-        L2_norm = SQRT(L2_norm)
-        absF = L2_norm
+        absF = SQRT(L2_norm)
     
     END SUBROUTINE AbsFCal
     

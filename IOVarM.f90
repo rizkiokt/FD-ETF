@@ -2,12 +2,16 @@ MODULE IOVarM
     USE IntrType, ONLY: sdk, sik
     
     IMPLICIT NONE
-
+    
+    ! File unit
+    INTEGER(sik), PARAMETER    :: input_unit=99, output_unit = 66
+    
     ! DEPL input
     ! PMAXS files index and name
     INTEGER(sik), ALLOCATABLE :: PMAXS_ind(:), PMAXS_i_str(:)
     CHARACTER(LEN=100), ALLOCATABLE :: PMAXS_name(:)
     LOGICAL  :: is_gen_ETF
+    
 
 CONTAINS
     

@@ -10,8 +10,6 @@ Module InputReadM
    
    IMPLICIT NONE
    
-   INTEGER(sik), PARAMETER    :: input_unit=99
-
 CONTAINS
     
    SUBROUTINE InputRead
@@ -22,6 +20,8 @@ CONTAINS
       CALL XsecCardRead
       CALL GeomRead
       CALL DEPLCardRead
+      CALL Indexing
+      CALL AreaCalc
       
    END SUBROUTINE InputRead
    
@@ -42,10 +42,10 @@ CONTAINS
          IF (word == "gen_ETF") THEN
              READ(line,*) word, tmp
              IF (tmp == 'T') THEN
-                 gen_ETF = .TRUE.
+                 is_gen_ETF = .TRUE.
                  READ(line,*) word, tmp, serp_file
              ELSE 
-                 gen_ETF = .FALSE.
+                 is_gen_ETF = .FALSE.
              END IF
          END IF
                 
@@ -113,7 +113,7 @@ CONTAINS
     !  CHARACTER(LEN=50),INTENT(IN) ::input
       CHARACTER(LEN=200)           :: line
       CHARACTER(LEN=10)            :: word
-      INTEGER(sik)                 :: i,j,k,nzeroes,jj,l
+      INTEGER(sik)                 :: i,j,k,nzeroes,jj,l, irow, icol
       CHARACTER(LEN=4)             :: atype
       INTEGER(sik)                 :: nzbr,nztr,count
       INTEGER(sik), ALLOCATABLE    :: tmp1d(:), tmp2d(:,:)
@@ -151,11 +151,12 @@ CONTAINS
       DEALLOCATE(tmp1d)
       
       ! Read Grid Size
+      ALLOCATE(grid_x(nx),grid_y(ny),grid_z(nz))
       DO 
          READ(input_unit,"(a)") line
          READ(line,*) word
          IF (word == "grid_x") THEN
-            READ(line,*) word,hx
+            READ(line,*) word,grid_x
             EXIT
          END IF
       END DO
@@ -163,7 +164,7 @@ CONTAINS
          READ(input_unit,"(a)") line
          READ(line,*) word
          IF (word == "grid_y") THEN
-            READ(line,*) word,hy
+            READ(line,*) word,grid_y
             EXIT
          END IF
       END DO
@@ -171,7 +172,7 @@ CONTAINS
          READ(input_unit,"(a)") line
          READ(line,*) word
          IF (word == "grid_z") THEN
-            READ(line,*) word,hz
+            READ(line,*) word,grid_z
             EXIT
          END IF
       END DO      
@@ -187,7 +188,6 @@ CONTAINS
       END DO
       
       ! Albedo BC definition
-      ALLOCATE(alxl(ng),alxr(ng),alyl(ng),alyr(ng),alzl(ng),alzr(ng))
       ALLOCATE(alxlf(mg),alxrf(mg),alylf(mg),alyrf(mg),alzlf(mg),alzrf(mg))
       
       IF (ibcx(1)==0) THEN ! Reflective
@@ -229,7 +229,7 @@ CONTAINS
          nntype = nntype+1
          READ(line,*) word, i, tmp2d(i,:), ntype
          tmp1d(nntype) = i
-         IF (ntype == "FUEL")
+         IF (ntype == "FUEL") THEN
              nfuel = nfuel+1
              lftol(nfuel) = i
          ELSE
@@ -271,6 +271,8 @@ CONTAINS
    SUBROUTINE Indexing
    
     IMPLICIT NONE
+    
+    INTEGER(sik) :: i,inode,ixy
         
     ! XS data for each node
     ALLOCATE(xsid(nxy,nz))
@@ -284,7 +286,7 @@ CONTAINS
     END DO  
     
     ! 2d array of nodes numbering
-    ALLOCATE(nodes2d(nx,ny)
+    ALLOCATE(nodes2d(nx,ny))
     i = 0
     DO iy=1,ny
         DO ix=1,nx
@@ -339,6 +341,43 @@ CONTAINS
         
     END DO                 
         
-   END SUBROUTINE Indexing
+    END SUBROUTINE Indexing
+    
+    SUBROUTINE AreaCalc
+    IMPLICIT NONE
+        
+        INTEGER(sik) :: ix,iy,iz,is,ixy
+        
+        ! Define hx and hy in terms of node xy
+        ALLOCATE(hx(nxy),hy(nxy),hz(nz))
+        DO iy=1,ny
+            DO ix=1,nx
+                ixy = ixy+1
+                hx(ixy) = grid_x(ix)
+                hy(ixy) = grid_y(iy)
+            END DO
+        END DO
+        hz = grid_z
+         
+        ! Area calculation
+        ALLOCATE(area(nxy,ns,nz))
+        w = 1
+        s = 2
+        e = 3
+        n = 4
+        b = 5
+        t = 6
+        DO iz=1,nz
+            DO ixy=1,nxy
+                area(ixy,w,iz) = hy*hz ! west
+                area(ixy,s,iz) = hx*hz ! south
+                area(ixy,e,iz) = hy*hz ! east
+                area(ixy,n,iz) = hx*hz ! north
+                area(ixy,b,iz) = hx*hy ! bottom
+                area(ixy,t,iz) = hx*hy ! top
+            END DO
+        END DO                                   
+                    
+    END SUBROUTINE AreaCalc
 
 END MODULE InputReadM
