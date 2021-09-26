@@ -10,6 +10,7 @@ MODULE IOVarM
     ! PMAXS files index and name
     INTEGER(sik), ALLOCATABLE :: PMAXS_ind(:), PMAXS_i_str(:)
     CHARACTER(LEN=100), ALLOCATABLE :: PMAXS_name(:)
+    INTEGER(sik),PARAMETER :: PMAXS_unit=87, PMAXS_ETF_unit=88
     LOGICAL  :: is_gen_ETF
     
 

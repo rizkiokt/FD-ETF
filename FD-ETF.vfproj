@@ -57,6 +57,7 @@
 		<File RelativePath=".\IntrType.f90"/>
 		<File RelativePath=".\IOVarM.f90"/>
 		<File RelativePath=".\ItrcntlM.f90"/>
+		<File RelativePath=".\LeakageCalc.f90"/>
 		<File RelativePath=".\ParamM.f90"/>
 		<File RelativePath=".\PMAXSRead.f90"/>
 		<File RelativePath=".\PMAXSRewrite.f90"/>

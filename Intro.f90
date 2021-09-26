@@ -10,7 +10,10 @@ SUBROUTINE Intro
     LOGICAL :: file_exists
     
     call getarg(1,name)    
-
+    
+    ! test
+    name = 'input_test'
+    
     if (ichar(name(1:1)).eq.0 .or.ichar(name(1:1)).eq.32) name= 'input.inp'
     open(input_unit,file=name,status='old',form='formatted',IOSTAT=ioflg)
 

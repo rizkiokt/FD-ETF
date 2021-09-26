@@ -28,6 +28,7 @@
     print *, 'Starting Program'
     
     print *, '1. Reading Input File'
+    CALL Intro
     CALL InputRead
     
     print *, '2. Initializating Variables'
@@ -44,6 +45,7 @@
     CALL SerpentSolution
     
     print *, '5. Computing Equivalent Transport Cross-sections'
+    CALL LeakageCalc
     CALL GenETFDriver
     
     print *, '6. Updating Cross-section Files'

@@ -28,7 +28,7 @@ CONTAINS
    SUBROUTINE CntlCardRead
       IMPLICIT NONE
       CHARACTER(LEN=200)           :: line
-      CHARACTER(LEN=15)            :: word
+      CHARACTER(LEN=15)            :: word, flag
       INTEGER(sik) :: tmp, i 
       
        is_gen_ETF = .FALSE.
@@ -40,10 +40,10 @@ CONTAINS
          END IF
          
          IF (word == "gen_ETF") THEN
-             READ(line,*) word, tmp
-             IF (tmp == 'T') THEN
+             READ(line,*) word, flag
+             IF (flag == 'T') THEN
                  is_gen_ETF = .TRUE.
-                 READ(line,*) word, tmp, serp_file
+                 READ(line,*) word, flag, serp_file
              ELSE 
                  is_gen_ETF = .FALSE.
              END IF
@@ -112,7 +112,7 @@ CONTAINS
    
     !  CHARACTER(LEN=50),INTENT(IN) ::input
       CHARACTER(LEN=200)           :: line
-      CHARACTER(LEN=10)            :: word
+      CHARACTER(LEN=10)            :: word,ntype
       INTEGER(sik)                 :: i,j,k,nzeroes,jj,l, irow, icol
       CHARACTER(LEN=4)             :: atype
       INTEGER(sik)                 :: nzbr,nztr,count
@@ -214,7 +214,7 @@ CONTAINS
       
       ! Read Axial XS ID
       ALLOCATE(tmp2d(nxy,nz))
-      ALLOCATE(tmp1d(nxy,nz))
+      ALLOCATE(tmp1d(nxy))
       ALLOCATE(lftol(nxy))
       ALLOCATE(lrtol(nxy))
       tmp1d = 0
@@ -272,14 +272,19 @@ CONTAINS
    
     IMPLICIT NONE
     
-    INTEGER(sik) :: i,inode,ixy
+    INTEGER(sik) :: i,inode,ixy, icol, irow, ix,iy, w,s,e,n
+    INTEGER(sik), ALLOCATABLE :: nodes2d(:,:)
         
     ! XS data for each node
     ALLOCATE(xsid(nxy,nz))
     DO i=1,nntype
         inode = nodetype(i)
         DO ixy=1,nxy
-            IF (radconf(ixy) == inode) THEN
+            ix = MOD(ixy,nx)
+            IF (ix == 0) ix = nx
+            iy = ixy/ny + 1
+            IF (MOD(ixy,ny) == 0) iy = iy-1
+            IF (radconf(ix,iy) == inode) THEN
                 xsid(ixy,:) = comp(i,:)
             END IF
         END DO
@@ -346,10 +351,11 @@ CONTAINS
     SUBROUTINE AreaCalc
     IMPLICIT NONE
         
-        INTEGER(sik) :: ix,iy,iz,is,ixy
+        INTEGER(sik) :: ix,iy,iz,is,ixy,w,s,e,n,b,t
         
         ! Define hx and hy in terms of node xy
         ALLOCATE(hx(nxy),hy(nxy),hz(nz))
+        ixy = 0
         DO iy=1,ny
             DO ix=1,nx
                 ixy = ixy+1
@@ -369,12 +375,12 @@ CONTAINS
         t = 6
         DO iz=1,nz
             DO ixy=1,nxy
-                area(ixy,w,iz) = hy*hz ! west
-                area(ixy,s,iz) = hx*hz ! south
-                area(ixy,e,iz) = hy*hz ! east
-                area(ixy,n,iz) = hx*hz ! north
-                area(ixy,b,iz) = hx*hy ! bottom
-                area(ixy,t,iz) = hx*hy ! top
+                area(ixy,w,iz) = hy(ixy)*hz(iz)  ! west
+                area(ixy,s,iz) = hx(ixy)*hz(iz)  ! south
+                area(ixy,e,iz) = hy(ixy)*hz(iz)  ! east
+                area(ixy,n,iz) = hx(ixy)*hz(iz)  ! north
+                area(ixy,b,iz) = hx(ixy)*hy(ixy) ! bottom
+                area(ixy,t,iz) = hx(ixy)*hy(ixy) ! top
             END DO
         END DO                                   
                     

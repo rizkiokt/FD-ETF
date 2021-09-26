@@ -2,10 +2,15 @@ Module GenETFM
     USE IntrType, ONLY: sdk, sik
     USE XsecM, ONLY: xstrf
     USE SerpentSolutionM, ONLY: serpflux, serpcurns
+    USE GeomM
+    USE ItrcntlM
+    USE ParamM, ONLY: mg
+    USE IOVarM, ONLY: output_unit
     
     IMPLICIT NONE
-    REAL(sdk), ALLOCATABLE :: F(:), J(:,:), x(:)
+    REAL(sdk), ALLOCATABLE :: F(:), J(:,:), x(:), leakage(:,:,:)
     REAL(sdk)              :: absF, tol
+    REAL(sdk), PARAMETER   :: two_third = 2.0/3.0
     
 CONTAINS
     
@@ -15,6 +20,7 @@ CONTAINS
         ALLOCATE(F(nxy))
         ALLOCATE(J(nxy,nxy))
         ALLOCATE(x(nxy))
+        ALLOCATE(leakage(mg,nxy,nz))
         tol = epseig
 
     END SUBROUTINE InitialGenETF
@@ -32,8 +38,11 @@ CONTAINS
     
     END SUBROUTINE GenETFDriver
     
-    SUBROUTINE NewtonRun(ig)
+    SUBROUTINE NewtonRun(ig,iz)
     IMPLICIT NONE
+    
+        INTEGER(sik), INTENT(IN) :: ig,iz
+        INTEGER(sik) :: ixy
         
         ! initial value
         CALL FormFunctionF(ig,iz)
@@ -41,10 +50,18 @@ CONTAINS
         ! iteration
         DO WHILE(absF>tol)            
             CALL FormJacobian(ig,iz)
+            DO ixy = 1,nxy
+                WRITE(output_unit,"(10ES12.4)") J(ixy,:)
+            END DO
+            !J = TRANSPOSE(J)
             CALL GaussElim(x,J,F,nxy)
             CAll UpdateXSTr(ig,iz,x)   
             CALL FormFunctionF(ig,iz)
             CALL AbsFCal
+            DO ixy = 1,nxy
+                WRITE(output_unit,"(10ES12.4)") F(ixy)
+            END DO
+            WRITE(output_unit,*) absF
         END DO
 
     END SUBROUTINE NewtonRun
@@ -54,7 +71,7 @@ CONTAINS
         
         INTEGER(sik), INTENT(IN) :: ig,iz
         INTEGER(sik) :: ixy, is, ineigh
-        REAL(sdk)    :: hom_cur, hom_leak
+        REAL(sdk)    :: hom_cur, hom_leak, hn, hc
         
         DO ixy=1,nxy
             hom_leak = 0.0
@@ -68,11 +85,11 @@ CONTAINS
                         hc = hy(ixy)
                         hn = hy(ineigh)
                     END IF
-                    hom_cur = 2*(serpflux(ig,ixy,iz) - serpflux(ig,ineigh,iz)) / (3*xstrf(ig,ixy,iz)*hc + 3*xstrf(ig,ineigh,iz)*hn)
+                    hom_cur = two_third * (serpflux(ig,ixy,iz) - serpflux(ig,ineigh,iz)) / (xstrf(ig,ixy,iz)*hc + xstrf(ig,ineigh,iz)*hn)
                     hom_leak = hom_leak + hom_cur*area(ixy,is,iz)
                 END IF
             END DO
-            F(ixy) = hom_leak - leakage(ixy,iz)
+            F(ixy) = hom_leak - leakage(ig,ixy,iz)
         END DO              
             
     END SUBROUTINE FormFunctionF
@@ -82,7 +99,7 @@ CONTAINS
         
         INTEGER(sik), INTENT(IN) :: ig,iz
         INTEGER(sik) :: ixy, is, ineigh
-        REAL(sdk)    :: Jii_num, Jii_den, Jij_num
+        REAL(sdk)    :: Jii_num, Jii_den, Jij_num, sumJii, hc, hn
         
         DO ixy=1,nxy
             sumJii = 0.0
@@ -96,13 +113,14 @@ CONTAINS
                         hc = hy(ixy)
                         hn = hy(ineigh)
                     END IF
-                    Jii_num = 6*hc*(serpflux(ig,ixy,iz) - serpflux(ig,ineigh,iz))*area(ixy,is,iz)
-                    Jii_den = (3*xstrf(ig,ixy,iz)*hc + 3*xstrf(ig,ineigh,iz)*hn)**2
-                    Jij_num = 6*hc*(serpflux(ig,ixy,iz) - serpflux(ig,ineigh,iz))*area(ixy,is,iz)
-                    J(ixy,ineigh) = -Jij_num/Jii_den
+                    Jii_num =  hc * (serpflux(ig,ixy,iz) - serpflux(ig,ineigh,iz)) * area(ixy,is,iz)
+                    Jii_den = (xstrf(ig,ixy,iz)*hc + xstrf(ig,ineigh,iz)*hn) ** 2
+                    Jij_num = hn * (serpflux(ig,ixy,iz) - serpflux(ig,ineigh,iz)) * area(ixy,is,iz)
+                    J(ixy,ineigh) = -two_third*Jij_num/Jii_den
+                    sumJii = sumJii + Jii_num/Jii_den
                END IF
             END DO
-            J(ixy,ixy) = -Jii_num/Jii_den
+            J(ixy,ixy) = -two_third*sumJii
         END DO      
         
     END SUBROUTINE FormJacobian
@@ -144,9 +162,13 @@ CONTAINS
     
     SUBROUTINE UpdateXSTr(ig,iz,x)
     IMPLICIT NONE
+        
+        INTEGER(sik), INTENT(IN) :: ig,iz
+        REAL(sdk), INTENT(IN) :: x(nxy)
+        INTEGER(sik) :: ixy
     
         DO ixy=1,nxy
-            xstr(ig,ixy,iz) = xstr(ig,ixy,iz) - x(ixy)
+            xstrf(ig,ixy,iz) = xstrf(ig,ixy,iz) - x(ixy)
         END DO
        
     END SUBROUTINE UpdateXSTr
@@ -154,8 +176,8 @@ CONTAINS
     SUBROUTINE AbsFCal
     IMPLICIT NONE
     
-        INTEGER(sik) = ixy
-        REAL(sdk)    = L2_norm(nxy)
+        INTEGER(sik) :: ixy
+        REAL(sdk)    :: L2_norm
         
         L2_norm = 0.0
         DO ixy=1,nxy

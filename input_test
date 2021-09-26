@@ -1,7 +1,7 @@
 CASEID test
 CNTL
       XS_num      9
-      gen_ETF     T 'serp_res.m'
+      gen_ETF     T 'rect3x3pins.inp_res.m'
 PARAM
       nodal_kernel   FD
       wielandt       0.04 10.0 1.0           ! eshift_r, eshift0, targetk [For a standard shift]
@@ -30,13 +30,13 @@ GEOM
       node_type   8  8   FUEL
       node_type   9  9   FUEL
 DEPL
-      PMAXS_F    1  './PMAX/N01.PMAX'    1
-      PMAXS_F    2  './PMAX/N02.PMAX'    2
-      PMAXS_F    3  './PMAX/N03.PMAX'    3
-      PMAXS_F    4  './PMAX/N04.PMAX'    4
-      PMAXS_F    5  './PMAX/N05.PMAX'    5
-      PMAXS_F    6  './PMAX/N06.PMAX'    6
-      PMAXS_F    7  './PMAX/N07.PMAX'    7
-      PMAXS_F    8  './PMAX/N08.PMAX'    8
-      PMAXS_F    9  './PMAX/N09.PMAX'    9
+      PMAXS_F    1  './xsec/N01.PMAX'    1
+      PMAXS_F    2  './xsec/N02.PMAX'    2
+      PMAXS_F    3  './xsec/N03.PMAX'    3
+      PMAXS_F    4  './xsec/N04.PMAX'    4
+      PMAXS_F    5  './xsec/N05.PMAX'    5
+      PMAXS_F    6  './xsec/N06.PMAX'    6
+      PMAXS_F    7  './xsec/N07.PMAX'    7
+      PMAXS_F    8  './xsec/N08.PMAX'    8
+      PMAXS_F    9  './xsec/N09.PMAX'    9
 .

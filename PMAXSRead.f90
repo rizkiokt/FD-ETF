@@ -7,7 +7,6 @@ SUBROUTINE PMAXSRead
     IMPLICIT NONE
     
     INTEGER(sik) :: i,j,k,ixy,iz,ig,n,jg,l,is 
-    INTEGER(sik),PARAMETER :: PMAXS_unit=87
     LOGICAL      :: FUEL
     CHARACTER(LEN=20) :: word
     CHARACTER(LEN=2000):: line
@@ -39,41 +38,71 @@ SUBROUTINE PMAXSRead
        IF (word == "GLOBAL_V") THEN ! PMAXS version 6.2b
            READ(line,*) word, j, j, k
            IF (k == 0) FUEL=.FALSE.
-           DO j = 1,13
-              READ(PMAXS_unit,"(a)")
-           END DO
-           ! Extract Chi fission spectrum
-           ! When the node is a reflector (non-fuel), xschif = 0.0
-           IF (.NOT. FUEL) THEN
-              xschif(:,ixy,iz) = 0.0
-              ! Skip reading some parts of PMAX files
-              READ(PMAXS_unit,"(a)")
-              READ(PMAXS_unit,"(a)")
+           
+           IF (mg == 2) THEN
+               DO j = 1,13
+                   READ(PMAXS_unit,"(a)")
+               END DO
+               ! Extract Chi fission spectrum
+               ! When the node is a reflector (non-fuel), xschif = 0.0
+               IF (.NOT. FUEL) THEN
+                  xschif(:,ixy,iz) = 0.0
+                  ! Skip reading some parts of PMAX files
+                  READ(PMAXS_unit,"(a)")
+                  READ(PMAXS_unit,"(a)")
+               ELSE
+                  READ(PMAXS_unit,"(a)") line
+                  READ(line,*)  xschif(:,ixy,iz)
+                  ! Skip reading some parts of PMAX files
+                  READ(PMAXS_unit,"(a)")
+                  READ(PMAXS_unit,"(a)")
+               END IF         
+               ! Extract transport, absorption, nu-fission, kappa-fission
+               READ(PMAXS_unit,"(a)") line
+               READ(line,*) xstrf(:,ixy,iz), xsaf(:,ixy,iz), xsnff(:,ixy,iz), xskff(:,ixy,iz)
+               ! Extract scattering cross-section
+               READ(PMAXS_unit,"(a)") line
+               READ(line,*) xsscat(:,1,ixy,iz), xsscat(:,2,ixy,iz)
+               
            ELSE
-              READ(PMAXS_unit,"(a)") line
-              READ(line,*)  xschif(:,ixy,iz)
-              ! Skip reading some parts of PMAX files
-              DO j = 1,4
-                 READ(PMAXS_unit,"(a)")
-              END DO
+               
+               DO j = 1,13
+                  READ(PMAXS_unit,"(a)")
+               END DO
+               ! Extract Chi fission spectrum
+               ! When the node is a reflector (non-fuel), xschif = 0.0
+               IF (.NOT. FUEL) THEN
+                  xschif(:,ixy,iz) = 0.0
+                  ! Skip reading some parts of PMAX files
+                  READ(PMAXS_unit,"(a)")
+                  READ(PMAXS_unit,"(a)")
+               ELSE
+                  READ(PMAXS_unit,"(a)") line
+                  READ(line,*)  xschif(:,ixy,iz)
+                  ! Skip reading some parts of PMAX files
+                  DO j = 1,4
+                     READ(PMAXS_unit,"(a)")
+                  END DO
+               END IF
+               ! Extract transport XS
+               READ(PMAXS_unit,"(a)") line
+               READ(line,*)  xstrf(:,ixy,iz)
+               ! Extract absorbtion XS
+               READ(PMAXS_unit,"(a)") line
+               READ(line,*)  xsaf(:,ixy,iz)
+               ! Extract nu-fission
+               READ(PMAXS_unit,"(a)") line
+               READ(line,*)  xsnff(:,ixy,iz)
+               ! Extract kappa-fission
+               READ(PMAXS_unit,"(a)") line
+               READ(line,*) xskff(:,ixy,iz)
+               ! Extract scattering matrix
+               DO ig = 1,mg
+                  READ(PMAXS_unit,"(a)") line
+                  READ(line,*)  xsscat(:,ig,ixy,iz)
+               END DO
+                
            END IF
-           ! Extract transport XS
-           READ(PMAXS_unit,"(a)") line
-           READ(line,*)  xstrf(:,ixy,iz)
-           ! Extract absorbtion XS
-           READ(PMAXS_unit,"(a)") line
-           READ(line,*)  xsaf(:,ixy,iz)
-           ! Extract nu-fission
-           READ(PMAXS_unit,"(a)") line
-           READ(line,*)  xsnff(:,ixy,iz)
-           ! Extract kappa-fission
-           READ(PMAXS_unit,"(a)") line
-           READ(line,*) xskff(:,ixy,iz)
-           ! Extract scattering matrix
-           DO ig = 1,mg
-              READ(PMAXS_unit,"(a)") line
-              READ(line,*)  xsscat(:,ig,ixy,iz)
-           END DO
         
        ELSE IF (word == "GLOB_LOG") THEN ! PMAXS version 6.4dev
            READ(PMAXS_unit,"(a)") line

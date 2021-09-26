@@ -54,8 +54,8 @@ CONTAINS
        noutmax=1000
        NnlpTH=5
        MGcy = 3
-       nupdcy = 5
-       NnlpNodal=>nupdcy
+       !nupdcy = 5
+       !NnlpNodal=>nupdcy
        
     
     END SUBROUTINE InitItrcntl

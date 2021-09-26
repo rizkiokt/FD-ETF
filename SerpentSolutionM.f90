@@ -1,6 +1,6 @@
 MODULE SerpentSolutionM
       USE IntrType, ONLY: sdk, sik
-      USE GeomM, ONLY: n, nz, nxy, ibcx, ibcy, ibcz, rad_neigh, area, xsid
+      USE GeomM, ONLY: n, nz, ns, nxy, ibcx, ibcy, ibcz, rad_neigh, area, xsid
       USE ParamM, ONLY: mg,ng
       USE XSecM, ONLY: xs_num
       IMPLICIT NONE  
@@ -9,7 +9,7 @@ MODULE SerpentSolutionM
       REAL(sdk), POINTER, DIMENSION(:,:,:)   :: serpflux, NFDphifdif, hetphic
       REAL(sdk), POINTER, DIMENSION(:,:)     :: tempflux, tempphis,  tempincurns, tempoutcurns, tempcurns, tempcpflux, tempcpcurns
       REAL(sdk), POINTER, DIMENSION(:)       :: vv,vs,vc,tmpmg
-      INTEGER(sik)                           :: ntot, ns, nc, nvs, nvv, ngs, ngc,nvc
+      INTEGER(sik)                           :: ntot, nc, nvs, nvv, ngs, ngc,nvc
       CHARACTER(LEN=100)                      :: serp_file, cpflux_file
       LOGICAL                                :: left,radial
       REAL(sdk)                              :: serp_eigv, NFDeigvdif
