@@ -1,7 +1,7 @@
 SUBROUTINE PMAXSRewrite
     USE GenETFM, ONLY: xsid,nxy,nz
     USE ParamM, ONLY: mg
-    USE XsecM, ONLY: xstrf
+    USE XsecM, ONLY: xstrf, xsaf
     USE IOVarM   
     
     IMPLICIT NONE
@@ -53,6 +53,8 @@ SUBROUTINE PMAXSRewrite
                 xs_new = xs_old
                 xs_new(1) = xstrf(1,ixy,iz)
                 xs_new(2) = xstrf(2,ixy,iz)
+                xs_new(3) = xsaf(1,ixy,iz)
+                xs_new(4) = xsaf(2,ixy,iz)
                 
                 formng='(1P008E12.5)'
                 WRITE(PMAXS_ETF_unit,formng) xs_new

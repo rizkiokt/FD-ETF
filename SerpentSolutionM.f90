@@ -7,8 +7,8 @@ MODULE SerpentSolutionM
   
       REAL(sdk), POINTER, DIMENSION(:,:,:,:) :: serpphis,serpincurns,serpoutcurns,serpcurns,NFDcurndif,serpcpflux,serpcpcurns,cpratio
       REAL(sdk), POINTER, DIMENSION(:,:,:)   :: serpflux, NFDphifdif, hetphic
-      REAL(sdk), POINTER, DIMENSION(:,:)     :: tempflux, tempphis,  tempincurns, tempoutcurns, tempcurns, tempcpflux, tempcpcurns
-      REAL(sdk), POINTER, DIMENSION(:)       :: vv,vs,vc,tmpmg
+      REAL(sdk), POINTER, DIMENSION(:,:)     :: serp_kinf, tempflux, tempphis,  tempincurns, tempoutcurns, tempcurns, tempcpflux, tempcpcurns
+      REAL(sdk), POINTER, DIMENSION(:)       :: vv,vs,vc,tmpmg,tmpkinf
       INTEGER(sik)                           :: ntot, nc, nvs, nvv, ngs, ngc,nvc
       CHARACTER(LEN=100)                      :: serp_file, cpflux_file
       LOGICAL                                :: left,radial
@@ -32,6 +32,7 @@ CONTAINS
           ALLOCATE(serpflux(mg,nxy,nz))
           ALLOCATE(tempflux(ntot,mg), tempphis(ntot,ngs), tempcurns(ntot,ngs), tempincurns(ntot,ngs), tempoutcurns(ntot,ngs))
           ALLOCATE(vv(nvv),vs(nvs),vc(nvc))
+          ALLOCATE(serp_kinf(nxy,nz),tmpkinf(ntot))
           
       END SUBROUTINE InitialSerpent
     
@@ -46,40 +47,54 @@ CONTAINS
 
          ! Open Serpent result files and extract required data
          OPEN (UNIT=55, FILE=serp_file, STATUS='old', ACTION='read')
+         
                  
+         ! Extract kEFF
          ! Extract Surface Flux, currents, volume flux from Serpent ADF solutions         
          i = 0
          DO i = 1,ntot
-            DO
-               READ(55,*) line
-               READ(line,*) word
-               IF (word == "DF_CORN_AREA") EXIT
-            END DO
-            READ(55,'(a)') line
-            READ(line,*) word,word,word,word,word,word,vs(:)
-            tempincurns(i,:) = vs(1:nvs:2)
-            READ(55,'(a)') line
-            READ(line,*) word,word,word,word,word,word,vs(:)
-            tempoutcurns(i,:) = vs(1:nvs:2)
-            READ(55,'(a)') line
-            READ(line,*) word,word,word,word,word,word,vs(:)
-            tempcurns(i,:) = vs(1:nvs:2)            
-            DO
-               READ(55,*) line
-               READ(line,*) word
-               IF (word == "DF_CORN_OUT_CURR") EXIT
-            END DO
-            READ(55,'(a)') line
-            READ(line,*) word,word,word,word,word,word,vc(:)
-            tempcpcurns(i,:) = vc(1:nvc:2)
-            READ(55,'(a)') line
-            READ(line,*) word,word,word,word,word,word,vv(:)
-            tempflux(i,:) = vv(1:nvv:2)
+             DO
+                 READ(55,*) line
+                 READ(line,*) word
+                 IF (word == "ANA_KEFF") EXIT
+             END DO
+             READ(55,'(a)') line
+             READ(55,'(a)') line
+             READ(55,'(a)') line
+             READ(55,'(a)') line
+             READ(line,*) word,word,word,word,word,word,tmpkinf(i)
+             
+             DO
+                READ(55,*) line
+                READ(line,*) word
+                IF (word == "DF_CORN_AREA") EXIT
+             END DO
+             READ(55,'(a)') line
+             READ(line,*) word,word,word,word,word,word,vs(:)
+             tempincurns(i,:) = vs(1:nvs:2)
+             READ(55,'(a)') line
+             READ(line,*) word,word,word,word,word,word,vs(:)
+             tempoutcurns(i,:) = vs(1:nvs:2)
+             READ(55,'(a)') line
+             READ(line,*) word,word,word,word,word,word,vs(:)
+             tempcurns(i,:) = vs(1:nvs:2)            
+             DO
+                READ(55,*) line
+                READ(line,*) word
+                IF (word == "DF_CORN_OUT_CURR") EXIT
+             END DO
+             READ(55,'(a)') line
+             READ(line,*) word,word,word,word,word,word,vc(:)
+             tempcpcurns(i,:) = vc(1:nvc:2)
+             READ(55,'(a)') line
+             READ(line,*) word,word,word,word,word,word,vv(:)
+             tempflux(i,:) = vv(1:nvv:2)
          END DO
 
          DO iz = 1,nz
              DO ixy = 1,nxy
                  i = xsid(ixy,iz)
+                 serp_kinf(ixy,iz) = tmpkinf(i)
                  DO ig = 1,mg
                      serpflux(ig,ixy,iz) = tempflux(i,ig)
                  END DO
@@ -110,33 +125,6 @@ CONTAINS
         END DO       
         
         CLOSE(55)  
-         
-        ! Force surface fluxes on vacuum boundaries to be twice net currents
-        IF (ibcz(1) == 2) THEN 
-            DO ixy = 1,nxy
-                DO ig = 1,mg
-                    serpphis(ig,4,ixy,1) = ABS(2.0*serpcurns(ig,4,ixy,1))
-                END DO
-            END DO
-        END IF
-        IF (ibcz(2) == 2) THEN
-            DO ixy = 1,nxy
-                DO ig = 1,mg
-                    serpphis(ig,5,ixy,nz) = ABS(2.0*serpcurns(ig,5,ixy,nz))
-                END DO
-            END DO
-        END IF
-        DO ixy = 1,nxy
-            DO is = 1,ns-2
-                IF (rad_neigh(ixy,is) == 0 .AND. ibcx(1) == 2) THEN
-                    DO iz = 1,nz
-                        DO ig = 1,mg
-                            serpphis(ig,is,ixy,iz) = ABS(2.0*serpcurns(ig,is,ixy,iz))
-                        END DO
-                    END DO
-                END IF
-            END DO
-        END DO
                          
       END SUBROUTINE SerpentSolution
 

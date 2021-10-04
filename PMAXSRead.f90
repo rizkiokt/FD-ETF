@@ -30,14 +30,14 @@ SUBROUTINE PMAXSRead
        ! Open PMAXS file and read
        OPEN(PMAXS_unit,file=PMAXS_name(i),status='old')
        PRINT*, "Open file ",PMAXS_name(i)
-       WRITE(output_unit,*) "Open file ",PMAXS_name(i)
+       WRITE(output_unit,*) "Open file ",TRIM(PMAXS_name(i))
        FUEL=.TRUE.
        READ(PMAXS_unit,"(a)") line
        READ(line,*) word
        
        IF (word == "GLOBAL_V") THEN ! PMAXS version 6.2b
-           READ(line,*) word, j, j, k
-           IF (k == 0) FUEL=.FALSE.
+           READ(line,*) word, word, word, word, word, word, word, word, word, word, word, word, word, word
+           IF (word == 'F') FUEL=.FALSE.
            
            IF (mg == 2) THEN
                DO j = 1,13
@@ -55,7 +55,7 @@ SUBROUTINE PMAXSRead
                   READ(line,*)  xschif(:,ixy,iz)
                   ! Skip reading some parts of PMAX files
                   READ(PMAXS_unit,"(a)")
-                  READ(PMAXS_unit,"(a)")
+                  
                END IF         
                ! Extract transport, absorption, nu-fission, kappa-fission
                READ(PMAXS_unit,"(a)") line
@@ -204,9 +204,7 @@ SUBROUTINE PMAXSRead
            END DO
        END DO 
     END DO
-    
-    
-    
+        
   IF(mg>ng)THEN
     DO iz = 1,nz
         DO ixy = 1,nxy

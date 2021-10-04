@@ -367,6 +367,7 @@ CONTAINS
          
         ! Area calculation
         ALLOCATE(area(nxy,ns,nz))
+        ALLOCATE(volnode(nxy,nz))
         w = 1
         s = 2
         e = 3
@@ -381,6 +382,7 @@ CONTAINS
                 area(ixy,n,iz) = hx(ixy)*hz(iz)  ! north
                 area(ixy,b,iz) = hx(ixy)*hy(ixy) ! bottom
                 area(ixy,t,iz) = hx(ixy)*hy(ixy) ! top
+                volnode(ixy,iz) = hx(ixy)*hy(ixy)*hz(iz)
             END DO
         END DO                                   
                     
