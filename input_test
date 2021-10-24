@@ -1,7 +1,7 @@
 CASEID test
 CNTL
       XS_num      9
-      gen_ETF     T 'rect3x3pins.inp_res.m'
+      gen_ETF     T 'rect3x3pins.inp_res.m' './xsec_ETF/'
 PARAM
       nodal_kernel   FD
       wielandt       0.04 10.0 1.0           ! eshift_r, eshift0, targetk [For a standard shift]

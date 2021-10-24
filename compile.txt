@@ -1,0 +1,5 @@
+ifort -c IntrType.f90 ParamM.f90 IOVarM.f90 ItrcntlM.f90 LUDeflateM.f90 GeomM.f90 CntlM.f90 
+ifort -c XSecM.f90 SerpentSolutionM.f90 InputReadM.f90 GenETFM.f90 PMAXSRead.f90
+ifort -c LeakageCalc.f90 PMAXSRewrite.f90 Intro.f90
+ifort FD-ETF.f90 FD-ETF
+

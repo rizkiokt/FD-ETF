@@ -13,6 +13,7 @@ Module GenETFM
     REAL(sdk)              :: absF, tol
     REAL(sdk), PARAMETER   :: two_third = 2.0/3.0
     REAL(sdk), PARAMETER   :: xstr_min = 1E-5
+    INTEGER(sik), PARAMETER :: maxit = 100
     
 CONTAINS
     
@@ -118,18 +119,24 @@ CONTAINS
     IMPLICIT NONE
     
         INTEGER(sik), INTENT(IN) :: ig,iz
-        INTEGER(sik) :: ixy, it
-            
-        
+        INTEGER(sik) :: ixy, it,it_bt
+        REAL(sdk) :: prev_absF
+        LOGICAL   :: lbacktrack
+        REAL(sdk)    :: ori_xstrf(mg,nxy,nz),delta_xstr(mg,nxy,nz)
+    
+        ori_xstrf = xstrf
         ! initial value
         CALL FormFunctionF(ig,iz)
         CALL AbsFCal 
         it = 0
+        it_bt = 0
+        lbacktrack = .True.
         ! iteration
         DO WHILE(absF>tol)
             it = it + 1
-            IF (it>100) EXIT
+            IF (it>maxit) EXIT
             CALL FormJacobian(ig,iz)
+            
             !WRITE(output_unit,*) 'F'
             !DO ixy = 1,nxy
             !    WRITE(output_unit,"(10ES12.4)") F(ixy)
@@ -156,11 +163,23 @@ CONTAINS
             !    WRITE(output_unit,"(10ES12.4)") abs(test_vector(ixy)-F(ixy))
             !END DO   
              
-            CAll UpdateXSTr(ig,iz,x)   
-            CALL FormFunctionF(ig,iz)
-            CALL AbsFCal
-    
-            WRITE(output_unit,*) '|F| = ',absF
+            CALL UpdateXSTr(ig,iz,x)   
+            prev_absF = absF
+            
+            IF (lbacktrack) THEN
+                CALL quad_bakctrack(ig, iz, prev_absF, it_bt)
+            ELSE
+                CALL FormFunctionF(ig,iz)
+                CALL AbsFCal
+            END IF
+               
+            WRITE(output_unit,*) 'Iteration number ', it, ' |F| = ',absF
+            PRINT *, 'Iteration number ', it
+            delta_xstr = (xstrf-ori_xstrf)/ori_xstrf
+            !WRITE(output_unit,*) " "
+            !WRITE(output_unit,*) "Relative Transport XS changes"
+            !WRITE(output_unit,"(2F10.2)") delta_xstr
+            !WRITE(output_unit,*) " "
         END DO
 
     END SUBROUTINE NewtonRun
@@ -360,7 +379,7 @@ CONTAINS
     
         DO ixy=1,nxy
             xstrf(ig,ixy,iz) = xstrf(ig,ixy,iz) - x(ixy)
-            IF (xstrf(ig,ixy,iz) < xstr_min) xstrf(ig,ixy,iz) = xstr_min
+            !IF (xstrf(ig,ixy,iz) < xstr_min) xstrf(ig,ixy,iz) = xstr_min
         END DO
        
     END SUBROUTINE UpdateXSTr
@@ -397,6 +416,40 @@ CONTAINS
         
     END SUBROUTINE MatVecMult
     
+    SUBROUTINE quad_bakctrack(ig, iz, prev_absF, i)
+    IMPLICIT NONE
+        
+        INTEGER(sik), INTENT(IN) :: ig, iz
+        REAL(sdk), INTENT(IN) :: prev_absF
+        
+        REAL(sdk) :: lamb, g0, g1, lamb1, lambq, xstrf_prev(mg,nxy,nz)
+        INTEGER(sik) :: i, it
+        
+        
+        ! initialize
+        CALL FormFunctionF(ig,iz)
+        CALL AbsFCal
+        lamb = 1.0
+        it = 0
+        xstrf_prev = xstrf
+        DO WHILE (absF>prev_absF)
+            i = i + 1
+            it = it + 1
+            IF (it>maxit) EXIT
+            IF (lamb<1E-15) EXIT
+            lamb1 = lamb
+            g0 = prev_absF
+            g1 = absF
+            !lambq = 0.5*lamb1 ! linear
+            lambq = (lamb1**2) / (2*lamb1 - 1 + g1/g0) ! quadratic
+            lamb = lambq
+            xstrf = xstrf_prev
+            CALL UpdateXSTr(ig,iz,lamb*x)   
+            CALL FormFunctionF(ig,iz)
+            CALL AbsFCal
+            ! WRITE(output_unit,*) 'Backtracking number ', i, ' lambda = ', lamb
+        END DO
+    END SUBROUTINE quad_bakctrack
     
 END Module GenETFM
     

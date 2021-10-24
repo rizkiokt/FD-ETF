@@ -29,7 +29,7 @@ SUBROUTINE PMAXSRead
        END DO
        ! Open PMAXS file and read
        OPEN(PMAXS_unit,file=PMAXS_name(i),status='old')
-       PRINT*, "Open file ",PMAXS_name(i)
+       PRINT*, "Open file ",TRIM(PMAXS_name(i))
        WRITE(output_unit,*) "Open file ",TRIM(PMAXS_name(i))
        FUEL=.TRUE.
        READ(PMAXS_unit,"(a)") line

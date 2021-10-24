@@ -43,7 +43,7 @@ CONTAINS
              READ(line,*) word, flag
              IF (flag == 'T') THEN
                  is_gen_ETF = .TRUE.
-                 READ(line,*) word, flag, serp_file
+                 READ(line,*) word, flag, serp_file, xsETF_dir
              ELSE 
                  is_gen_ETF = .FALSE.
              END IF

@@ -12,7 +12,7 @@ MODULE IOVarM
     CHARACTER(LEN=100), ALLOCATABLE :: PMAXS_name(:)
     INTEGER(sik),PARAMETER :: PMAXS_unit=87, PMAXS_ETF_unit=88
     LOGICAL  :: is_gen_ETF
-    
+    CHARACTER(LEN=100) :: xsETF_dir
 
 CONTAINS
     
