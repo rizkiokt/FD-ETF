@@ -20,6 +20,7 @@
     USE SerpentSolutionM, ONLY: InitialSerpent, SerpentSolution
     USE GenETFMinM, ONLY: InitialGenETF, GenETFDriver
     USE IOVarM, ONLY: output_unit
+    USE CurrentM, ONLY: InitFDCurCalc, FDCurCalc, CompareCur
 
     implicit none
 
@@ -43,6 +44,7 @@
     CALL InitCntl
     CALL InitialSerpent
     CALL InitialGenETF
+    CALL InitFDCurCalc
     
     print *, '3. Reading Cross-section Files'
     WRITE(output_unit,*) '3. Reading Cross-section Files'
@@ -53,6 +55,8 @@
     WRITE(output_unit,*) '4. Reading Heterogeneous Solutions From Serpent'
 
     CALL SerpentSolution
+    CALL FDCurCalc
+    CALL CompareCur
     
     print *, '5. Computing Equivalent Transport Cross-sections'
     WRITE(output_unit,*) '5. Computing Equivalent Transport Cross-sections'

@@ -165,7 +165,7 @@ CONTAINS
         
         CALL FormFunctionF(ig,iz)
         CALL FormGradF(ig,iz)
-        CALL MatMatMult(vector,TRANSPOSE(gradF),F,nxy)     
+        CALL MatVecMult(vector,TRANSPOSE(gradF),F,nxy)     
         
     END SUBROUTINE FormVector
     
