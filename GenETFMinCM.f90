@@ -1,4 +1,4 @@
-Module GenETFMinM
+Module GenETFMinCM
     USE IntrType, ONLY: sdk, sik
     USE XsecM, ONLY: xstrf, xsaf, xsnff, xschif, xsscat
     USE SerpentSolutionM, ONLY: serpflux, serpcurns, serp_kinf
@@ -11,9 +11,10 @@ Module GenETFMinM
     IMPLICIT NONE
     REAL(sdk), ALLOCATABLE :: vector(:), Matrix(:,:), F(:), gradF(:,:),grad2fk(:,:), x(:), dx(:), leakage(:,:,:),test_vector(:)
     REAL(sdk), ALLOCATABLE :: Mat1(:,:), Mat2(:,:)
-    REAL(sdk)              :: absF, tol
-    REAL(sdk), PARAMETER   :: two_third = 2.0/3.0
-    INTEGER(sik), PARAMETER :: maxit = 100
+    REAL(sdk), ALLOCATABLE :: gradpk(:), grad2pk(:,:), p(:)
+    REAL(sdk)              :: absF, tol, wk, sump
+    REAL(sdk), PARAMETER   :: two_third = 2.0/3.0, xmin = 1E-3, xmax = 1E3
+    INTEGER(sik), PARAMETER :: maxit = 50
     
 CONTAINS
     
@@ -26,6 +27,7 @@ CONTAINS
         ALLOCATE(test_vector(nxy))
         ALLOCATE(leakage(mg,nxy,nz))
         ALLOCATE(Mat1(nxy,nxy),Mat2(nxy,nxy))
+        ALLOCATE(p(nxy),gradpk(nxy),grad2pk(nxy,nxy))
         CALL LUDeflateInitial(nxy)
         tol = epseig
         x = 1.0
@@ -60,6 +62,11 @@ CONTAINS
         WRITE(output_unit,*) " "
         WRITE(output_unit,*) "Relative Transport XS changes"
         WRITE(output_unit,"(2F10.2)") delta_xstr
+        WRITE(output_unit,*) " "
+        
+        WRITE(output_unit,*) " "
+        WRITE(output_unit,*) "x = ETF/ori_xstrf"
+        WRITE(output_unit,"(2F10.2)") xstrf/ori_xstrf
         WRITE(output_unit,*) " "
     
     END SUBROUTINE GenETFDriver
@@ -129,6 +136,7 @@ CONTAINS
     
         ! initial value
         x = 1.0
+        wk = 10.0
         CALL FormVector(ig,iz)
         CALL AbsFCal 
         it = 0
@@ -141,9 +149,10 @@ CONTAINS
             CALL FormMatrix(ig,iz)
             
             ! Use deflated LU decomposition to solve the linear system
-            CALL LUDeflate(Matrix,dx,vector)
+            CALL LUDeflate(Matrix,dx,vector)           
                         
             CALL UpdateSol(ig,iz,dx)   
+            CALL FormFunctionp(ig,iz)
             prev_absF = absF
             
             IF (lbacktrack) THEN
@@ -152,9 +161,12 @@ CONTAINS
                 CALL FormVector(ig,iz)
                 CALL AbsFCal
             END IF
+            
+            ! update penalty weight
+            ! wk = wk*10.0
                
-            WRITE(output_unit,*) 'Iteration number ', it, ' |F| = ',absF
-            PRINT *, 'Iteration number ', it
+            WRITE(output_unit,'(A20,I4.4,A10,ES12.5,A10,ES12.5,A10,ES12.5)') 'Iteration number ', it, ' sumf = ',absF-sump, ' sump = ',sump, ' objF = ', absF
+            PRINT '(A20,I4.4,A10,ES12.5,A10,ES12.5,A10,ES12.5)', 'Iteration number ', it, ' sumf = ',absF-sump, ' sump = ',sump,' objF = ', absF
         END DO
 
     END SUBROUTINE NewtonRun
@@ -167,7 +179,19 @@ CONTAINS
         
         CALL FormFunctionF(ig,iz)
         CALL FormGradF(ig,iz)
-        CALL MatVecMult(vector,TRANSPOSE(gradF),F,nxy)     
+        CALL MatVecMult(vector,TRANSPOSE(gradF),F,nxy)
+        
+        ! ! add penalty function
+        ! CALL FormGradp(ig,iz)
+        ! CALL MatVecMult(test_vector,TRANSPOSE(gradp),p,nxy)
+        ! 
+        ! vector = vector + test_vector
+        
+        ! add penalty function
+        CALL FormGradpk(ig,iz)
+        vector = vector + gradpk
+
+        ! vector = vector + test_vector
         
     END SUBROUTINE FormVector
     
@@ -196,6 +220,35 @@ CONTAINS
         DO i = 1,nxy
             DO j = 1,nxy
                 Matrix(i,j) = Mat1(i,j) + Mat2(i,j)
+            END DO
+        END DO
+        
+        ! add penalty function
+       ! CALL FormFunctionp(ig,iz)
+       ! Mat2 = 0.0
+       ! DO k = 1,nxy
+       !     CALL FormGrad2pk(k,ig,iz)
+       !     DO i = 1,nxy
+       !         DO j = 1,nxy
+       !             Mat2(i,j) = Mat2(i,j) + grad2pk(i,j)*p(k)
+       !         END DO
+       !     END DO
+       ! END DO  
+        
+        ! add penalty function
+        Mat2 = 0.0
+        DO k = 1,nxy
+            CALL FormGrad2pk(k,ig,iz)
+            DO i = 1,nxy
+                DO j = 1,nxy
+                    Mat2(i,j) = Mat2(i,j) + grad2pk(i,j)
+                END DO
+            END DO
+        END DO  
+        
+        DO i = 1,nxy
+            DO j = 1,nxy
+                Matrix(i,j) = Matrix(i,j) + Mat2(i,j)
             END DO
         END DO
                       
@@ -229,6 +282,24 @@ CONTAINS
             
     END SUBROUTINE FormFunctionF
     
+    SUBROUTINE FormFunctionp(ig,iz)
+    IMPLICIT NONE
+    
+        INTEGER(sik), INTENT(IN) :: ig,iz
+        INTEGER(sik) :: ixy, is, ineigh
+        REAL(sdk)    :: hmin, hmax
+               
+        DO ixy = 1,nxy
+            hmin = 0.0
+            hmax = 0.0
+            IF (x(ixy) < xmin) hmin = (x(ixy) - xmin)**2
+            IF (x(ixy) > xmax) hmax = (xmax - x(ixy))**2
+            p(ixy) = wk*hmin + wk*hmax
+        END DO
+    
+    
+    END SUBROUTINE FormFunctionp
+    
     SUBROUTINE FormGradF(ig,iz)
         IMPLICIT NONE
         
@@ -260,6 +331,25 @@ CONTAINS
         END DO      
         
     END SUBROUTINE FormGradF
+    
+    SUBROUTINE FormGradpk(ig,iz)
+    IMPLICIT NONE
+        INTEGER(sik), INTENT(IN) :: ig,iz
+        INTEGER(sik) :: ixy, is
+        
+        gradpk = 0.0
+        DO ixy = 1,nxy
+            IF (x(ixy)<xmin) THEN
+                gradpk(ixy) = 2*wk*(x(ixy)-xmin)
+            ELSE IF (x(ixy)>xmax) THEN
+                gradpk(ixy) = 2*wk*(xmax-x(ixy))
+            ELSE
+                gradpk(ixy) = 0.0
+            END IF
+        END DO
+        
+    
+    END SUBROUTINE FormGradpk
     
     SUBROUTINE FormGrad2fk(k,ig,iz)
         IMPLICIT NONE
@@ -314,142 +404,32 @@ CONTAINS
      
     END SUBROUTINE FormGrad2fk
     
-    SUBROUTINE GaussElim(sol,matrix,constant,dim)    
-    
-        IMPLICIT NONE
+    SUBROUTINE FormGrad2pk(k,ig,iz)
+    IMPLICIT NONE
+        INTEGER(sik), INTENT(IN) :: k,ig,iz
+        INTEGER(sik) :: ixy
         
-        INTEGER(sik), INTENT(IN) :: dim
-        REAL(sdk), INTENT(IN) :: matrix(dim,dim), constant(dim)
-        REAL(sdk), INTENT(OUT) :: sol(dim,1)
+        grad2pk = 0.0
+        IF (x(k)<xmin .OR. x(k)>xmax) THEN
+            grad2pk(k,k) = 2*wk
+        ELSE
+            grad2pk(k,k) = 0.0
+        END IF
         
-        REAL(8) :: A(dim,dim),b(dim,1)  
+    
+    END SUBROUTINE FormGrad2pk
         
-        INTEGER :: kk,mm,nn,jj
-        REAL(8) :: fct
-
-        A = matrix
-        b(:,1) = constant
-        sol = b
-        
-   ! Forward elimination
-        DO kk = 1,dim-1
-            DO mm = kk+1,dim
-                fct = A(mm,kk) / A(kk,kk)
-                DO nn = kk,dim
-                   A(mm,nn) = A(mm,nn) - fct * A(kk,nn)
-                ENDDO
-                sol(mm,1) = sol(mm,1) - fct * sol(kk,1)                
-            ENDDO
-        ENDDO
-   ! Back Substitution
-        DO kk=dim,1,-1
-           DO jj=(kk + 1),dim
-               sol(kk,1) = sol(kk,1) - A(kk,jj) * sol(jj,1)
-           END DO
-           sol(kk,1) = sol(kk,1)/A(kk,kk)
-           A(kk,kk) = A(kk,kk)/A(kk,kk)               
-        END DO    
-            
-    END SUBROUTINE GaussElim
-    
-    subroutine gauss_2(x,a,b,n)
-    !===========================================================
-    ! Solutions to a system of linear equations A*x=b
-    ! Method: Gauss elimination (with scaling and pivoting)
-    ! Alex G. (November 2009)
-    !-----------------------------------------------------------
-    ! input ...
-    ! a(n,n) - array of coefficients for matrix A
-    ! b(n)   - array of the right hand coefficients b
-    ! n      - number of equations (size of matrix A)
-    ! output ...
-    ! x(n)   - solutions
-    ! coments ...
-    ! the original arrays a(n,n) and b(n) will be destroyed 
-    ! during the calculation
-    !===========================================================
-    implicit none 
-    integer n
-    double precision a(n,n), b(n), x(n)
-    double precision s(n)
-    double precision c, pivot, store
-    integer i, j, k, l
-    
-    ! step 1: begin forward elimination
-    do k=1, n-1
-    
-    ! step 2: "scaling"
-    ! s(i) will have the largest element from row i 
-      do i=k,n                       ! loop over rows
-        s(i) = 0.0
-        do j=k,n                    ! loop over elements of row i
-          s(i) = max(s(i),abs(a(i,j)))
-        end do
-      end do
-    
-    ! step 3: "pivoting 1" 
-    ! find a row with the largest pivoting element
-      pivot = abs(a(k,k)/s(k))
-      l = k
-      do j=k+1,n
-        if(abs(a(j,k)/s(j)) > pivot) then
-          pivot = abs(a(j,k)/s(j))
-          l = j
-        end if
-      end do
-    
-    ! Check if the system has a sigular matrix
-      if(pivot == 0.0) then
-        write(*,*) ' The matrix is sigular '
-        return
-      end if
-    
-    ! step 4: "pivoting 2" interchange rows k and l (if needed)
-    if (l /= k) then
-      do j=k,n
-         store = a(k,j)
-         a(k,j) = a(l,j)
-         a(l,j) = store
-      end do
-      store = b(k)
-      b(k) = b(l)
-      b(l) = store
-    end if
-    
-    ! step 5: the elimination (after scaling and pivoting)
-       do i=k+1,n
-          c=a(i,k)/a(k,k)
-          a(i,k) = 0.0
-          b(i)=b(i)- c*b(k)
-          do j=k+1,n
-             a(i,j) = a(i,j)-c*a(k,j)
-          end do
-       end do
-    end do
-    
-    ! step 6: back substiturion 
-    x(n) = b(n)/a(n,n)
-    do i=n-1,1,-1
-       c=0.0
-       do j=i+1,n
-         c= c + a(i,j)*x(j)
-       end do 
-       x(i) = (b(i)- c)/a(i,i)
-    end do
-    
-    end subroutine gauss_2
-
-    
     SUBROUTINE UpdateXSTr(ig,iz,x)
     IMPLICIT NONE
         
         INTEGER(sik), INTENT(IN) :: ig,iz
-        REAL(sdk), INTENT(IN) :: x(nxy)
+        REAL(sdk) :: x(nxy)
         INTEGER(sik) :: ixy
     
         DO ixy=1,nxy
+            IF (x(ixy) < xmin) x(ixy) = xmin
+            IF (x(ixy) > xmax) x(ixy) = xmax
             xstrf(ig,ixy,iz) = xstrf(ig,ixy,iz) * x(ixy)
-            !IF (xstrf(ig,ixy,iz) < xstr_min) xstrf(ig,ixy,iz) = xstr_min
         END DO
        
     END SUBROUTINE UpdateXSTr
@@ -473,12 +453,18 @@ CONTAINS
         INTEGER(sik) :: ixy
         REAL(sdk)    :: L2_norm
         
+        
         L2_norm = 0.0
         DO ixy=1,nxy
             L2_norm = L2_norm + F(ixy)*F(ixy)
         END DO
         !absF = SQRT(L2_norm)
         absF = 0.5*L2_norm
+        
+        ! add penalty function
+        sump = SUM(p)
+        absF = absF + sump
+        
     
     END SUBROUTINE AbsFCal
     
@@ -556,7 +542,7 @@ CONTAINS
         END DO
     END SUBROUTINE quad_bakctrack
     
-END Module GenETFMinM
+END Module GenETFMinCM
     
     
     

@@ -12,6 +12,56 @@
  Open file ./xsec/N08.PMAX
  Open file ./xsec/N09.PMAX
  4. Reading Heterogeneous Solutions From Serpent
+ Surface current comparison between finite difference and Serpent solution
+ ixy  is  ig      FD-cur    Serp-cur    Rel.Diff
+   1   2   1 -3.5970E-03 -9.4403E-04      2.8103
+   1   2   2  4.9252E-04  3.3382E-04      0.4754
+   1   3   1 -3.6020E-03 -9.4521E-04      2.8108
+   1   3   2  4.9059E-04  3.3626E-04      0.4590
+   2   1   1  3.6020E-03  9.4521E-04      2.8108
+   2   1   2 -4.9059E-04 -3.3626E-04      0.4590
+   2   2   1  8.7486E-03  2.3174E-03      2.7752
+   2   2   2 -2.0073E-03 -1.7546E-03      0.1440
+   2   3   1  3.6238E-03  9.4451E-04      2.8367
+   2   3   2 -4.9071E-04 -3.3454E-04      0.4668
+   3   1   1 -3.6238E-03 -9.4451E-04      2.8367
+   3   1   2  4.9071E-04  3.3454E-04      0.4668
+   3   2   1 -3.6154E-03 -9.4273E-04      2.8350
+   3   2   2  4.9173E-04  3.3528E-04      0.4666
+   4   2   1  3.6199E-03  9.4202E-04      2.8427
+   4   2   2 -4.9117E-04 -3.3647E-04      0.4598
+   4   3   1  8.7428E-03  2.3165E-03      2.7741
+   4   3   2 -2.0091E-03 -1.7528E-03      0.1462
+   4   4   1  3.5970E-03  9.4403E-04      2.8103
+   4   4   2 -4.9252E-04 -3.3382E-04      0.4754
+   5   1   1 -8.7428E-03 -2.3165E-03      2.7741
+   5   1   2  2.0091E-03  1.7528E-03      0.1462
+   5   2   1 -8.7443E-03 -2.3176E-03      2.7730
+   5   2   2  2.0087E-03  1.7557E-03      0.1441
+   5   3   1 -8.7391E-03 -2.3138E-03      2.7769
+   5   3   2  2.0082E-03  1.7545E-03      0.1446
+   5   4   1 -8.7486E-03 -2.3174E-03      2.7752
+   5   4   2  2.0073E-03  1.7546E-03      0.1440
+   6   1   1  8.7391E-03  2.3138E-03      2.7769
+   6   1   2 -2.0082E-03 -1.7545E-03      0.1446
+   6   2   1  3.6115E-03  9.4769E-04      2.8109
+   6   2   2 -4.9033E-04 -3.3460E-04      0.4654
+   6   4   1  3.6154E-03  9.4273E-04      2.8350
+   6   4   2 -4.9173E-04 -3.3528E-04      0.4666
+   7   3   1 -3.6212E-03 -9.4637E-04      2.8264
+   7   3   2  4.9083E-04  3.3364E-04      0.4712
+   7   4   1 -3.6199E-03 -9.4202E-04      2.8427
+   7   4   2  4.9117E-04  3.3647E-04      0.4598
+   8   1   1  3.6212E-03  9.4637E-04      2.8264
+   8   1   2 -4.9083E-04 -3.3364E-04      0.4712
+   8   3   1  3.6163E-03  9.4240E-04      2.8373
+   8   3   2 -4.9090E-04 -3.3545E-04      0.4634
+   8   4   1  8.7443E-03  2.3176E-03      2.7730
+   8   4   2 -2.0087E-03 -1.7557E-03      0.1441
+   9   1   1 -3.6163E-03 -9.4240E-04      2.8373
+   9   1   2  4.9090E-04  3.3545E-04      0.4634
+   9   4   1 -3.6115E-03 -9.4769E-04      2.8109
+   9   4   2  4.9033E-04  3.3460E-04      0.4654
  5. Computing Equivalent Transport Cross-sections
  Updating Abs XS for node           1 axial plane           1
  maximum Abs XS change:  6.945648554568251E-005
@@ -32,3 +82,49 @@
  Updating Abs XS for node           9 axial plane           1
  maximum Abs XS change:  1.913414907033228E-004
  Newton Solver for group           1 axial plane           1
+ Iteration number            1  |F| =   5.934051883461994E-002
+ Iteration number            2  |F| =   2.363025409219983E-002
+ Iteration number            3  |F| =   5.490884208101113E-003
+ Iteration number            4  |F| =   6.693635616087264E-004
+ Iteration number            5  |F| =   4.180399319501829E-005
+ Iteration number            6  |F| =   1.188547759172498E-006
+ Iteration number            7  |F| =   1.093936326096701E-009
+ Newton Solver for group           2 axial plane           1
+ Iteration number            1  |F| =   1.528627287038089E-005
+ Iteration number            2  |F| =   6.105743547136524E-007
+ Iteration number            3  |F| =   4.422514423603854E-009
+  
+ Relative Transport XS changes
+      2.83      0.68
+      2.78      0.25
+      2.89      0.68
+      2.79      0.26
+      2.77      0.05
+      2.78      0.26
+      2.89      0.67
+      2.78      0.26
+      2.87      0.67
+  
+  
+ x = ETF/ori_xstrf
+      3.83      1.68
+      3.78      1.25
+      3.89      1.68
+      3.79      1.26
+      3.77      1.05
+      3.78      1.26
+      3.89      1.67
+      3.78      1.26
+      3.87      1.67
+  
+ 6. Updating Cross-section Files
+ Writing XS file ./xsec_ETF//N01_ETF.PMAX
+ Writing XS file ./xsec_ETF//N02_ETF.PMAX
+ Writing XS file ./xsec_ETF//N03_ETF.PMAX
+ Writing XS file ./xsec_ETF//N04_ETF.PMAX
+ Writing XS file ./xsec_ETF//N05_ETF.PMAX
+ Writing XS file ./xsec_ETF//N06_ETF.PMAX
+ Writing XS file ./xsec_ETF//N07_ETF.PMAX
+ Writing XS file ./xsec_ETF//N08_ETF.PMAX
+ Writing XS file ./xsec_ETF//N09_ETF.PMAX
+ Exiting Program

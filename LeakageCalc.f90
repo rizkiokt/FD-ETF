@@ -1,7 +1,7 @@
 SUBROUTINE LeakageCalc
     USE GeomM
     USE SerpentSolutionM
-    USE GenETFMinM, ONLY: leakage
+    USE GenETFMinCM, ONLY: leakage
     
     IMPLICIT NONE
     INTEGER(sik) :: ig, is, ix, iy, ixy, iz

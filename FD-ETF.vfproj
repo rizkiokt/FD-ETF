@@ -52,6 +52,7 @@
 		<File RelativePath=".\CurrentM.f90"/>
 		<File RelativePath=".\FD-ETF.f90"/>
 		<File RelativePath=".\GenETFM.f90"/>
+		<File RelativePath=".\GenETFMinCM.f90"/>
 		<File RelativePath=".\GenETFMinM.f90"/>
 		<File RelativePath=".\GeomM.f90"/>
 		<File RelativePath=".\InputReadM.f90"/>

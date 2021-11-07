@@ -4,6 +4,7 @@ MODULE CurrentM
     USE GeomM, ONLY: ns,nxy,nz,rad_neigh, hx, hy, hz
     USE ParamM, ONLY: mg
     USE SerpentSolutionM, ONLY: serpcurns, serpflux
+    USE IOVarM, ONLY: output_unit
     
     IMPLICIT NONE
     REAL(sdk), ALLOCATABLE :: fdcurns(:,:,:,:), curerr(:,:,:,:)
@@ -77,20 +78,22 @@ MODULE CurrentM
     
         INTEGER(sik) :: ig,is,ixy,iz
         
+        WRITE(output_unit,*) "Surface current comparison between finite difference and Serpent solution"
+        WRITE(output_unit,"(A4,A4,A4,A12,A12,A12)") "ixy","is","ig","FD-cur","Serp-cur","Rel.Diff"
         curerr = 0.0
         DO iz = 1,nz
             DO ixy = 1,nxy
                 DO is = 1,ns
                     DO ig = 1,mg
-                        IF (serpcurns(ig,is,ixy,iz) .NE. 0.0) THEN
-                            curerr(ig,is,ixy,iz) = fdcurns(ig,is,ixy,iz)/serpcurns(ig,is,ixy,iz) - 1
+                        IF (fdcurns(ig,is,ixy,iz) .NE. 0.0) THEN
+                            curerr(ig,is,ixy,iz) = fdcurns(ig,is,ixy,iz)/(-serpcurns(ig,is,ixy,iz)) - 1
+                            WRITE(output_unit,"(I4,I4,I4,ES12.4,ES12.4,F12.4)") ixy,is,ig,fdcurns(ig,is,ixy,iz),-serpcurns(ig,is,ixy,iz),curerr(ig,is,ixy,iz)
                         END IF
                     END DO
                 END DO
             END DO
         END DO
-        
-    
+ 
     END SUBROUTINE CompareCur
     
     
