@@ -11,5 +11,5 @@
 # Loads modules
 
 # Runs
-cd /home/current/a/rizkiokt/Runs/run_10-14-21_UX_Assembly
-/home/current/a/rizkiokt/bin/sss2_Aug19th -omp 44 Serp17x17 > output.txt
+cd /home/current/a/rizkiokt/Runs/run_11-14-21_UX_Assembly
+/home/current/a/olastres/Serpent/mods/10-11-21/src/sss2_11-9 -omp 44 Serp17x17 > output.txt

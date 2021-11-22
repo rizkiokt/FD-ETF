@@ -1,13 +1,13 @@
 
  --- Table  1: Summary of nuclide data: 
 
- Data for 36 nuclides included in calculation:
+ Data for 35 nuclides included in calculation:
 
- - 36 Transport nuclides
+ - 35 Transport nuclides
  - No dosimetry nuclides
  - No decay nuclides
- - 949 reaction channels
- - 304 special reactions
+ - 946 reaction channels
+ - 303 special reactions
  - No transmutation reactions
  - 5 transmutation branch reactions
  - No decay reactions
@@ -52,49 +52,49 @@
             S - nuclide has spontaneous fission yield data
             P - nuclide has photon transport cross section data
             T - nuclide has supplementary transmutation cross section data
+            D - nuclide is used to provide 0K data for DBRC
 
-    1   0  1001.06c      06c  TRA    1   1 0    1.00782   600.0          N/A  I-----T-------------  hydrogen (H-1)
-    2   0  1001.06s      06s  TRA    1   1 0    1.00782   600.0          N/A  I-----TS------------  hydrogen (H-1)
-    3   0  1001.06s      06s  TRA    1   1 0    1.00782   600.0          N/A  I-----TS------------  hydrogen (H-1)
-    4   0  1001.06s      06s  TRA    1   1 0    1.00782   600.0          N/A  I-----TS------------  hydrogen (H-1)
-    5   0  2000.06c      06c  TRA    2   0 0    4.00260   600.0          N/A  I-----T-------------  natural helium (He-nat)
-    6   0  5010.06c      06c  TRA    5  10 0   10.01294   600.0          N/A  I-----T-------------  boron 10 (B-10)
-    7   0  5011.06c      06c  TRA    5  11 0   11.00928   600.0          N/A  I-----T-------------  boron 11 (B-11)
-    8   0  6000.06c      06c  TRA    6   0 0   12.00110   600.0          N/A  I-----T-------------  natural carbon (C-nat)
-    9   0  7014.06c      06c  TRA    7  14 0   14.00307   600.0          N/A  I-----T-------------  nitrogen 14 (N-14)
-   10   0  8016.09c      09c  TRA    8  16 0   15.99492   900.0          N/A  I-----T-------------  oxygen 16 (O-16)
-   11   0  8016.06c      06c  TRA    8  16 0   15.99492   600.0          N/A  I-----T-------------  oxygen 16 (O-16)
-   12   0  14000.06c     06c  TRA   14   0 0   28.08557   600.0          N/A  I-----T-------------  natural silicon (Si-nat)
-   13   0  15031.06c     06c  TRA   15  31 0   30.97408   600.0          N/A  I-----T-------------  phosphorus 31 (P-31)
-   14   0  18036.06c     06c  TRA   18  36 0   35.96748   600.0          N/A  I-----T-------------  argon 36 (Ar-36)
-   15   0  24052.09c     09c  TRA   24  52 0   51.94019   900.0          N/A  I-----T-------------  chromium 52 (Cr-52)
-   16   0  25055.06c     06c  TRA   25  55 0   54.93805   600.0          N/A  I-----T-------------  manganese 55 (Mn-55)
-   17   0  26000.06c     06c  TRA   26   0 0   55.84675   600.0          N/A  I-----T-------------  natural iron (Fe-nat)
-   18   0  26056.09c     09c  TRA   26  56 0   55.93451   900.0          N/A  I-----T-------------  iron 56 (Fe-56)
-   19   0  28000.06c     06c  TRA   28   0 0   58.68796   600.0          N/A  I-----T-------------  natural nickel (Ni-nat)
-   20   0  40090.09c     09c  TRA   40  90 0   89.90473   900.0          N/A  I-----T-------------  zirconium 90 (Zr-90)
-   21   0  40091.09c     09c  TRA   40  91 0   90.90563   900.0          N/A  I-----T-------------  zirconium 91 (Zr-91)
-   22   0  40092.09c     09c  TRA   40  92 0   91.90501   900.0          N/A  I-----T-------------  zirconium 92 (Zr-92)
-   23   0  40094.09c     09c  TRA   40  94 0   93.90631   900.0          N/A  I-----T-------------  zirconium 94 (Zr-94)
-   24   0  40096.09c     09c  TRA   40  96 0   95.90830   900.0          N/A  I-----T-------------  zirconium 96 (Zr-96)
-   25   0  42000.06c     06c  TRA   42   0 0   95.94017   600.0          N/A  I-----T-------------  natural molybdenum (Mo-nat)
-   26   0  50116.09c     09c  TRA   50 116 0  115.90166   900.0          N/A  I-----T-I-----------  tin 116 (Sn-116)
-   27   0  50117.09c     09c  TRA   50 117 0  116.90326   900.0          N/A  I-----T-------------  tin 117 (Sn-117)
-   28   0  50118.09c     09c  TRA   50 118 0  117.90184   900.0          N/A  I-----T-I-----------  tin 118 (Sn-118)
-   29   0  50119.09c     09c  TRA   50 119 0  118.90345   900.0          N/A  I-----T-------------  tin 119 (Sn-119)
-   30   0  50120.09c     09c  TRA   50 120 0  119.90202   900.0          N/A  I-----T-I-----------  tin 120 (Sn-120)
-   31   0  50122.09c     09c  TRA   50 122 0  121.90322   900.0          N/A  I-----T-I-----------  tin 122 (Sn-122)
-   32   0  50124.09c     09c  TRA   50 124 0  123.90542   900.0          N/A  I-----T-I-----------  tin 124 (Sn-124)
-   33   0  92235.09c     09c  TRA   92 235 0  235.04395   900.0          N/A  I-----T--F-D--------  uranium 235 (U-235)
-   34   0  92235.06c     06c  TRA   92 235 0  235.04395   600.0          N/A  I-----T--F-D--------  uranium 235 (U-235)
-   35   0  92238.09c     09c  TRA   92 238 0  238.05078   900.0          N/A  I-----T--F-D--------  uranium 238 (U-238)
-   36   0  92238.06c     06c  TRA   92 238 0  238.05078   600.0          N/A  I-----T--F-D--------  uranium 238 (U-238)
+    1   0  1001.06c      06c  TRA    1   1 0    1.00782   600.0          N/A  I-----T--------------  hydrogen (H-1)
+    2   0  1001.06s      06s  TRA    1   1 0    1.00782   600.0          N/A  I-----TS-------------  hydrogen (H-1)
+    3   0  1001.06s      06s  TRA    1   1 0    1.00782   600.0          N/A  I-----TS-------------  hydrogen (H-1)
+    4   0  2000.06c      06c  TRA    2   0 0    4.00260   600.0          N/A  I-----T--------------  natural helium (He-nat)
+    5   0  5010.06c      06c  TRA    5  10 0   10.01294   600.0          N/A  I-----T--------------  boron 10 (B-10)
+    6   0  5011.06c      06c  TRA    5  11 0   11.00928   600.0          N/A  I-----T--------------  boron 11 (B-11)
+    7   0  6000.06c      06c  TRA    6   0 0   12.00110   600.0          N/A  I-----T--------------  natural carbon (C-nat)
+    8   0  7014.06c      06c  TRA    7  14 0   14.00307   600.0          N/A  I-----T--------------  nitrogen 14 (N-14)
+    9   0  8016.09c      09c  TRA    8  16 0   15.99492   900.0          N/A  I-----T--------------  oxygen 16 (O-16)
+   10   0  8016.06c      06c  TRA    8  16 0   15.99492   600.0          N/A  I-----T--------------  oxygen 16 (O-16)
+   11   0  14000.06c     06c  TRA   14   0 0   28.08557   600.0          N/A  I-----T--------------  natural silicon (Si-nat)
+   12   0  15031.06c     06c  TRA   15  31 0   30.97408   600.0          N/A  I-----T--------------  phosphorus 31 (P-31)
+   13   0  18036.06c     06c  TRA   18  36 0   35.96748   600.0          N/A  I-----T--------------  argon 36 (Ar-36)
+   14   0  24052.09c     09c  TRA   24  52 0   51.94019   900.0          N/A  I-----T--------------  chromium 52 (Cr-52)
+   15   0  25055.06c     06c  TRA   25  55 0   54.93805   600.0          N/A  I-----T--------------  manganese 55 (Mn-55)
+   16   0  26000.06c     06c  TRA   26   0 0   55.84675   600.0          N/A  I-----T--------------  natural iron (Fe-nat)
+   17   0  26056.09c     09c  TRA   26  56 0   55.93451   900.0          N/A  I-----T--------------  iron 56 (Fe-56)
+   18   0  28000.06c     06c  TRA   28   0 0   58.68796   600.0          N/A  I-----T--------------  natural nickel (Ni-nat)
+   19   0  40090.09c     09c  TRA   40  90 0   89.90473   900.0          N/A  I-----T--------------  zirconium 90 (Zr-90)
+   20   0  40091.09c     09c  TRA   40  91 0   90.90563   900.0          N/A  I-----T--------------  zirconium 91 (Zr-91)
+   21   0  40092.09c     09c  TRA   40  92 0   91.90501   900.0          N/A  I-----T--------------  zirconium 92 (Zr-92)
+   22   0  40094.09c     09c  TRA   40  94 0   93.90631   900.0          N/A  I-----T--------------  zirconium 94 (Zr-94)
+   23   0  40096.09c     09c  TRA   40  96 0   95.90830   900.0          N/A  I-----T--------------  zirconium 96 (Zr-96)
+   24   0  42000.06c     06c  TRA   42   0 0   95.94017   600.0          N/A  I-----T--------------  natural molybdenum (Mo-nat)
+   25   0  50116.09c     09c  TRA   50 116 0  115.90166   900.0          N/A  I-----T-I------------  tin 116 (Sn-116)
+   26   0  50117.09c     09c  TRA   50 117 0  116.90326   900.0          N/A  I-----T--------------  tin 117 (Sn-117)
+   27   0  50118.09c     09c  TRA   50 118 0  117.90184   900.0          N/A  I-----T-I------------  tin 118 (Sn-118)
+   28   0  50119.09c     09c  TRA   50 119 0  118.90345   900.0          N/A  I-----T--------------  tin 119 (Sn-119)
+   29   0  50120.09c     09c  TRA   50 120 0  119.90202   900.0          N/A  I-----T-I------------  tin 120 (Sn-120)
+   30   0  50122.09c     09c  TRA   50 122 0  121.90322   900.0          N/A  I-----T-I------------  tin 122 (Sn-122)
+   31   0  50124.09c     09c  TRA   50 124 0  123.90542   900.0          N/A  I-----T-I------------  tin 124 (Sn-124)
+   32   0  92235.09c     09c  TRA   92 235 0  235.04395   900.0          N/A  I-----T--F-D---------  uranium 235 (U-235)
+   33   0  92235.06c     06c  TRA   92 235 0  235.04395   600.0          N/A  I-----T--F-D---------  uranium 235 (U-235)
+   34   0  92238.09c     09c  TRA   92 238 0  238.05078   900.0          N/A  I-----T--F-D---------  uranium 238 (U-238)
+   35   0  92238.06c     06c  TRA   92 238 0  238.05078   600.0          N/A  I-----T--F-D---------  uranium 238 (U-238)
 
  --- Table  2: Reaction and decay data: 
 
- Nuclide    1 / 36 : 1001.06c -- hydrogen (H-1)
+ Nuclide    1 / 35 : 1001.06c -- hydrogen (H-1)
 
- Pointers                     : 861164 1053
+ Pointers                     : 887092 1101
  Primary type                 : Transport
  Nuclide ZAI                  : 10010
  Library ID                   : 06c
@@ -141,9 +141,9 @@
 
    1    MT =    204  Q =  0.00000E+00 MeV  Emin = 1.00000E-11 MeV  : total deuteron production
 
- Nuclide    2 / 36 : 1001.06s -- hydrogen (H-1)
+ Nuclide    2 / 35 : 1001.06s -- hydrogen (H-1)
 
- Pointers                     : 907701 1053
+ Pointers                     : 933612 1101
  Primary type                 : Transport
  Nuclide ZAI                  : 10010
  Library ID                   : 06s
@@ -191,9 +191,9 @@
 
    1    MT =    204  Q =  0.00000E+00 MeV  Emin = 1.00000E-11 MeV  : total deuteron production
 
- Nuclide    3 / 36 : 1001.06s -- hydrogen (H-1)
+ Nuclide    3 / 35 : 1001.06s -- hydrogen (H-1)
 
- Pointers                     : 908154 1053
+ Pointers                     : 934064 1101
  Primary type                 : Transport
  Nuclide ZAI                  : 10010
  Library ID                   : 06s
@@ -241,59 +241,9 @@
 
    1    MT =    204  Q =  0.00000E+00 MeV  Emin = 1.00000E-11 MeV  : total deuteron production
 
- Nuclide    4 / 36 : 1001.06s -- hydrogen (H-1)
+ Nuclide    4 / 35 : 2000.06c -- natural helium (He-nat)
 
- Pointers                     : 908607 1053
- Primary type                 : Transport
- Nuclide ZAI                  : 10010
- Library ID                   : 06s
- Cross section data file      : /home/current/a/rizkiokt/xsdata/endfb7/acedata/1001ENDF7.ace
- Atomic weight (AW)           : 1.00782
- Atomic weight ratio (AWR)    : 0.99917
- Temperature                  : 600.0 Kelvin
- XS temperature               : 600.0 Kelvin
- Minimum and maximum energy   : 1.00000E-11 2.00000E+01
- Half-life                    : N/A
- Specific ingestion toxicity  : N/A
- Specific inhalation toxicity : N/A
-
- - Nuclide is not involved in burnup calculation
- - Nuclide has neutron transport data
- - Nuclide has no photon transport data
- - Nuclide has inelastic S(a,b) channel between 1.00E-11 and 3.75E-06 MeV
- - Nuclide has no isomeric branching data
- - Nuclide is not fissile
- - Nuclide is not a delayed neutron precursor
- - Nuclide has no delayed neutron data
- - Nuclide has no ures ptable data
- - Nuclide temperature is not adjusted with TMS
- - Nuclide has no dosimetry data
- - Nuclide has no decay data
- - Nuclide has no supplementary transmutation cross section data
- - Nuclide has no NFY data
- - Nuclide has no SFY data
-
- - 3 reaction channels
- - 1 special reactions
- - No transmutation reactions
- - No transmutation branch reactions
- - No decay reactions
- - No decay branch reactions
- - No transmutation paths
-
- 3 reactions channel:
-
-   1    MT =      2  Q =  0.00000E+00 MeV  Emin = 1.00000E-11 MeV  frac = 1.00000E+00  : elastic scattering
-   2    MT =    102  Q =  2.22463E+00 MeV  Emin = 1.00000E-11 MeV  frac = 1.00000E+00  : (n,gamma)
-   3    MT =   1004  Q =  0.00000E+00 MeV  Emin = 1.00000E-11 MeV  frac = 1.00000E+00  : S(a,b) inelastic scattering
-
- 1 special reaction:
-
-   1    MT =    204  Q =  0.00000E+00 MeV  Emin = 1.00000E-11 MeV  : total deuteron production
-
- Nuclide    5 / 36 : 2000.06c -- natural helium (He-nat)
-
- Pointers                     : 872685 1881
+ Pointers                     : 898609 1929
  Primary type                 : Transport
  Nuclide ZAI                  : 20000
  Library ID                   : 06c
@@ -340,9 +290,9 @@
 
    1    MT =    203  Q =  0.00000E+00 MeV  Emin = 1.00000E-11 MeV  : total proton production
 
- Nuclide    6 / 36 : 5010.06c -- boron 10 (B-10)
+ Nuclide    5 / 35 : 5010.06c -- boron 10 (B-10)
 
- Pointers                     : 866742 3767
+ Pointers                     : 892668 3815
  Primary type                 : Transport
  Nuclide ZAI                  : 50100
  Library ID                   : 06c
@@ -440,9 +390,9 @@
   12    MT =    801  Q =  2.31192E+00 MeV  Emin = 1.00000E-11 MeV  : (n,a1)
   13    MT =      4  Q =  0.00000E+00 MeV  Emin = 7.90714E-01 MeV  : total inelastic scattering
 
- Nuclide    7 / 36 : 5011.06c -- boron 11 (B-11)
+ Nuclide    6 / 35 : 5011.06c -- boron 11 (B-11)
 
- Pointers                     : 870845 4043
+ Pointers                     : 896770 4091
  Primary type                 : Transport
  Nuclide ZAI                  : 50110
  Library ID                   : 06c
@@ -509,9 +459,9 @@
    3    MT =    207  Q =  0.00000E+00 MeV  Emin = 7.23850E+00 MeV  : total alpha production
    4    MT =      4  Q =  0.00000E+00 MeV  Emin = 2.31935E+00 MeV  : total inelastic scattering
 
- Nuclide    8 / 36 : 6000.06c -- natural carbon (C-nat)
+ Nuclide    7 / 35 : 6000.06c -- natural carbon (C-nat)
 
- Pointers                     : 873065 4319
+ Pointers                     : 898988 4367
  Primary type                 : Transport
  Nuclide ZAI                  : 60000
  Library ID                   : 06c
@@ -579,9 +529,9 @@
    3    MT =    207  Q =  0.00000E+00 MeV  Emin = 6.18124E+00 MeV  : total alpha production
    4    MT =      4  Q =  0.00000E+00 MeV  Emin = 4.81209E+00 MeV  : total inelastic scattering
 
- Nuclide    9 / 36 : 7014.06c -- nitrogen 14 (N-14)
+ Nuclide    8 / 35 : 7014.06c -- nitrogen 14 (N-14)
 
- Pointers                     : 902561 4871
+ Pointers                     : 928474 4919
  Primary type                 : Transport
  Nuclide ZAI                  : 70140
  Library ID                   : 06c
@@ -690,9 +640,9 @@
   28    MT =    810  Q = -9.34330E+00 MeV  Emin = 1.00163E+01 MeV  : (n,a10)
   29    MT =      4  Q =  0.00000E+00 MeV  Emin = 2.47939E+00 MeV  : total inelastic scattering
 
- Nuclide   10 / 36 : 8016.09c -- oxygen 16 (O-16)
+ Nuclide    9 / 35 : 8016.09c -- oxygen 16 (O-16)
 
- Pointers                     : 818431 5469
+ Pointers                     : 844379 5517
  Primary type                 : Transport
  Nuclide ZAI                  : 80160
  Library ID                   : 09c
@@ -805,9 +755,9 @@
   43    MT =    803  Q = -6.06940E+00 MeV  Emin = 6.45215E+00 MeV  : (n,a3)
   44    MT =      4  Q =  0.00000E+00 MeV  Emin = 6.43089E+00 MeV  : total inelastic scattering
 
- Nuclide   11 / 36 : 8016.06c -- oxygen 16 (O-16)
+ Nuclide   10 / 35 : 8016.06c -- oxygen 16 (O-16)
 
- Pointers                     : 861544 5423
+ Pointers                     : 887471 5471
  Primary type                 : Transport
  Nuclide ZAI                  : 80160
  Library ID                   : 06c
@@ -920,9 +870,9 @@
   43    MT =    803  Q = -6.06940E+00 MeV  Emin = 6.45215E+00 MeV  : (n,a3)
   44    MT =      4  Q =  0.00000E+00 MeV  Emin = 6.43089E+00 MeV  : total inelastic scattering
 
- Nuclide   12 / 36 : 14000.06c -- natural silicon (Si-nat)
+ Nuclide   11 / 35 : 14000.06c -- natural silicon (Si-nat)
 
- Pointers                     : 874978 8183
+ Pointers                     : 900900 8231
  Primary type                 : Transport
  Nuclide ZAI                  : 140000
  Library ID                   : 06c
@@ -1018,9 +968,9 @@
    2    MT =    207  Q =  0.00000E+00 MeV  Emin = 4.00000E-02 MeV  : total alpha production
    3    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.31872E+00 MeV  : total inelastic scattering
 
- Nuclide   13 / 36 : 15031.06c -- phosphorus 31 (P-31)
+ Nuclide   12 / 35 : 15031.06c -- phosphorus 31 (P-31)
 
- Pointers                     : 882454 9287
+ Pointers                     : 908374 9335
  Primary type                 : Transport
  Nuclide ZAI                  : 150310
  Library ID                   : 06c
@@ -1076,9 +1026,9 @@
    3    MT =    207  Q =  0.00000E+00 MeV  Emin = 3.00000E+00 MeV  : total alpha production
    4    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.31001E+00 MeV  : total inelastic scattering
 
- Nuclide   14 / 36 : 18036.06c -- argon 36 (Ar-36)
+ Nuclide   13 / 35 : 18036.06c -- argon 36 (Ar-36)
 
- Pointers                     : 899845 11771
+ Pointers                     : 925759 11819
  Primary type                 : Transport
  Nuclide ZAI                  : 180360
  Library ID                   : 06c
@@ -1157,9 +1107,9 @@
    3    MT =    207  Q =  0.00000E+00 MeV  Emin = 5.00041E-01 MeV  : total alpha production
    4    MT =      4  Q =  0.00000E+00 MeV  Emin = 2.02525E+00 MeV  : total inelastic scattering
 
- Nuclide   15 / 36 : 24052.09c -- chromium 52 (Cr-52)
+ Nuclide   14 / 35 : 24052.09c -- chromium 52 (Cr-52)
 
- Pointers                     : 843700 18717
+ Pointers                     : 869634 18765
  Primary type                 : Transport
  Nuclide ZAI                  : 240520
  Library ID                   : 09c
@@ -1227,9 +1177,9 @@
    4    MT =    207  Q =  0.00000E+00 MeV  Emin = 1.23350E+00 MeV  : total alpha production
    5    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.46185E+00 MeV  : total inelastic scattering
 
- Nuclide   16 / 36 : 25055.06c -- manganese 55 (Mn-55)
+ Nuclide   15 / 35 : 25055.06c -- manganese 55 (Mn-55)
 
- Pointers                     : 878935 19499
+ Pointers                     : 904856 19547
  Primary type                 : Transport
  Nuclide ZAI                  : 250550
  Library ID                   : 06c
@@ -1319,9 +1269,9 @@
    5    MT =    207  Q =  0.00000E+00 MeV  Emin = 6.35762E-01 MeV  : total alpha production
    6    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.28313E-01 MeV  : total inelastic scattering
 
- Nuclide   17 / 36 : 26000.06c -- natural iron (Fe-nat)
+ Nuclide   16 / 35 : 26000.06c -- natural iron (Fe-nat)
 
- Pointers                     : 884090 19775
+ Pointers                     : 910008 19823
  Primary type                 : Transport
  Nuclide ZAI                  : 260000
  Library ID                   : 06c
@@ -1417,9 +1367,9 @@
    3    MT =      3  Q =  0.00000E+00 MeV  Emin = 1.00000E-11 MeV  : nonelastic
    4    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.46551E-02 MeV  : total inelastic scattering
 
- Nuclide   18 / 36 : 26056.09c -- iron 56 (Fe-56)
+ Nuclide   17 / 35 : 26056.09c -- iron 56 (Fe-56)
 
- Pointers                     : 840400 20373
+ Pointers                     : 866335 20421
  Primary type                 : Transport
  Nuclide ZAI                  : 260560
  Library ID                   : 09c
@@ -1506,9 +1456,9 @@
    5    MT =    207  Q =  0.00000E+00 MeV  Emin = 8.62270E-01 MeV  : total alpha production
    6    MT =      4  Q =  0.00000E+00 MeV  Emin = 8.62274E-01 MeV  : total inelastic scattering
 
- Nuclide   19 / 36 : 28000.06c -- natural nickel (Ni-nat)
+ Nuclide   18 / 35 : 28000.06c -- natural nickel (Ni-nat)
 
- Pointers                     : 888047 21983
+ Pointers                     : 913964 22031
  Primary type                 : Transport
  Nuclide ZAI                  : 280000
  Library ID                   : 06c
@@ -1611,9 +1561,9 @@
    5    MT =    207  Q =  0.00000E+00 MeV  Emin = 1.00000E-11 MeV  : total alpha production
    6    MT =      4  Q =  0.00000E+00 MeV  Emin = 6.85158E-02 MeV  : total inelastic scattering
 
- Nuclide   20 / 36 : 40090.09c -- zirconium 90 (Zr-90)
+ Nuclide   19 / 35 : 40090.09c -- zirconium 90 (Zr-90)
 
- Pointers                     : 845613 36381
+ Pointers                     : 871546 36429
  Primary type                 : Transport
  Nuclide ZAI                  : 400900
  Library ID                   : 09c
@@ -1737,9 +1687,9 @@
   61    MT =    849  Q = -1.22400E+00 MeV  Emin = 5.50000E+00 MeV  : (n,alpha) to continuum
   62    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.28700E+00 MeV  : total inelastic scattering
 
- Nuclide   21 / 36 : 40091.09c -- zirconium 91 (Zr-91)
+ Nuclide   20 / 35 : 40091.09c -- zirconium 91 (Zr-91)
 
- Pointers                     : 851614 36657
+ Pointers                     : 877546 36705
  Primary type                 : Transport
  Nuclide ZAI                  : 400910
  Library ID                   : 09c
@@ -1816,9 +1766,9 @@
    5    MT =    207  Q =  0.00000E+00 MeV  Emin = 9.99999E-02 MeV  : total alpha production
    6    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.21817E+00 MeV  : total inelastic scattering
 
- Nuclide   22 / 36 : 40092.09c -- zirconium 92 (Zr-92)
+ Nuclide   21 / 35 : 40092.09c -- zirconium 92 (Zr-92)
 
- Pointers                     : 854184 36933
+ Pointers                     : 880115 36981
  Primary type                 : Transport
  Nuclide ZAI                  : 400920
  Library ID                   : 09c
@@ -1897,9 +1847,9 @@
    4    MT =    207  Q =  0.00000E+00 MeV  Emin = 9.99999E-02 MeV  : total alpha production
    5    MT =      4  Q =  0.00000E+00 MeV  Emin = 9.44756E-01 MeV  : total inelastic scattering
 
- Nuclide   23 / 36 : 40094.09c -- zirconium 94 (Zr-94)
+ Nuclide   22 / 35 : 40094.09c -- zirconium 94 (Zr-94)
 
- Pointers                     : 856900 37485
+ Pointers                     : 882830 37533
  Primary type                 : Transport
  Nuclide ZAI                  : 400940
  Library ID                   : 09c
@@ -1974,9 +1924,9 @@
    4    MT =    207  Q =  0.00000E+00 MeV  Emin = 9.99999E-02 MeV  : total alpha production
    5    MT =      4  Q =  0.00000E+00 MeV  Emin = 9.28568E-01 MeV  : total inelastic scattering
 
- Nuclide   24 / 36 : 40096.09c -- zirconium 96 (Zr-96)
+ Nuclide   23 / 35 : 40096.09c -- zirconium 96 (Zr-96)
 
- Pointers                     : 859324 38037
+ Pointers                     : 885253 38085
  Primary type                 : Transport
  Nuclide ZAI                  : 400960
  Library ID                   : 09c
@@ -2043,9 +1993,9 @@
    4    MT =    207  Q =  0.00000E+00 MeV  Emin = 9.99999E-02 MeV  : total alpha production
    5    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.61077E+00 MeV  : total inelastic scattering
 
- Nuclide   25 / 36 : 42000.06c -- natural molybdenum (Mo-nat)
+ Nuclide   24 / 35 : 42000.06c -- natural molybdenum (Mo-nat)
 
- Pointers                     : 883491 39095
+ Pointers                     : 909410 39143
  Primary type                 : Transport
  Nuclide ZAI                  : 420000
  Library ID                   : 06c
@@ -2095,9 +2045,9 @@
 
    1    MT =      4  Q =  0.00000E+00 MeV  Emin = 2.50000E-01 MeV  : total inelastic scattering
 
- Nuclide   26 / 36 : 50116.09c -- tin 116 (Sn-116)
+ Nuclide   25 / 35 : 50116.09c -- tin 116 (Sn-116)
 
- Pointers                     : 823629 53493
+ Pointers                     : 849576 53541
  Primary type                 : Transport
  Nuclide ZAI                  : 501160
  Library ID                   : 09c
@@ -2171,9 +2121,9 @@
    4    MT =    207  Q =  0.00000E+00 MeV  Emin = 9.99999E-02 MeV  : total alpha production
    5    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.30476E+00 MeV  : total inelastic scattering
 
- Nuclide   27 / 36 : 50117.09c -- tin 117 (Sn-117)
+ Nuclide   26 / 35 : 50117.09c -- tin 117 (Sn-117)
 
- Pointers                     : 825780 53769
+ Pointers                     : 851725 53817
  Primary type                 : Transport
  Nuclide ZAI                  : 501170
  Library ID                   : 09c
@@ -2246,9 +2196,9 @@
    4    MT =    207  Q =  0.00000E+00 MeV  Emin = 9.99999E-02 MeV  : total alpha production
    5    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.59969E-01 MeV  : total inelastic scattering
 
- Nuclide   28 / 36 : 50118.09c -- tin 118 (Sn-118)
+ Nuclide   27 / 35 : 50118.09c -- tin 118 (Sn-118)
 
- Pointers                     : 828058 54045
+ Pointers                     : 854002 54093
  Primary type                 : Transport
  Nuclide ZAI                  : 501180
  Library ID                   : 09c
@@ -2319,9 +2269,9 @@
    4    MT =    207  Q =  0.00000E+00 MeV  Emin = 9.99999E-02 MeV  : total alpha production
    5    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.24012E+00 MeV  : total inelastic scattering
 
- Nuclide   29 / 36 : 50119.09c -- tin 119 (Sn-119)
+ Nuclide   28 / 35 : 50119.09c -- tin 119 (Sn-119)
 
- Pointers                     : 829990 54321
+ Pointers                     : 855932 54369
  Primary type                 : Transport
  Nuclide ZAI                  : 501190
  Library ID                   : 09c
@@ -2402,9 +2352,9 @@
    4    MT =    207  Q =  0.00000E+00 MeV  Emin = 9.99999E-02 MeV  : total alpha production
    5    MT =      4  Q =  0.00000E+00 MeV  Emin = 2.41028E-02 MeV  : total inelastic scattering
 
- Nuclide   30 / 36 : 50120.09c -- tin 120 (Sn-120)
+ Nuclide   29 / 35 : 50120.09c -- tin 120 (Sn-120)
 
- Pointers                     : 832852 54597
+ Pointers                     : 858793 54645
  Primary type                 : Transport
  Nuclide ZAI                  : 501200
  Library ID                   : 09c
@@ -2484,9 +2434,9 @@
    4    MT =    207  Q =  0.00000E+00 MeV  Emin = 9.99999E-02 MeV  : total alpha production
    5    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.18136E+00 MeV  : total inelastic scattering
 
- Nuclide   31 / 36 : 50122.09c -- tin 122 (Sn-122)
+ Nuclide   30 / 35 : 50122.09c -- tin 122 (Sn-122)
 
- Pointers                     : 835441 54873
+ Pointers                     : 861380 54921
  Primary type                 : Transport
  Nuclide ZAI                  : 501220
  Library ID                   : 09c
@@ -2559,9 +2509,9 @@
    4    MT =    207  Q =  0.00000E+00 MeV  Emin = 1.00000E+00 MeV  : total alpha production
    5    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.14963E+00 MeV  : total inelastic scattering
 
- Nuclide   32 / 36 : 50124.09c -- tin 124 (Sn-124)
+ Nuclide   31 / 35 : 50124.09c -- tin 124 (Sn-124)
 
- Pointers                     : 837519 55425
+ Pointers                     : 863456 55473
  Primary type                 : Transport
  Nuclide ZAI                  : 501240
  Library ID                   : 09c
@@ -2645,9 +2595,9 @@
    4    MT =    207  Q =  0.00000E+00 MeV  Emin = 3.00000E+00 MeV  : total alpha production
    5    MT =      4  Q =  0.00000E+00 MeV  Emin = 1.14081E+00 MeV  : total inelastic scattering
 
- Nuclide   33 / 36 : 92235.09c -- uranium 235 (U-235)
+ Nuclide   32 / 35 : 92235.09c -- uranium 235 (U-235)
 
- Pointers                     : 811096 105933
+ Pointers                     : 837046 105981
  Primary type                 : Transport
  Nuclide ZAI                  : 922350
  Library ID                   : 09c
@@ -2740,9 +2690,9 @@
 
    1    MT =      4  Q =  0.00000E+00 MeV  Emin = 2.25000E-03 MeV  : total inelastic scattering
 
- Nuclide   34 / 36 : 92235.06c -- uranium 235 (U-235)
+ Nuclide   33 / 35 : 92235.06c -- uranium 235 (U-235)
 
- Pointers                     : 892515 105887
+ Pointers                     : 918431 105935
  Primary type                 : Transport
  Nuclide ZAI                  : 922350
  Library ID                   : 06c
@@ -2835,9 +2785,9 @@
 
    1    MT =      4  Q =  0.00000E+00 MeV  Emin = 2.25000E-03 MeV  : total inelastic scattering
 
- Nuclide   35 / 36 : 92238.09c -- uranium 238 (U-238)
+ Nuclide   34 / 35 : 92238.09c -- uranium 238 (U-238)
 
- Pointers                     : 814766 106761
+ Pointers                     : 840715 106809
  Primary type                 : Transport
  Nuclide ZAI                  : 922380
  Library ID                   : 09c
@@ -2930,9 +2880,9 @@
 
    1    MT =      4  Q =  0.00000E+00 MeV  Emin = 4.50903E-02 MeV  : total inelastic scattering
 
- Nuclide   36 / 36 : 92238.06c -- uranium 238 (U-238)
+ Nuclide   35 / 35 : 92238.06c -- uranium 238 (U-238)
 
- Pointers                     : 896180 106715
+ Pointers                     : 922095 106763
  Primary type                 : Transport
  Nuclide ZAI                  : 922380
  Library ID                   : 06c
@@ -3027,17 +2977,18 @@
 
  --- Table  1: Summary of material compositions: 
 
- 9 materials included in calculation
+ 8 materials included in calculation
 
 
 Material "UOX":
 
+ - Material is not burnable
  - Material is included in majorant
  - Material is included in geometry
  - Atom density 6.76277E-02 1/barn*cm
  - Mass density 1.01658E+01 g/cm3
- - Volume 1.41227E+02 cm3
- - Mass 1.43568E+03 g
+ - Volume 1.79743E+02 cm3
+ - Mass 1.82724E+03 g
  - Photon emission rate 0.00000E+00 1/s
  - Neutron emission rate 0.00000E+00 1/s
  - 3 nuclides in composition
@@ -3049,20 +3000,21 @@ Isotopic composition (non-zero densities):
 -------------------------------------------------------------------
  Nuclide    a. weight   temp      a. dens      a. frac      m. frac
 -------------------------------------------------------------------
- 92235.09c  235.04395  900.0  7.27700E-04  1.07604E-02  2.79393E-02    
- 92238.09c  238.05078  900.0  2.19800E-02  3.25015E-01  8.54696E-01    
-  8016.09c   15.99492  900.0  4.49200E-02  6.64225E-01  1.17364E-01    
+ 92235.09c  235.04395  900.0  7.27700E-04  1.07604E-02  2.79393E-02 
+ 92238.09c  238.05078  900.0  2.19800E-02  3.25015E-01  8.54696E-01 
+  8016.09c   15.99492  900.0  4.49200E-02  6.64225E-01  1.17364E-01 
        sum                    6.76277E-02  1.00000E+00  1.00000E+00
 -------------------------------------------------------------------
 
 Material "can":
 
+ - Material is not burnable
  - Material is included in majorant
  - Material is included in geometry
  - Atom density 4.26215E-02 1/barn*cm
  - Mass density 6.42437E+00 g/cm3
- - Volume 4.64683E+01 cm3
- - Mass 2.98529E+02 g
+ - Volume 5.81160E+01 cm3
+ - Mass 3.73358E+02 g
  - Photon emission rate 0.00000E+00 1/s
  - Neutron emission rate 0.00000E+00 1/s
  - 15 nuclides in composition
@@ -3074,26 +3026,27 @@ Isotopic composition (non-zero densities):
 -------------------------------------------------------------------
  Nuclide    a. weight   temp      a. dens      a. frac      m. frac
 -------------------------------------------------------------------
- 50116.09c  115.90166  900.0  6.55600E-05  1.53819E-03  1.96406E-03    
- 50117.09c  116.90326  900.0  3.43300E-05  8.05462E-04  1.03735E-03    
- 50118.09c  117.90184  900.0  1.07400E-04  2.51985E-03  3.27304E-03    
- 50119.09c  118.90345  900.0  3.77100E-05  8.84764E-04  1.15898E-03    
- 50120.09c  119.90202  900.0  1.42000E-04  3.33165E-03  4.40089E-03    
- 50122.09c  121.90322  900.0  1.98500E-05  4.65727E-04  6.25463E-04    
- 50124.09c  123.90542  900.0  2.44200E-05  5.72950E-04  7.82099E-04    
- 26056.09c   55.93451  900.0  1.33300E-04  3.12753E-03  1.92724E-03    
- 24052.09c   51.94019  900.0  6.24500E-05  1.46522E-03  8.38420E-04    
-  8016.09c   15.99492  900.0  3.02500E-04  7.09735E-03  1.25064E-03    
- 40090.09c   89.90473  900.0  2.17600E-02  5.10540E-01  5.05670E-01    
- 40091.09c   90.90563  900.0  4.69200E-03  1.10085E-01  1.10249E-01    
- 40092.09c   91.90501  900.0  7.09400E-03  1.66442E-01  1.68522E-01    
- 40094.09c   93.90631  900.0  7.03600E-03  1.65081E-01  1.70784E-01    
- 40096.09c   95.90830  900.0  1.11000E-03  2.60432E-02  2.75172E-02    
+ 50116.09c  115.90166  900.0  6.55600E-05  1.53819E-03  1.96406E-03 
+ 50117.09c  116.90326  900.0  3.43300E-05  8.05462E-04  1.03735E-03 
+ 50118.09c  117.90184  900.0  1.07400E-04  2.51985E-03  3.27304E-03 
+ 50119.09c  118.90345  900.0  3.77100E-05  8.84764E-04  1.15898E-03 
+ 50120.09c  119.90202  900.0  1.42000E-04  3.33165E-03  4.40089E-03 
+ 50122.09c  121.90322  900.0  1.98500E-05  4.65727E-04  6.25463E-04 
+ 50124.09c  123.90542  900.0  2.44200E-05  5.72950E-04  7.82099E-04 
+ 26056.09c   55.93451  900.0  1.33300E-04  3.12753E-03  1.92724E-03 
+ 24052.09c   51.94019  900.0  6.24500E-05  1.46522E-03  8.38420E-04 
+  8016.09c   15.99492  900.0  3.02500E-04  7.09735E-03  1.25064E-03 
+ 40090.09c   89.90473  900.0  2.17600E-02  5.10540E-01  5.05670E-01 
+ 40091.09c   90.90563  900.0  4.69200E-03  1.10085E-01  1.10249E-01 
+ 40092.09c   91.90501  900.0  7.09400E-03  1.66442E-01  1.68522E-01 
+ 40094.09c   93.90631  900.0  7.03600E-03  1.65081E-01  1.70784E-01 
+ 40096.09c   95.90830  900.0  1.11000E-03  2.60432E-02  2.75172E-02 
        sum                    4.26215E-02  1.00000E+00  1.00000E+00
 -------------------------------------------------------------------
 
 Material "water_mod":
 
+ - Material is not burnable
  - Material is included in majorant
  - Material is included in geometry
  - Atom density 7.02511E-02 1/barn*cm
@@ -3111,21 +3064,22 @@ Isotopic composition (non-zero densities):
 -------------------------------------------------------------------
  Nuclide    a. weight   temp      a. dens      a. frac      m. frac
 -------------------------------------------------------------------
-  1001.06s    1.00782  600.0  4.68000E-02  6.66182E-01  1.11768E-01 (s)
-  8016.06c   15.99492  600.0  2.34000E-02  3.33091E-01  8.86923E-01    
-  5010.06c   10.01294  600.0  1.01600E-05  1.44624E-04  2.41070E-04    
-  5011.06c   11.00928  600.0  4.09000E-05  5.82198E-04  1.06701E-03    
+  1001.06s    1.00782  600.0  4.68000E-02  6.66182E-01  1.11768E-01 S
+  8016.06c   15.99492  600.0  2.34000E-02  3.33091E-01  8.86923E-01 
+  5010.06c   10.01294  600.0  1.01600E-05  1.44624E-04  2.41070E-04 
+  5011.06c   11.00928  600.0  4.09000E-05  5.82198E-04  1.06701E-03 
        sum                    7.02511E-02  1.00000E+00  1.00000E+00
 -------------------------------------------------------------------
 
 Material "water_cool":
 
+ - Material is not burnable
  - Material is included in majorant
  - Material is included in geometry
  - Atom density 7.02511E-02 1/barn*cm
  - Mass density 7.00758E-01 g/cm3
- - Volume 2.89000E+39 cm3
- - Mass 2.02519E+39 g
+ - Volume 3.61000E+39 cm3
+ - Mass 2.52973E+39 g
  - Photon emission rate 0.00000E+00 1/s
  - Neutron emission rate 0.00000E+00 1/s
  - 4 nuclides in composition
@@ -3137,47 +3091,22 @@ Isotopic composition (non-zero densities):
 -------------------------------------------------------------------
  Nuclide    a. weight   temp      a. dens      a. frac      m. frac
 -------------------------------------------------------------------
-  1001.06s    1.00782  600.0  4.68000E-02  6.66182E-01  1.11768E-01 (s)
-  8016.06c   15.99492  600.0  2.34000E-02  3.33091E-01  8.86923E-01    
-  5010.06c   10.01294  600.0  1.01600E-05  1.44624E-04  2.41070E-04    
-  5011.06c   11.00928  600.0  4.09000E-05  5.82198E-04  1.06701E-03    
+  1001.06s    1.00782  600.0  4.68000E-02  6.66182E-01  1.11768E-01 S
+  8016.06c   15.99492  600.0  2.34000E-02  3.33091E-01  8.86923E-01 
+  5010.06c   10.01294  600.0  1.01600E-05  1.44624E-04  2.41070E-04 
+  5011.06c   11.00928  600.0  4.09000E-05  5.82198E-04  1.06701E-03 
        sum                    7.02511E-02  1.00000E+00  1.00000E+00
--------------------------------------------------------------------
-
-Material "water_gap":
-
- - Material is included in majorant
- - Material is included in geometry
- - Atom density 6.82210E-02 1/barn*cm
- - Mass density 6.80508E-01 g/cm3
- - Volume 0.00000E+00 cm3
- - Mass 0.00000E+00 g
- - Photon emission rate 0.00000E+00 1/s
- - Neutron emission rate 0.00000E+00 1/s
- - 4 nuclides in composition
- - 1 nuclides associated with S(a,b) data
- - 6.68 Mb of memory allocated for data
-
-Isotopic composition (non-zero densities):
-
--------------------------------------------------------------------
- Nuclide    a. weight   temp      a. dens      a. frac      m. frac
--------------------------------------------------------------------
-  1001.06s    1.00782  600.0  4.54476E-02  6.66182E-01  1.11768E-01 (s)
-  8016.06c   15.99492  600.0  2.27238E-02  3.33091E-01  8.86923E-01    
-  5010.06c   10.01294  600.0  9.86640E-06  1.44624E-04  2.41070E-04    
-  5011.06c   11.00928  600.0  3.97181E-05  5.82198E-04  1.06701E-03    
-       sum                    6.82210E-02  1.00000E+00  1.00000E+00
 -------------------------------------------------------------------
 
 Material "gap":
 
+ - Material is not burnable
  - Material is included in majorant
  - Material is included in geometry
  - Atom density 2.68740E-05 1/barn*cm
  - Mass density 1.78620E-04 g/cm3
- - Volume 2.68212E+00 cm3
- - Mass 4.79081E-04 g
+ - Volume 3.41360E+00 cm3
+ - Mass 6.09739E-04 g
  - Photon emission rate 0.00000E+00 1/s
  - Neutron emission rate 0.00000E+00 1/s
  - 1 nuclides in composition
@@ -3189,12 +3118,13 @@ Isotopic composition (non-zero densities):
 -------------------------------------------------------------------
  Nuclide    a. weight   temp      a. dens      a. frac      m. frac
 -------------------------------------------------------------------
-  2000.06c    4.00260  600.0  2.68740E-05  1.00000E+00  1.00000E+00    
+  2000.06c    4.00260  600.0  2.68740E-05  1.00000E+00  1.00000E+00 
        sum                    2.68740E-05  1.00000E+00  1.00000E+00
 -------------------------------------------------------------------
 
 Material "steel":
 
+ - Material is not burnable
  - Material is included in majorant
  - Material is included in geometry
  - Atom density 8.48936E-02 1/barn*cm
@@ -3212,18 +3142,19 @@ Isotopic composition (non-zero densities):
 -------------------------------------------------------------------
  Nuclide    a. weight   temp      a. dens      a. frac      m. frac
 -------------------------------------------------------------------
-  6000.06c   12.00110  600.0  9.77693E-04  1.15167E-02  2.50001E-03    
- 14000.06c   28.08557  600.0  4.59925E-04  5.41767E-03  2.75225E-03    
- 25055.06c   54.93805  600.0  1.13286E-03  1.33445E-02  1.32607E-02    
- 15031.06c   30.97408  600.0  3.79118E-05  4.46581E-04  2.50202E-04    
- 42000.06c   95.94017  600.0  2.16166E-04  2.54632E-03  4.41882E-03    
- 26000.06c   55.84675  600.0  8.16289E-02  9.61543E-01  9.71314E-01    
- 28000.06c   58.68796  600.0  4.40155E-04  5.18479E-03  5.50393E-03    
+  6000.06c   12.00110  600.0  9.77693E-04  1.15167E-02  2.50001E-03 
+ 14000.06c   28.08557  600.0  4.59925E-04  5.41767E-03  2.75225E-03 
+ 25055.06c   54.93805  600.0  1.13286E-03  1.33445E-02  1.32607E-02 
+ 15031.06c   30.97408  600.0  3.79118E-05  4.46581E-04  2.50202E-04 
+ 42000.06c   95.94017  600.0  2.16166E-04  2.54632E-03  4.41882E-03 
+ 26000.06c   55.84675  600.0  8.16289E-02  9.61543E-01  9.71314E-01 
+ 28000.06c   58.68796  600.0  4.40155E-04  5.18479E-03  5.50393E-03 
        sum                    8.48936E-02  1.00000E+00  1.00000E+00
 -------------------------------------------------------------------
 
 Material "HEU_layer":
 
+ - Material is not burnable
  - Material is included in majorant
  - Material is included in geometry
  - Atom density 6.59280E-02 1/barn*cm
@@ -3241,14 +3172,15 @@ Isotopic composition (non-zero densities):
 -------------------------------------------------------------------
  Nuclide    a. weight   temp      a. dens      a. frac      m. frac
 -------------------------------------------------------------------
- 92235.06c  235.04395  600.0  1.61800E-02  2.45419E-01  7.60909E-01    
- 92238.06c  238.05078  600.0  1.79800E-03  2.72722E-02  8.56376E-02    
-  8016.06c   15.99492  600.0  4.79500E-02  7.27309E-01  1.53453E-01    
+ 92235.06c  235.04395  600.0  1.61800E-02  2.45419E-01  7.60909E-01 
+ 92238.06c  238.05078  600.0  1.79800E-03  2.72722E-02  8.56376E-02 
+  8016.06c   15.99492  600.0  4.79500E-02  7.27309E-01  1.53453E-01 
        sum                    6.59280E-02  1.00000E+00  1.00000E+00
 -------------------------------------------------------------------
 
 Material "gas":
 
+ - Material is not burnable
  - Material is included in majorant
  - Material is included in geometry
  - Atom density 2.37273E-05 1/barn*cm
@@ -3266,7 +3198,7 @@ Isotopic composition (non-zero densities):
 -------------------------------------------------------------------
  Nuclide    a. weight   temp      a. dens      a. frac      m. frac
 -------------------------------------------------------------------
- 18036.06c   35.96748  600.0  1.84592E-05  7.77972E-01  9.00000E-01    
-  7014.06c   14.00307  600.0  5.26813E-06  2.22028E-01  1.00000E-01    
+ 18036.06c   35.96748  600.0  1.84592E-05  7.77972E-01  9.00000E-01 
+  7014.06c   14.00307  600.0  5.26813E-06  2.22028E-01  1.00000E-01 
        sum                    2.37273E-05  1.00000E+00  1.00000E+00
 -------------------------------------------------------------------

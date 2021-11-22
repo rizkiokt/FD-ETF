@@ -12,9 +12,9 @@ Module GenETFMinCM
     REAL(sdk), ALLOCATABLE :: vector(:), Matrix(:,:), F(:), gradF(:,:),grad2fk(:,:), x(:), dx(:), leakage(:,:,:),test_vector(:)
     REAL(sdk), ALLOCATABLE :: Mat1(:,:), Mat2(:,:)
     REAL(sdk), ALLOCATABLE :: gradpk(:), grad2pk(:,:), p(:)
-    REAL(sdk)              :: absF, tol, wk, sump
-    REAL(sdk), PARAMETER   :: two_third = 2.0/3.0, xmin = 1E-3, xmax = 1E3
-    INTEGER(sik), PARAMETER :: maxit = 50
+    REAL(sdk)              :: absF, tol, wk, sump, sumf
+    REAL(sdk), PARAMETER   :: two_third = 2.0/3.0, xmin = 1E-1, xmax = 1E1, alpha_L = 10.0, alpha_U = 1.0, wmax = 1.0E16
+    INTEGER(sik), PARAMETER :: maxit = 200
     
 CONTAINS
     
@@ -59,14 +59,14 @@ CONTAINS
         END DO
         
         delta_xstr = (xstrf-ori_xstrf)/ori_xstrf
-        WRITE(output_unit,*) " "
-        WRITE(output_unit,*) "Relative Transport XS changes"
-        WRITE(output_unit,"(2F10.2)") delta_xstr
-        WRITE(output_unit,*) " "
+        !WRITE(output_unit,*) " "
+        !WRITE(output_unit,*) "Relative Transport XS changes"
+        !WRITE(output_unit,"(2F10.3)") delta_xstr
+        !WRITE(output_unit,*) " "
         
         WRITE(output_unit,*) " "
         WRITE(output_unit,*) "x = ETF/ori_xstrf"
-        WRITE(output_unit,"(2F10.2)") xstrf/ori_xstrf
+        WRITE(output_unit,"(2F10.3)") xstrf/ori_xstrf
         WRITE(output_unit,*) " "
     
     END SUBROUTINE GenETFDriver
@@ -132,16 +132,22 @@ CONTAINS
         INTEGER(sik), INTENT(IN) :: ig,iz
         INTEGER(sik) :: ixy, it,it_bt
         REAL(sdk) :: prev_absF
-        LOGICAL   :: lbacktrack
+        LOGICAL   :: lbacktrack,lupdtw
+        CHARACTER(len=100) :: format_write
     
         ! initial value
         x = 1.0
-        wk = 10.0
+        wk = 1.0E6
+        prev_absF = 1.0
+        CALL FormFunctionp(ig,iz)
         CALL FormVector(ig,iz)
         CALL AbsFCal 
         it = 0
         it_bt = 0
         lbacktrack = .False.
+        format_write = '(A20,I3.3,A10,ES12.5,A10,ES12.5,A10,ES12.5,A10,ES12.5)'
+        WRITE(output_unit,format_write) 'Iteration number ', it, ' fo = ', sumf, ' fp = ',sump/wk, ' wk = ',wk, ' objF = ', absF
+        PRINT format_write, 'Iteration number ', it, ' fo = ', sumf, ' fp = ',sump/wk, ' wk = ',wk, ' objF = ', absF
         ! iteration
         DO WHILE(absF>tol)
             it = it + 1
@@ -149,7 +155,7 @@ CONTAINS
             CALL FormMatrix(ig,iz)
             
             ! Use deflated LU decomposition to solve the linear system
-            CALL LUDeflate(Matrix,dx,vector)           
+            CALL LUDeflate(Matrix,dx,vector)  
                         
             CALL UpdateSol(ig,iz,dx)   
             CALL FormFunctionp(ig,iz)
@@ -162,12 +168,23 @@ CONTAINS
                 CALL AbsFCal
             END IF
             
+            WRITE(output_unit,format_write) 'Iteration number ', it, ' fo = ', sumf, ' fp = ',sump/wk, ' wk = ',wk, ' objF = ', absF
+            PRINT format_write, 'Iteration number ', it, ' fo = ', sumf, ' fp = ',sump/wk, ' wk = ',wk, ' objF = ', absF
+ 			
+            !IF (ABS(prev_absF - absF) < SQRT(tol)) EXIT
+            !IF (ABS(prev_absF - absF) < tol) EXIT
+            
             ! update penalty weight
-            ! wk = wk*10.0
+            IF (it>3) THEN
+                lupdtw = .FALSE.
+                DO ixy = 1,nxy
+                    IF (x(ixy)<0.0) lupdtw = .TRUE.
+                END DO
+                IF (lupdtw) wk = wk*10.0
+                IF (wk>wmax) wk = wmax
+            END IF
                
-            WRITE(output_unit,'(A20,I4.4,A10,ES12.5,A10,ES12.5,A10,ES12.5)') 'Iteration number ', it, ' sumf = ',absF-sump, ' sump = ',sump, ' objF = ', absF
-            PRINT '(A20,I4.4,A10,ES12.5,A10,ES12.5,A10,ES12.5)', 'Iteration number ', it, ' sumf = ',absF-sump, ' sump = ',sump,' objF = ', absF
-        END DO
+       END DO
 
     END SUBROUTINE NewtonRun
     
@@ -192,6 +209,7 @@ CONTAINS
         vector = vector + gradpk
 
         ! vector = vector + test_vector
+
         
     END SUBROUTINE FormVector
     
@@ -251,7 +269,7 @@ CONTAINS
                 Matrix(i,j) = Matrix(i,j) + Mat2(i,j)
             END DO
         END DO
-                      
+           
     END SUBROUTINE FormMatrix
     
     SUBROUTINE FormFunctionF(ig,iz)
@@ -292,9 +310,9 @@ CONTAINS
         DO ixy = 1,nxy
             hmin = 0.0
             hmax = 0.0
-            IF (x(ixy) < xmin) hmin = (x(ixy) - xmin)**2
-            IF (x(ixy) > xmax) hmax = (xmax - x(ixy))**2
-            p(ixy) = wk*hmin + wk*hmax
+            IF ((x(ixy) - xmin) < 0.0) hmin = (x(ixy) - xmin)**2
+            IF ((x(ixy) - xmax) > 0.0) hmax = (x(ixy) - xmax)**2
+            p(ixy) = wk * (alpha_L*hmin + alpha_U*hmax)
         END DO
     
     
@@ -340,9 +358,9 @@ CONTAINS
         gradpk = 0.0
         DO ixy = 1,nxy
             IF (x(ixy)<xmin) THEN
-                gradpk(ixy) = 2*wk*(x(ixy)-xmin)
+                gradpk(ixy) = 2*wk*(x(ixy)-xmin) * alpha_L
             ELSE IF (x(ixy)>xmax) THEN
-                gradpk(ixy) = 2*wk*(xmax-x(ixy))
+                gradpk(ixy) = 2*wk*(x(ixy)-xmax) * alpha_U
             ELSE
                 gradpk(ixy) = 0.0
             END IF
@@ -410,8 +428,10 @@ CONTAINS
         INTEGER(sik) :: ixy
         
         grad2pk = 0.0
-        IF (x(k)<xmin .OR. x(k)>xmax) THEN
-            grad2pk(k,k) = 2*wk
+        IF (x(k)<xmin)  THEN
+            grad2pk(k,k) = 2*wk * alpha_L
+        ELSE IF (x(k)>xmax) THEN
+            grad2pk(k,k) = 2*wk * alpha_U
         ELSE
             grad2pk(k,k) = 0.0
         END IF
@@ -427,8 +447,8 @@ CONTAINS
         INTEGER(sik) :: ixy
     
         DO ixy=1,nxy
-            IF (x(ixy) < xmin) x(ixy) = xmin
-            IF (x(ixy) > xmax) x(ixy) = xmax
+            !IF (x(ixy) < xmin) x(ixy) = xmin
+            !IF (x(ixy) > xmax) x(ixy) = xmax
             xstrf(ig,ixy,iz) = xstrf(ig,ixy,iz) * x(ixy)
         END DO
        
@@ -439,11 +459,16 @@ CONTAINS
         
         INTEGER(sik), INTENT(IN) :: ig,iz
         REAL(sdk), INTENT(IN) :: dx(nxy)
-        INTEGER(sik) :: ixy
-    
+        INTEGER(sik) :: ixy, countmin, countmax
+        
+        countmin = 0
+        countmax = 0
         DO ixy=1,nxy
             x(ixy) = x(ixy) - dx(ixy)
+            IF (x(ixy) < xmin) countmin = countmin + 1
+            IF (x(ixy) > xmax) countmax = countmax + 1
         END DO
+        PRINT*,"countmin",countmin,", countmax",countmax
        
     END SUBROUTINE UpdateSol
     
@@ -459,12 +484,15 @@ CONTAINS
             L2_norm = L2_norm + F(ixy)*F(ixy)
         END DO
         !absF = SQRT(L2_norm)
-        absF = 0.5*L2_norm
+        sumf = 0.5*L2_norm
         
         ! add penalty function
         sump = SUM(p)
-        absF = absF + sump
+        absF = sumf + sump
         
+        
+        ! test penalty
+        !absF = sump
     
     END SUBROUTINE AbsFCal
     

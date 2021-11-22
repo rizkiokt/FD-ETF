@@ -77,6 +77,7 @@ MODULE CurrentM
     IMPLICIT NONE
     
         INTEGER(sik) :: ig,is,ixy,iz
+        REAL(sdk)    :: tmp
         
         WRITE(output_unit,*) "Surface current comparison between finite difference and Serpent solution"
         WRITE(output_unit,"(A4,A4,A4,A12,A12,A12)") "ixy","is","ig","FD-cur","Serp-cur","Rel.Diff"
@@ -86,6 +87,10 @@ MODULE CurrentM
                 DO is = 1,ns
                     DO ig = 1,mg
                         IF (fdcurns(ig,is,ixy,iz) .NE. 0.0) THEN
+                            ! correct for different direction in Serpent Current
+                            !tmp = fdcurns(ig,is,ixy,iz)/(-serpcurns(ig,is,ixy,iz))
+                            !IF (tmp<0.0) serpcurns(ig,is,ixy,iz) = -fdcurns(ig,is,ixy,iz)
+                            !
                             curerr(ig,is,ixy,iz) = fdcurns(ig,is,ixy,iz)/(-serpcurns(ig,is,ixy,iz)) - 1
                             WRITE(output_unit,"(I4,I4,I4,ES12.4,ES12.4,F12.4)") ixy,is,ig,fdcurns(ig,is,ixy,iz),-serpcurns(ig,is,ixy,iz),curerr(ig,is,ixy,iz)
                         END IF
