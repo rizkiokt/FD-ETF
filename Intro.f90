@@ -12,8 +12,8 @@ SUBROUTINE Intro
     call getarg(1,name)    
     
     ! test
-    name = 'input_test'
-    !name = 'UX_FD-ETF'
+     !name = 'input_test'
+    name = 'UX_FD-ETF'
     
     if (ichar(name(1:1)).eq.0 .or.ichar(name(1:1)).eq.32) name= 'input.inp'
     open(input_unit,file=name,status='old',form='formatted',IOSTAT=ioflg)

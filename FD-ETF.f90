@@ -18,7 +18,7 @@
     USE ItrcntlM, ONLY: InitItrcntl
     USE CntlM, ONLY: InitCntl
     USE SerpentSolutionM, ONLY: InitialSerpent, SerpentSolution
-    USE GenETFMinCM, ONLY: InitialGenETF, GenETFDriver
+    USE GenETFNewM, ONLY: InitialGenETF, GenETFDriver
     USE IOVarM, ONLY: output_unit
     USE CurrentM, ONLY: InitFDCurCalc, FDCurCalc, CompareCur
 

@@ -85,8 +85,8 @@ for row in range(nrow-1,-1,-1):
         y2 = ((row-row_mid)+0.5)*lat_pitch
         y1 = y2 - lat_pitch
     elif (row == row_mid):
-        y1 = -lat_pitch
-        y2 = lat_pitch
+        y1 = -lat_pitch/2
+        y2 = lat_pitch/2
     for col in range(ncol):
         if (col<col_mid):
             x1 = -((col_mid-col)+0.5)*lat_pitch
@@ -95,8 +95,8 @@ for row in range(nrow-1,-1,-1):
             x2 = ((col-col_mid)+0.5)*lat_pitch
             x1 = x2 - lat_pitch
         elif (col == col_mid):
-            x1 = -lat_pitch
-            x2 = lat_pitch
+            x1 = -lat_pitch/2
+            x2 = lat_pitch/2
         # write
         i = i + 1
         text = ("surf " + "%03d" % i + " cuboid " + 

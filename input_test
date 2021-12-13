@@ -16,19 +16,19 @@ GEOM
        1 2 3
        4 5 6
        7 8 9
-      grid_x 3*1.26
-      grid_y 3*1.26
+      grid_x 3*1.262
+      grid_y 3*1.262
       grid_z 10.0
       boun_cond 0 0 0 0 0 0
-      node_type   1  1   FUEL
-      node_type   2  2   FUEL
-      node_type   3  3   FUEL
-      node_type   4  4   FUEL
-      node_type   5  5   REFL
-      node_type   6  6   FUEL
-      node_type   7  7   FUEL
-      node_type   8  8   FUEL
-      node_type   9  9   FUEL
+      node_type   1   1 FUEL
+      node_type   2   2 FUEL
+      node_type   3   3 FUEL
+      node_type   4   4 FUEL
+      node_type   5   5 REFL
+      node_type   6   6 FUEL
+      node_type   7   7 FUEL
+      node_type   8   8 FUEL
+      node_type   9   9 FUEL
 DEPL
       PMAXS_F    1  './xsec/N01.PMAX'    1
       PMAXS_F    2  './xsec/N02.PMAX'    2

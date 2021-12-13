@@ -7,7 +7,7 @@ MODULE CurrentM
     USE IOVarM, ONLY: output_unit
     
     IMPLICIT NONE
-    REAL(sdk), ALLOCATABLE :: fdcurns(:,:,:,:), curerr(:,:,:,:)
+    REAL(sdk), ALLOCATABLE :: fdcurns(:,:,:,:), curerr(:,:,:,:),curratio(:,:,:,:)
     
     CONTAINS
     
@@ -16,6 +16,7 @@ MODULE CurrentM
     
         ALLOCATE(fdcurns(mg,ns,nxy,nz))
         ALLOCATE(curerr(mg,ns,nxy,nz))
+        ALLOCATE(curratio(mg,ns,nxy,nz))
 
     
     END SUBROUTINE InitFDCurCalc
@@ -80,7 +81,7 @@ MODULE CurrentM
         REAL(sdk)    :: tmp
         
         WRITE(output_unit,*) "Surface current comparison between finite difference and Serpent solution"
-        WRITE(output_unit,"(A4,A4,A4,A12,A12,A12)") "ixy","is","ig","FD-cur","Serp-cur","Rel.Diff"
+        WRITE(output_unit,"(A4,A4,A4,A12,A12,A12,A12)") "ixy","is","ig","FD-cur","Serp-cur","Rel.Diff","Ratio"
         curerr = 0.0
         DO iz = 1,nz
             DO ixy = 1,nxy
@@ -92,7 +93,8 @@ MODULE CurrentM
                             !IF (tmp<0.0) serpcurns(ig,is,ixy,iz) = -fdcurns(ig,is,ixy,iz)
                             !
                             curerr(ig,is,ixy,iz) = fdcurns(ig,is,ixy,iz)/(-serpcurns(ig,is,ixy,iz)) - 1
-                            WRITE(output_unit,"(I4,I4,I4,ES12.4,ES12.4,F12.4)") ixy,is,ig,fdcurns(ig,is,ixy,iz),-serpcurns(ig,is,ixy,iz),curerr(ig,is,ixy,iz)
+                            curratio(ig,is,ixy,iz) = fdcurns(ig,is,ixy,iz)/(-serpcurns(ig,is,ixy,iz))
+                            WRITE(output_unit,"(I4,I4,I4,ES12.4,ES12.4,F12.4,F12.4)") ixy,is,ig,fdcurns(ig,is,ixy,iz),-serpcurns(ig,is,ixy,iz),curerr(ig,is,ixy,iz),curratio(ig,is,ixy,iz)
                         END IF
                     END DO
                 END DO

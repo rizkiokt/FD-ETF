@@ -13,8 +13,8 @@ Module GenETFMinCM
     REAL(sdk), ALLOCATABLE :: Mat1(:,:), Mat2(:,:)
     REAL(sdk), ALLOCATABLE :: gradpk(:), grad2pk(:,:), p(:)
     REAL(sdk)              :: absF, tol, wk, sump, sumf
-    REAL(sdk), PARAMETER   :: two_third = 2.0/3.0, xmin = 1E-1, xmax = 1E1, alpha_L = 10.0, alpha_U = 1.0, wmax = 1.0E16
-    INTEGER(sik), PARAMETER :: maxit = 200
+    REAL(sdk), PARAMETER   :: two_third = 2.0/3.0, xmin = 1E-6, xmax = 1E4, alpha_L = 10.0, alpha_U = 1.0, wmax = 1.0E10
+    INTEGER(sik), PARAMETER :: maxit = 100, penalty_opt = 2
     
 CONTAINS
     
@@ -66,7 +66,7 @@ CONTAINS
         
         WRITE(output_unit,*) " "
         WRITE(output_unit,*) "x = ETF/ori_xstrf"
-        WRITE(output_unit,"(2F10.3)") xstrf/ori_xstrf
+        WRITE(output_unit,"(2F10.4)") xstrf/ori_xstrf
         WRITE(output_unit,*) " "
     
     END SUBROUTINE GenETFDriver
@@ -131,20 +131,20 @@ CONTAINS
     
         INTEGER(sik), INTENT(IN) :: ig,iz
         INTEGER(sik) :: ixy, it,it_bt
-        REAL(sdk) :: prev_absF
+        REAL(sdk) :: prev_absF, prev_x(nxy)
         LOGICAL   :: lbacktrack,lupdtw
         CHARACTER(len=100) :: format_write
     
         ! initial value
         x = 1.0
-        wk = 1.0E6
+        wk = 1.0E-5
         prev_absF = 1.0
         CALL FormFunctionp(ig,iz)
         CALL FormVector(ig,iz)
         CALL AbsFCal 
         it = 0
         it_bt = 0
-        lbacktrack = .False.
+        lbacktrack = .TRUE.
         format_write = '(A20,I3.3,A10,ES12.5,A10,ES12.5,A10,ES12.5,A10,ES12.5)'
         WRITE(output_unit,format_write) 'Iteration number ', it, ' fo = ', sumf, ' fp = ',sump/wk, ' wk = ',wk, ' objF = ', absF
         PRINT format_write, 'Iteration number ', it, ' fo = ', sumf, ' fp = ',sump/wk, ' wk = ',wk, ' objF = ', absF
@@ -156,14 +156,14 @@ CONTAINS
             
             ! Use deflated LU decomposition to solve the linear system
             CALL LUDeflate(Matrix,dx,vector)  
-                        
-            CALL UpdateSol(ig,iz,dx)   
-            CALL FormFunctionp(ig,iz)
+            prev_x = x
             prev_absF = absF
-            
+            CALL UpdateSol(ig,iz,dx)   
+ 
             IF (lbacktrack) THEN
-                CALL quad_bakctrack(ig, iz, prev_absF, it_bt)
+                CALL quad_bakctrack(ig, iz, prev_absF, it_bt, prev_x)
             ELSE
+                CALL FormFunctionp(ig,iz)
                 CALL FormVector(ig,iz)
                 CALL AbsFCal
             END IF
@@ -183,6 +183,8 @@ CONTAINS
                 IF (lupdtw) wk = wk*10.0
                 IF (wk>wmax) wk = wmax
             END IF
+            
+            IF (ABS(1-absF/prev_absF)<tol) EXIT
                
        END DO
 
@@ -234,7 +236,7 @@ CONTAINS
                 END DO
             END DO
         END DO
-        
+                
         DO i = 1,nxy
             DO j = 1,nxy
                 Matrix(i,j) = Mat1(i,j) + Mat2(i,j)
@@ -310,11 +312,22 @@ CONTAINS
         DO ixy = 1,nxy
             hmin = 0.0
             hmax = 0.0
-            IF ((x(ixy) - xmin) < 0.0) hmin = (x(ixy) - xmin)**2
-            IF ((x(ixy) - xmax) > 0.0) hmax = (x(ixy) - xmax)**2
+            IF ((x(ixy) - xmin) < 0.0) THEN
+                IF (penalty_opt==1) THEN
+                    hmin = xmin - x(ixy)
+                ELSE IF (penalty_opt==2) THEN
+                    hmin = (xmin - x(ixy))**2
+                END IF
+            END IF
+            IF ((x(ixy) - xmax) > 0.0) THEN
+                IF (penalty_opt==1) THEN
+                    hmax = x(ixy) - xmax
+                ELSE IF (penalty_opt==2) THEN
+                    hmax = (x(ixy) - xmax)**2
+                END IF
+            END IF
             p(ixy) = wk * (alpha_L*hmin + alpha_U*hmax)
         END DO
-    
     
     END SUBROUTINE FormFunctionp
     
@@ -356,16 +369,27 @@ CONTAINS
         INTEGER(sik) :: ixy, is
         
         gradpk = 0.0
-        DO ixy = 1,nxy
-            IF (x(ixy)<xmin) THEN
-                gradpk(ixy) = 2*wk*(x(ixy)-xmin) * alpha_L
-            ELSE IF (x(ixy)>xmax) THEN
-                gradpk(ixy) = 2*wk*(x(ixy)-xmax) * alpha_U
-            ELSE
-                gradpk(ixy) = 0.0
-            END IF
-        END DO
-        
+        IF (penalty_opt==1) THEN
+            DO ixy = 1,nxy
+                IF (x(ixy)<xmin) THEN
+                    gradpk(ixy) =  -wk*alpha_L
+                ELSE IF (x(ixy)>xmax) THEN
+                    gradpk(ixy) =  wk*alpha_U
+                ELSE
+                    gradpk(ixy) = 0.0
+                END IF
+            END DO
+        ELSE IF (penalty_opt==2) THEN
+            DO ixy = 1,nxy
+                IF (x(ixy)<xmin) THEN
+                    gradpk(ixy) = 2*wk*(x(ixy)-xmin) * alpha_L
+                ELSE IF (x(ixy)>xmax) THEN
+                    gradpk(ixy) = 2*wk*(x(ixy)-xmax) * alpha_U
+                ELSE
+                    gradpk(ixy) = 0.0
+                END IF
+            END DO
+        END IF
     
     END SUBROUTINE FormGradpk
     
@@ -394,30 +418,34 @@ CONTAINS
                 den = (x(k)*xstrf(ig,k,iz)*hc + x(in1)*xstrf(ig,in1,iz)*hn) ** 3
                 numk = 2.0*two_third * (xstrf(ig,k,iz)*hc)**2 * (serpflux(ig,k,iz) - serpflux(ig,in1,iz)) * area(k,is,iz)
                 grad2fk(k,k) = grad2fk(k,k) + numk/den
+                grad2fk(k,in1) = num * xstrf(ig,k,iz) * hc/den
+                grad2fk(in1,k) = grad2fk(k,in1)
+                grad2fk(in1,in1) = num * xstrf(ig,in1,iz) * hc/den
             END IF
-            DO iss=1,ns-2
-                in2 = rad_neigh(k,is)
-                IF (in2 .NE. 0)THEN
-                    IF (MOD(is,2) == 1) THEN
-                        hc = hx(k)
-                        hn = hx(in2)
-                    ELSE
-                        hc = hy(k)
-                        hn = hy(in2)
-                    END IF
-                    num = num * xstrf(ig,in2,iz) * hn
-                    grad2fk(in1,in2) = num
-                    grad2fk(in2,in1) = num
-                END IF               
-            END DO
+            !DO iss=1,ns-2
+            !    in2 = rad_neigh(k,is)
+            !    IF (in2 .NE. 0)THEN
+            !        IF (MOD(is,2) == 1) THEN
+            !            hc = hx(k)
+            !            hn = hx(in2)
+            !        ELSE
+            !            hc = hy(k)
+            !            hn = hy(in2)
+            !        END IF
+            !        num = num * xstrf(ig,in2,iz) * hn
+            !        grad2fk(in1,in2) = num/den
+            !        grad2fk(in2,in1) = num/den
+            !    END IF               
+            !END DO
         END DO
         
-        DO i = 1,nxy
-            DO j = 1,nxy
-                IF ((i .NE. k) .AND. (j .NE. k)) CONTINUE
-                grad2fk(i,j) = grad2fk(i,j)/den
-            END DO
-        END DO
+       ! DO i = 1,nxy
+       !     DO j = 1,nxy
+       !         IF ((i .NE. k) .AND. (j .NE. k)) CONTINUE
+       !         !IF ((i .EQ. k) .AND. (j .EQ. k)) CONTINUE
+       !         grad2fk(i,j) = grad2fk(i,j)/den
+       !     END DO
+       ! END DO
         
      
     END SUBROUTINE FormGrad2fk
@@ -428,12 +456,16 @@ CONTAINS
         INTEGER(sik) :: ixy
         
         grad2pk = 0.0
-        IF (x(k)<xmin)  THEN
-            grad2pk(k,k) = 2*wk * alpha_L
-        ELSE IF (x(k)>xmax) THEN
-            grad2pk(k,k) = 2*wk * alpha_U
-        ELSE
-            grad2pk(k,k) = 0.0
+        IF (penalty_opt==1) THEN
+            grad2pk = 0.0
+        ELSE IF (penalty_opt==2) THEN
+            IF (x(k)<xmin)  THEN
+                grad2pk(k,k) = 2*wk * alpha_L
+            ELSE IF (x(k)>xmax) THEN
+                grad2pk(k,k) = 2*wk * alpha_U
+            ELSE
+                grad2pk(k,k) = 0.0
+            END IF
         END IF
         
     
@@ -535,38 +567,41 @@ CONTAINS
         
     END SUBROUTINE MatMatMult    
     
-    SUBROUTINE quad_bakctrack(ig, iz, prev_absF, i)
+    SUBROUTINE quad_bakctrack(ig, iz, prev_absF, i, prev_x)
     IMPLICIT NONE
         
         INTEGER(sik), INTENT(IN) :: ig, iz
-        REAL(sdk), INTENT(IN) :: prev_absF
+        REAL(sdk), INTENT(IN) :: prev_absF, prev_x(nxy)
         
-        REAL(sdk) :: lamb, g0, g1, lamb1, lambq, xstrf_prev(mg,nxy,nz)
+        REAL(sdk) :: lamb, g0, g1, lamb1, lambq
         INTEGER(sik) :: i, it
         
         
         ! initialize
+        CALL FormFunctionp(ig,iz)
         CALL FormVector(ig,iz)
         CALL AbsFCal
         lamb = 1.0
         it = 0
-        xstrf_prev = xstrf
+        IF (absF>prev_absF) x = prev_x
+        !xstrf_prev = xstrf
         DO WHILE (absF>prev_absF)
             i = i + 1
             it = it + 1
             IF (it>maxit) EXIT
-            IF (lamb<1E-15) EXIT
+            IF (lamb<1E-32) EXIT
             lamb1 = lamb
             g0 = prev_absF
             g1 = absF
             !lambq = 0.5*lamb1 ! linear
             lambq = (lamb1**2) / (2*lamb1 - 1 + g1/g0) ! quadratic
             lamb = lambq
-            xstrf = xstrf_prev
-            CALL UpdateSol(ig,iz,lamb*dx)   
+            !xstrf = xstrf_prev
+            CALL UpdateSol(ig,iz,lamb*dx)
+            CALL FormFunctionp(ig,iz)
             CALL FormVector(ig,iz)
             CALL AbsFCal
-            ! WRITE(output_unit,*) 'Backtracking number ', i, ' lambda = ', lamb
+            WRITE(output_unit,*) '   Backtracking number ', i, ' lambda = ', lamb
         END DO
     END SUBROUTINE quad_bakctrack
     
