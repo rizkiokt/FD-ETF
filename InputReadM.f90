@@ -79,7 +79,16 @@ CONTAINS
          END IF      
          IF (word == "n_iters_ss") THEN
              READ(line,*) word, ninmax, noutmax
-         END IF    
+         END IF   
+         IF (word == "conv") THEN
+             READ(line,*) word, tol, maxit
+         END IF  
+         IF (word == "limit") THEN
+             READ(line,*) word, xmin, xmax, alpha_L, alpha_U
+         END IF  
+         IF (word == "penalty") THEN
+             READ(line,*) word, penalty_opt, w_init, wmax
+         END IF  
          IF (word == "XSEC") EXIT
       END DO    
       

@@ -12,9 +12,8 @@ Module GenETFNewM
     REAL(sdk), ALLOCATABLE :: vector(:), Matrix(:,:), F(:), gradF(:,:),grad2fk(:,:), x(:), dx(:), leakage(:,:,:),test_vector(:)
     REAL(sdk), ALLOCATABLE :: Mat1(:,:), Mat2(:,:)
     REAL(sdk), ALLOCATABLE :: gradpk(:), grad2pk(:,:), p(:)
-    REAL(sdk)              :: absF, tol, wk, sump, sumf
-    REAL(sdk), PARAMETER   :: two_third = 2.0/3.0, xmin = 1E-4, xmax = 1E4, alpha_L = 10.0, alpha_U = 1.0, wmax = 1.0E10
-    INTEGER(sik), PARAMETER :: maxit = 100, penalty_opt = 2
+    REAL(sdk)              :: absF, wk, sump, sumf
+    REAL(sdk), PARAMETER   :: two_third = 2.0/3.0
     
 CONTAINS
     
@@ -29,7 +28,6 @@ CONTAINS
         ALLOCATE(Mat1(nxy,nxy),Mat2(nxy,nxy))
         ALLOCATE(p(nxy),gradpk(nxy),grad2pk(nxy,nxy))
         CALL LUDeflateInitial(nxy)
-        tol = epseig
         x = 1.0
 
     END SUBROUTINE InitialGenETF
@@ -137,7 +135,7 @@ CONTAINS
     
         ! initial value
         x = 1.0
-        wk = 1.0E-10
+        wk = w_init
         prev_absF = 1.0
         CALL FormFunctionp(ig,iz)
         CALL FormVector(ig,iz)
@@ -191,7 +189,6 @@ CONTAINS
             ELSE
                 count_conv = 0
             END IF
-            
             IF (count_conv>2) EXIT
                
        END DO

@@ -11,6 +11,12 @@ MODULE ItrcntlM
       LOGICAL      :: NodalConv, NodalRedu,flagneut
       INTEGER(sik) :: ntnodal,NnlpTH,nintot,MGcy,targetk
       INTEGER(sik), POINTER :: NnlpNodal, nupdcy
+      ! FD_ETF
+      REAL(sdk)    :: tol
+      INTEGER(sik) :: maxit
+      REAL(sdk)    :: xmin, xmax, alpha_L, alpha_U
+      REAL(sdk)    :: penalty_opt, w_init, wmax
+      
 CONTAINS
     SUBROUTINE InitItrcntl
     IMPLICIT NONE
@@ -56,6 +62,18 @@ CONTAINS
        MGcy = 3
        !nupdcy = 5
        !NnlpNodal=>nupdcy
+       
+       ! FD-ETF initialization
+       tol = 1E-7
+       maxit = 100
+       xmin = 1.0E-4
+       xmax = 1.0E4
+       alpha_L = 10.0
+       alpha_U = 1.0
+       penalty_opt = 2
+       w_init = 1.0E-5
+       wmax   = 1.0E10
+       
        
     
     END SUBROUTINE InitItrcntl

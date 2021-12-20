@@ -3048,568 +3048,737 @@
  Updating Abs XS for node         289 axial plane           1
  maximum Abs XS change:  4.158814783671527E-003
  Newton Solver for group           1 axial plane           1
-   Iteration number 000     fo =  8.61253E-04     fp =  0.00000E+00     wk =  1.00000E-10   objF =  8.61253E-04
-    Backtracking number            1  lambda =   1.154594775991916E-003
-   Iteration number 001     fo =  8.59170E-04     fp =  0.00000E+00     wk =  1.00000E-10   objF =  8.59170E-04
-    Backtracking number            2  lambda =   1.413556646124169E-003
-   Iteration number 002     fo =  8.56617E-04     fp =  0.00000E+00     wk =  1.00000E-10   objF =  8.56617E-04
-    Backtracking number            3  lambda =   1.419043009392121E-003
-   Iteration number 003     fo =  8.54090E-04     fp =  0.00000E+00     wk =  1.00000E-10   objF =  8.54090E-04
-    Backtracking number            4  lambda =   2.353521826887268E-003
-   Iteration number 004     fo =  8.49815E-04     fp =  0.00000E+00     wk =  1.00000E-10   objF =  8.49815E-04
-    Backtracking number            5  lambda =   3.191253980496481E-003
-   Iteration number 005     fo =  8.43995E-04     fp =  0.00000E+00     wk =  1.00000E-10   objF =  8.43995E-04
-    Backtracking number            6  lambda =   6.037331215941657E-004
-   Iteration number 006     fo =  8.42981E-04     fp =  0.00000E+00     wk =  1.00000E-10   objF =  8.42981E-04
-    Backtracking number            7  lambda =   1.192365668264300E-003
-   Iteration number 007     fo =  8.40954E-04     fp =  0.00000E+00     wk =  1.00000E-10   objF =  8.40954E-04
-    Backtracking number            8  lambda =   4.246390836082157E-003
-   Iteration number 008     fo =  8.33299E-04     fp =  0.00000E+00     wk =  1.00000E-10   objF =  8.33299E-04
-    Backtracking number            9  lambda =   4.619960544268275E-003
-   Iteration number 009     fo =  8.25114E-04     fp =  0.00000E+00     wk =  1.00000E-10   objF =  8.25114E-04
-    Backtracking number           10  lambda =   4.263825635688306E-003
-   Iteration number 010     fo =  8.17646E-04     fp =  0.00000E+00     wk =  1.00000E-10   objF =  8.17646E-04
-    Backtracking number           11  lambda =   6.671945904843061E-003
-   Iteration number 011     fo =  8.07544E-04     fp =  1.94271E+03     wk =  1.00000E-10   objF =  8.07738E-04
-    Backtracking number           12  lambda =   6.430914592769772E-003
-   Iteration number 012     fo =  7.96693E-04     fp =  1.94538E+03     wk =  1.00000E-09   objF =  7.98638E-04
-    Backtracking number           13  lambda =   1.044053498719196E-002
-   Iteration number 013     fo =  7.78908E-04     fp =  1.94498E+03     wk =  1.00000E-08   objF =  7.98358E-04
-    Backtracking number           14  lambda =   3.839724175731726E-002
-    Backtracking number           15  lambda =   7.295825852619016E-003
-    Backtracking number           16  lambda =   4.506932643166114E-004
-    Backtracking number           17  lambda =   1.971441973728973E-006
-    Backtracking number           18  lambda =   3.805528345436644E-011
-    Backtracking number           19  lambda =   1.418056885071772E-020
-    Backtracking number           20  lambda =   1.969024121872210E-039
-   Iteration number 014     fo =  6.86935E-04     fp =  1.92955E+03     wk =  1.00000E-07   objF =  8.79891E-04
-    Backtracking number           22  lambda =   4.053256215955678E-002
-    Backtracking number           23  lambda =   8.347874058980445E-004
-    Backtracking number           24  lambda =   3.693588718139563E-007
-    Backtracking number           25  lambda =   7.237329413033633E-014
-    Backtracking number           26  lambda =   2.778677351348324E-027
-    Backtracking number           27  lambda =   4.095978637508680E-054
-   Iteration number 015     fo =  6.24638E-04     fp =  1.91387E+03     wk =  1.00000E-06   objF =  2.53851E-03
-    Backtracking number           29  lambda =   5.859393336868273E-002
-    Backtracking number           30  lambda =   5.061187964573381E-004
-    Backtracking number           31  lambda =   3.842579004517552E-008
-    Backtracking number           32  lambda =   2.215284117428205E-016
-    Backtracking number           33  lambda =   7.362794775847964E-033
-   Iteration number 016     fo =  5.44781E-04     fp =  1.89135E+03     wk =  1.00000E-05   objF =  1.94583E-02
-    Backtracking number           35  lambda =   0.101270992289162     
-    Backtracking number           36  lambda =   1.172240604485671E-003
-    Backtracking number           37  lambda =   1.607869662558800E-007
-    Backtracking number           38  lambda =   3.025785625821523E-015
-    Backtracking number           39  lambda =   1.071550888191072E-030
-    Backtracking number           40  lambda =   1.343884952049881E-061
-   Iteration number 017     fo =  4.25419E-04     fp =  1.85286E+03     wk =  1.00000E-04   objF =  1.85711E-01
-    Backtracking number           42  lambda =   0.107028611545647     
-    Backtracking number           43  lambda =   1.275551209839371E-003
-    Backtracking number           44  lambda =   1.855964410744123E-007
-    Backtracking number           45  lambda =   3.930425191713130E-015
-    Backtracking number           46  lambda =   1.762703773876356E-030
-    Backtracking number           47  lambda =   3.545348514083489E-061
-   Iteration number 018     fo =  3.33071E-04     fp =  1.81294E+03     wk =  1.00000E-03   objF =  1.81327E+00
-    Backtracking number           49  lambda =   0.105435838993801     
-    Backtracking number           50  lambda =   1.235222562837949E-003
-    Backtracking number           51  lambda =   1.736017546015468E-007
-    Backtracking number           52  lambda =   3.429998971527420E-015
-    Backtracking number           53  lambda =   1.338979000801268E-030
-    Backtracking number           54  lambda =   2.040484586087026E-061
-   Iteration number 019     fo =  2.64588E-04     fp =  1.77453E+03     wk =  1.00000E-02   objF =  1.77455E+01
-    Backtracking number           56  lambda =   9.652280398789304E-002
-    Backtracking number           57  lambda =   1.035083940268241E-003
-    Backtracking number           58  lambda =   1.216414441661451E-007
-    Backtracking number           59  lambda =   1.680334131683811E-015
-    Backtracking number           60  lambda =   3.206445214971298E-031
-    Backtracking number           61  lambda =   1.167562597056667E-062
-   Iteration number 020     fo =  2.16566E-04     fp =  1.74008E+03     wk =  1.00000E-01   objF =  1.74009E+02
-    Backtracking number           63  lambda =   4.275349492920426E-004
-    Backtracking number           64  lambda =   2.030959555432192E-008
-    Backtracking number           65  lambda =   4.583548630046001E-017
-    Backtracking number           66  lambda =   2.334548938740807E-034
-   Iteration number 021     fo =  2.16345E-04     fp =  1.73994E+03     wk =  1.00000E+00   objF =  1.73994E+03
-    Backtracking number           68  lambda =   3.500527583018245E-003
-    Backtracking number           69  lambda =   1.361521468317280E-006
-    Backtracking number           70  lambda =   2.061315360948238E-013
-    Backtracking number           71  lambda =   4.724811244054105E-027
-    Backtracking number           72  lambda =   2.482358546066546E-054
-   Iteration number 022     fo =  2.14670E-04     fp =  1.73872E+03     wk =  1.00000E+01   objF =  1.73872E+04
-    Backtracking number           74  lambda =   1.604226035882213E-003
-    Backtracking number           75  lambda =   2.859490147096509E-007
-    Backtracking number           76  lambda =   9.088444169007646E-015
-    Backtracking number           77  lambda =   9.181030913112708E-030
-    Backtracking number           78  lambda =   9.369043638022927E-060
-   Iteration number 023     fo =  2.13943E-04     fp =  1.73816E+03     wk =  1.00000E+02   objF =  1.73816E+05
-    Backtracking number           80  lambda =   5.561533471240937E-003
-    Backtracking number           81  lambda =   3.436738217749896E-006
-    Backtracking number           82  lambda =   1.313975662435082E-012
-    Backtracking number           83  lambda =   1.920743583256263E-025
-    Backtracking number           84  lambda =   4.104247387796581E-051
-   Iteration number 024     fo =  2.11502E-04     fp =  1.73623E+03     wk =  1.00000E+03   objF =  1.73623E+06
-    Backtracking number           86  lambda =   3.859557566487587E-002
-    Backtracking number           87  lambda =   1.655104229273768E-004
-    Backtracking number           88  lambda =   3.070024172704669E-009
-    Backtracking number           89  lambda =   1.056308561578242E-018
-    Backtracking number           90  lambda =   1.250514724374137E-037
-   Iteration number 025     fo =  1.95799E-04     fp =  1.72279E+03     wk =  1.00000E+04   objF =  1.72279E+07
-    Backtracking number           92  lambda =   9.110666734427032E-002
-    Backtracking number           93  lambda =   9.221843758293644E-004
-    Backtracking number           94  lambda =   9.643489705635421E-008
-    Backtracking number           95  lambda =   1.054770521164733E-015
-    Backtracking number           96  lambda =   1.261843566558535E-031
-    Backtracking number           97  lambda =   1.805928643530496E-063
-   Iteration number 026     fo =  1.60676E-04     fp =  1.69123E+03     wk =  1.00000E+05   objF =  1.69123E+08
-    Backtracking number           99  lambda =   0.107803599855671     
-    Backtracking number          100  lambda =   1.291123960794020E-003
-    Backtracking number          101  lambda =   1.897427966428619E-007
-    Backtracking number          102  lambda =   4.099092100281557E-015
-    Backtracking number          103  lambda =   1.913077011342010E-030
-    Backtracking number          104  lambda =   4.166985663718282E-061
-   Iteration number 027     fo =  1.25485E-04     fp =  1.65453E+03     wk =  1.00000E+06   objF =  1.65453E+09
-    Backtracking number          106  lambda =   0.108346666157358     
-    Backtracking number          107  lambda =   1.304163234465023E-003
-    Backtracking number          108  lambda =   1.936183049608858E-007
-    Backtracking number          109  lambda =   4.268785243586577E-015
-    Backtracking number          110  lambda =   2.075009605766678E-030
-    Backtracking number          111  lambda =   4.902885164366994E-061
-   Iteration number 028     fo =  1.04678E-04     fp =  1.61844E+03     wk =  1.00000E+07   objF =  1.61844E+10
-    Backtracking number          113  lambda =   0.109890109890110     
-    Backtracking number          114  lambda =   1.341579575792560E-003
-    Backtracking number          115  lambda =   2.049586705509923E-007
-    Backtracking number          116  lambda =   4.785184951174502E-015
-    Backtracking number          117  lambda =   2.608336473121491E-030
-    Backtracking number          118  lambda =   7.749851598816550E-061
-   Iteration number 029     fo =  1.04702E-04     fp =  1.58264E+03     wk =  1.00000E+08   objF =  1.58264E+11
-    Backtracking number          120  lambda =   0.109890109890110     
-    Backtracking number          121  lambda =   1.341579575792541E-003
-    Backtracking number          122  lambda =   2.049586705509851E-007
-    Backtracking number          123  lambda =   4.785184951174139E-015
-    Backtracking number          124  lambda =   2.608336473121079E-030
-    Backtracking number          125  lambda =   7.749851598814057E-061
-   Iteration number 030     fo =  1.04728E-04     fp =  1.54763E+03     wk =  1.00000E+09   objF =  1.54763E+12
-    Backtracking number          127  lambda =   0.109890111486284     
-    Backtracking number          128  lambda =   1.341579634657850E-003
-    Backtracking number          129  lambda =   2.049586917266605E-007
-    Backtracking number          130  lambda =   4.785186014506220E-015
-    Backtracking number          131  lambda =   2.608337672972939E-030
-    Backtracking number          132  lambda =   7.749858849521538E-061
-   Iteration number 031     fo =  1.04755E-04     fp =  1.51339E+03     wk =  1.00000E+10   objF =  1.51339E+13
-   Iteration number 032     fo =  1.03796E-04     fp =  4.93070E-31     wk =  1.00000E+10   objF =  1.03796E-04
-   Iteration number 033     fo =  1.03796E-04     fp =  9.54538E-36     wk =  1.00000E+10   objF =  1.03796E-04
-   Iteration number 034     fo =  1.03796E-04     fp =  9.54538E-36     wk =  1.00000E+10   objF =  1.03796E-04
-   Iteration number 035     fo =  1.03796E-04     fp =  9.54538E-36     wk =  1.00000E+10   objF =  1.03796E-04
+   Iteration number 000     fo =  8.61253E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.61253E-04
+    Backtracking number            1  lambda =   4.982145492401305E-004
+   Iteration number 001     fo =  8.60381E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.60381E-04
+    Backtracking number            2  lambda =   2.426834346673745E-004
+   Iteration number 002     fo =  8.59963E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.59963E-04
+    Backtracking number            3  lambda =   6.538620925908317E-005
+   Iteration number 003     fo =  8.59850E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.59850E-04
+    Backtracking number            4  lambda =   1.367053800738991E-004
+   Iteration number 004     fo =  8.59615E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.59615E-04
+    Backtracking number            5  lambda =   3.487963537307788E-004
+   Iteration number 005     fo =  8.59013E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.59013E-04
+    Backtracking number            6  lambda =   5.605185697852355E-004
+   Iteration number 006     fo =  8.58037E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.58037E-04
+    Backtracking number            7  lambda =   2.923580525446233E-009
+   Iteration number 007     fo =  8.58037E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.58037E-04
+    Backtracking number            8  lambda =   1.771502001601585E-009
+   Iteration number 008     fo =  8.58037E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.58037E-04
+    Backtracking number            9  lambda =   1.213037788547470E-009
+   Iteration number 009     fo =  8.58037E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.58037E-04
+    Backtracking number           10  lambda =   8.914882387383716E-010
+   Iteration number 010     fo =  8.58037E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.58037E-04
+    Backtracking number           11  lambda =   6.866561501172551E-010
+   Iteration number 011     fo =  8.58037E-04     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.58037E-04
  Newton Solver for group           2 axial plane           1
-   Iteration number 000     fo =  1.48930E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.48930E-06
-    Backtracking number            1  lambda =   3.427227760005697E-004
-   Iteration number 001     fo =  1.48843E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.48843E-06
-    Backtracking number            2  lambda =   3.945274644573854E-004
-   Iteration number 002     fo =  1.48742E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.48742E-06
-    Backtracking number            3  lambda =   1.070487934533461E-003
-   Iteration number 003     fo =  1.48460E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.48460E-06
-    Backtracking number            4  lambda =   3.261906258501084E-004
-   Iteration number 004     fo =  1.48375E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.48375E-06
-    Backtracking number            5  lambda =   1.292033127457701E-003
-   Iteration number 005     fo =  1.48030E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.48030E-06
-    Backtracking number            6  lambda =   3.277679942254740E-003
-   Iteration number 006     fo =  1.47125E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.47125E-06
-    Backtracking number            7  lambda =   4.921269447541738E-003
-   Iteration number 007     fo =  1.45746E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.45746E-06
-    Backtracking number            8  lambda =   8.662914114873861E-003
-   Iteration number 008     fo =  1.43259E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.43259E-06
-    Backtracking number            9  lambda =   1.400077644047742E-002
-   Iteration number 009     fo =  1.39206E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.39206E-06
-    Backtracking number           10  lambda =   2.388263637322542E-002
-   Iteration number 010     fo =  1.32298E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.32298E-06
-    Backtracking number           11  lambda =   4.645421139812934E-002
-   Iteration number 011     fo =  1.19068E-06     fp =  0.00000E+00     wk =  1.00000E-10   objF =  1.19068E-06
-    Backtracking number           12  lambda =   0.106063309286920     
-   Iteration number 012     fo =  9.12556E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  9.12556E-07
-    Backtracking number           13  lambda =   0.287521049768152     
-   Iteration number 013     fo =  4.01008E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  4.01008E-07
-    Backtracking number           14  lambda =   0.438802085759890     
-   Iteration number 014     fo =  2.34378E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  2.34378E-07
-    Backtracking number           15  lambda =   3.810874678816733E-005
-    Backtracking number           16  lambda =   1.509322729485510E-005
-    Backtracking number           17  lambda =   3.920256441267663E-006
-    Backtracking number           18  lambda =   4.063462628424947E-007
-    Backtracking number           19  lambda =   5.325270065875274E-009
-    Backtracking number           20  lambda =   9.388018677272793E-013
-    Backtracking number           21  lambda =   2.918714918621442E-020
-    Backtracking number           22  lambda =   2.821156449532362E-035
-   Iteration number 015     fo =  2.34386E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  2.34386E-07
-    Backtracking number           24  lambda =   2.684855643183345E-007
-    Backtracking number           25  lambda =   1.062886669546371E-007
-    Backtracking number           26  lambda =   2.757385533673664E-008
-    Backtracking number           27  lambda =   2.849934885813796E-009
-    Backtracking number           28  lambda =   3.711524253978708E-011
-    Backtracking number           29  lambda =   6.460375534252764E-015
-    Backtracking number           30  lambda =   1.958032378117464E-022
-    Backtracking number           31  lambda =   1.798639413350643E-037
-   Iteration number 016     fo =  2.34386E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  2.34386E-07
-    Backtracking number           33  lambda =   2.258669692600909E-007
-    Backtracking number           34  lambda =   8.941646334150196E-008
-    Backtracking number           35  lambda =   2.319661799733270E-008
-    Backtracking number           36  lambda =   2.397475383408914E-009
-    Backtracking number           37  lambda =   3.122152272966300E-011
-    Backtracking number           38  lambda =   5.434057227862438E-015
-    Backtracking number           39  lambda =   1.646704344462615E-022
-    Backtracking number           40  lambda =   1.512162642029174E-037
-   Iteration number 017     fo =  2.34386E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  2.34386E-07
-    Backtracking number           42  lambda =   1.928420286606786E-007
-    Backtracking number           43  lambda =   7.634232831605820E-008
-    Backtracking number           44  lambda =   1.980476853253102E-008
-    Backtracking number           45  lambda =   2.046880926559831E-009
-    Backtracking number           46  lambda =   2.665494978223025E-011
-    Backtracking number           47  lambda =   4.638935633094577E-015
-    Backtracking number           48  lambda =   1.405563474373425E-022
-    Backtracking number           49  lambda =   1.290371379704823E-037
-   Iteration number 018     fo =  2.34386E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  2.34386E-07
-    Backtracking number           51  lambda =   1.666953673392972E-007
-    Backtracking number           52  lambda =   6.599124754005231E-008
-    Backtracking number           53  lambda =   1.711939087934421E-008
-    Backtracking number           54  lambda =   1.769316036376100E-009
-    Backtracking number           55  lambda =   2.303977358410161E-011
-    Backtracking number           56  lambda =   4.009529100115423E-015
-    Backtracking number           57  lambda =   1.214716267161238E-022
-    Backtracking number           58  lambda =   1.114904912477403E-037
-   Iteration number 019     fo =  2.34386E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  2.34386E-07
-    Backtracking number           60  lambda =   1.456177344653039E-007
-    Backtracking number           61  lambda =   5.764694557548668E-008
-    Backtracking number           62  lambda =   1.495464806843527E-008
-    Backtracking number           63  lambda =   1.545568945132840E-009
-    Backtracking number           64  lambda =   2.012567220502024E-011
-    Backtracking number           65  lambda =   3.502222368733129E-015
-    Backtracking number           66  lambda =   1.060917240365059E-022
-    Backtracking number           67  lambda =   9.735474240725187E-038
-   Iteration number 020     fo =  2.34386E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  2.34386E-07
-    Backtracking number           69  lambda =   1.283633072335640E-007
-    Backtracking number           70  lambda =   5.081620753944126E-008
-    Backtracking number           71  lambda =   1.318257769772100E-008
-    Backtracking number           72  lambda =   1.362411294583847E-009
-    Backtracking number           73  lambda =   1.774029502552787E-011
-    Backtracking number           74  lambda =   3.086989114440315E-015
-    Backtracking number           75  lambda =   9.350498279957739E-023
-    Backtracking number           76  lambda =   8.578949165055414E-038
-   Iteration number 021     fo =  2.34386E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  2.34386E-07
-    Backtracking number           78  lambda =   1.140500676907012E-007
-    Backtracking number           79  lambda =   4.514984904938783E-008
-    Backtracking number           80  lambda =   1.171258626287813E-008
-    Backtracking number           81  lambda =   1.210478048208322E-009
-    Backtracking number           82  lambda =   1.576163416907783E-011
-    Backtracking number           83  lambda =   2.742576385632811E-015
-    Backtracking number           84  lambda =   8.306629504870007E-023
-    Backtracking number           85  lambda =   7.620037042774403E-038
-   Iteration number 022     fo =  2.34386E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  2.34386E-07
-    Backtracking number           87  lambda =   1.020385291900777E-007
-    Backtracking number           88  lambda =   4.039470248822940E-008
-    Backtracking number           89  lambda =   1.047899164681331E-008
-    Backtracking number           90  lambda =   1.082979523820560E-009
-    Backtracking number           91  lambda =   1.410123678371150E-011
-    Backtracking number           92  lambda =   2.453577434783563E-015
-    Backtracking number           93  lambda =   7.430807656478529E-023
-    Backtracking number           94  lambda =   6.815669898880300E-038
-   Iteration number 023     fo =  2.34386E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  2.34386E-07
-    Backtracking number           96  lambda =   9.185538403834305E-008
-    Backtracking number           97  lambda =   3.636339010799281E-008
-    Backtracking number           98  lambda =   9.433181286146064E-009
-    Backtracking number           99  lambda =   9.748907010552161E-010
-    Backtracking number          100  lambda =   1.269364340696125E-011
-    Backtracking number          101  lambda =   2.208592050189546E-015
-    Backtracking number          102  lambda =   6.688443292202714E-023
-    Backtracking number          103  lambda =   6.134005556553112E-038
-   Iteration number 024     fo =  2.34386E-07     fp =  0.00000E+00     wk =  1.00000E-10   objF =  2.34386E-07
+   Iteration number 000     fo =  1.48930E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48930E-06
+    Backtracking number            1  lambda =   5.684076039827548E-005
+   Iteration number 001     fo =  1.48915E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48915E-06
+    Backtracking number            2  lambda =   6.126951859306748E-005
+   Iteration number 002     fo =  1.48900E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48900E-06
+    Backtracking number            3  lambda =   6.570659324974810E-005
+   Iteration number 003     fo =  1.48883E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48883E-06
+    Backtracking number            4  lambda =   7.019689253103678E-005
+   Iteration number 004     fo =  1.48866E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48866E-06
+    Backtracking number            5  lambda =   7.461863847246883E-005
+   Iteration number 005     fo =  1.48847E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48847E-06
+    Backtracking number            6  lambda =   7.766953671407945E-005
+   Iteration number 006     fo =  1.48827E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48827E-06
+    Backtracking number            7  lambda =   9.264216481023286E-006
+   Iteration number 007     fo =  1.48825E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48825E-06
+    Backtracking number            8  lambda =   5.424314194210141E-006
+   Iteration number 008     fo =  1.48824E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48824E-06
+    Backtracking number            9  lambda =   2.224162689511095E-005
+   Iteration number 009     fo =  1.48818E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48818E-06
+    Backtracking number           10  lambda =   7.099197399528480E-005
+   Iteration number 010     fo =  1.48800E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48800E-06
+    Backtracking number           11  lambda =   9.088874135817765E-005
+   Iteration number 011     fo =  1.48777E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48777E-06
+    Backtracking number           12  lambda =   9.821339304470911E-005
+   Iteration number 012     fo =  1.48752E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48752E-06
+    Backtracking number           13  lambda =   1.049440790342920E-004
+   Iteration number 013     fo =  1.48725E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48725E-06
+    Backtracking number           14  lambda =   1.118781635594524E-004
+   Iteration number 014     fo =  1.48696E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48696E-06
+    Backtracking number           15  lambda =   1.190579932452326E-004
+   Iteration number 015     fo =  1.48666E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48666E-06
+    Backtracking number           16  lambda =   1.244971035360437E-004
+   Iteration number 016     fo =  1.48633E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48633E-06
+    Backtracking number           17  lambda =   9.843732934881334E-005
+   Iteration number 017     fo =  1.48608E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48608E-06
+    Backtracking number           18  lambda =   1.377321854750404E-004
+   Iteration number 018     fo =  1.48572E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48572E-06
+    Backtracking number           19  lambda =   1.503376316816070E-004
+   Iteration number 019     fo =  1.48534E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48534E-06
+    Backtracking number           20  lambda =   1.603250424094883E-004
+   Iteration number 020     fo =  1.48492E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48492E-06
+    Backtracking number           21  lambda =   1.701682314629323E-004
+   Iteration number 021     fo =  1.48448E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48448E-06
+    Backtracking number           22  lambda =   1.693702846862284E-004
+   Iteration number 022     fo =  1.48404E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48404E-06
+    Backtracking number           23  lambda =   1.887079995739772E-004
+   Iteration number 023     fo =  1.48355E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48355E-06
+    Backtracking number           24  lambda =   2.011685842454567E-004
+   Iteration number 024     fo =  1.48302E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48302E-06
+    Backtracking number           25  lambda =   2.017581522111514E-004
+   Iteration number 025     fo =  1.48249E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48249E-06
+    Backtracking number           26  lambda =   6.434067949278479E-005
+   Iteration number 026     fo =  1.48233E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48233E-06
+    Backtracking number           27  lambda =   8.685115622859759E-006
+   Iteration number 027     fo =  1.48230E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48230E-06
+    Backtracking number           28  lambda =   1.985897049680334E-005
+   Iteration number 028     fo =  1.48225E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48225E-06
+    Backtracking number           29  lambda =   5.440803595586787E-005
+   Iteration number 029     fo =  1.48211E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48211E-06
+    Backtracking number           30  lambda =   1.372496543615848E-004
+   Iteration number 030     fo =  1.48175E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48175E-06
+    Backtracking number           31  lambda =   1.907893555961237E-004
+   Iteration number 031     fo =  1.48125E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48125E-06
+    Backtracking number           32  lambda =   2.516390695364116E-004
+   Iteration number 032     fo =  1.48059E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.48059E-06
+    Backtracking number           33  lambda =   2.745323748165936E-004
+   Iteration number 033     fo =  1.47987E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47987E-06
+    Backtracking number           34  lambda =   2.943745467349030E-004
+   Iteration number 034     fo =  1.47910E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47910E-06
+    Backtracking number           35  lambda =   3.132100982971839E-004
+   Iteration number 035     fo =  1.47827E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47827E-06
+    Backtracking number           36  lambda =   1.927900065200877E-004
+   Iteration number 036     fo =  1.47776E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47776E-06
+    Backtracking number           37  lambda =   3.417787278144082E-004
+   Iteration number 037     fo =  1.47686E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47686E-06
+    Backtracking number           38  lambda =   3.689425943701638E-004
+   Iteration number 038     fo =  1.47589E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47589E-06
+    Backtracking number           39  lambda =   3.925621644252696E-004
+   Iteration number 039     fo =  1.47485E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47485E-06
+    Backtracking number           40  lambda =   4.167080488357944E-004
+   Iteration number 040     fo =  1.47375E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47375E-06
+    Backtracking number           41  lambda =   4.386580242240292E-004
+   Iteration number 041     fo =  1.47260E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47260E-06
+    Backtracking number           42  lambda =   4.521057614740476E-004
+   Iteration number 042     fo =  1.47140E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47140E-06
+    Backtracking number           43  lambda =   3.680703161169792E-004
+   Iteration number 043     fo =  1.47043E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47043E-06
+    Backtracking number           44  lambda =   6.297586262157827E-005
+   Iteration number 044     fo =  1.47026E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.47026E-06
+    Backtracking number           45  lambda =   1.785750340741419E-004
+   Iteration number 045     fo =  1.46979E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.46979E-06
+    Backtracking number           46  lambda =   4.046784414036718E-004
+   Iteration number 046     fo =  1.46873E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.46873E-06
+    Backtracking number           47  lambda =   5.389902985039642E-004
+   Iteration number 047     fo =  1.46730E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.46730E-06
+    Backtracking number           48  lambda =   6.045903121637793E-004
+   Iteration number 048     fo =  1.46570E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.46570E-06
+    Backtracking number           49  lambda =   6.551103697731097E-004
+   Iteration number 049     fo =  1.46397E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.46397E-06
+    Backtracking number           50  lambda =   7.061573331493258E-004
+   Iteration number 050     fo =  1.46210E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.46210E-06
+    Backtracking number           51  lambda =   6.672337452211961E-004
+   Iteration number 051     fo =  1.46034E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.46034E-06
+    Backtracking number           52  lambda =   8.131985140123286E-004
+   Iteration number 052     fo =  1.45819E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.45819E-06
+    Backtracking number           53  lambda =   8.779343846116143E-004
+   Iteration number 053     fo =  1.45587E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.45587E-06
+    Backtracking number           54  lambda =   9.504932470004884E-004
+   Iteration number 054     fo =  1.45335E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.45335E-06
+    Backtracking number           55  lambda =   1.029747651697231E-003
+   Iteration number 055     fo =  1.45064E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.45064E-06
+    Backtracking number           56  lambda =   1.123415419022963E-003
+   Iteration number 056     fo =  1.44767E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.44767E-06
+    Backtracking number           57  lambda =   1.227192961640582E-003
+   Iteration number 057     fo =  1.44444E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.44444E-06
+    Backtracking number           58  lambda =   1.345854345140732E-003
+   Iteration number 058     fo =  1.44090E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.44090E-06
+    Backtracking number           59  lambda =   1.482634525031302E-003
+   Iteration number 059     fo =  1.43700E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.43700E-06
+    Backtracking number           60  lambda =   1.641222429984054E-003
+   Iteration number 060     fo =  1.43269E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.43269E-06
+    Backtracking number           61  lambda =   1.786018135035523E-003
+   Iteration number 061     fo =  1.42801E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.42801E-06
+    Backtracking number           62  lambda =   2.052083422291005E-003
+   Iteration number 062     fo =  1.42265E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.42265E-06
+    Backtracking number           63  lambda =   2.327140803933384E-003
+   Iteration number 063     fo =  1.41658E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.41658E-06
+    Backtracking number           64  lambda =   2.602376884819970E-003
+   Iteration number 064     fo =  1.40981E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.40981E-06
+    Backtracking number           65  lambda =   3.087859305144959E-003
+   Iteration number 065     fo =  1.40180E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.40180E-06
+    Backtracking number           66  lambda =   3.657799558729428E-003
+   Iteration number 066     fo =  1.39235E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.39235E-06
+    Backtracking number           67  lambda =   4.444029079634934E-003
+   Iteration number 067     fo =  1.38090E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.38090E-06
+    Backtracking number           68  lambda =   5.591860142711131E-003
+   Iteration number 068     fo =  1.36656E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.36656E-06
+    Backtracking number           69  lambda =   5.635436871515499E-003
+   Iteration number 069     fo =  1.35232E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.35232E-06
+    Backtracking number           70  lambda =   9.748794448530095E-003
+   Iteration number 070     fo =  1.32752E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.32752E-06
+    Backtracking number           71  lambda =   1.667913031030468E-002
+   Iteration number 071     fo =  1.28497E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.28497E-06
+    Backtracking number           72  lambda =   3.924721387948200E-002
+   Iteration number 072     fo =  1.18251E-06     fp =  0.00000E+00     wk =  1.00000E-05   objF =  1.18251E-06
+    Backtracking number           73  lambda =   0.118085728015055     
+   Iteration number 073     fo =  8.74757E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  8.74757E-07
+    Backtracking number           74  lambda =   0.321772209714548     
+   Iteration number 074     fo =  3.47778E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  3.47778E-07
+    Backtracking number           75  lambda =   0.182284539625395     
+   Iteration number 075     fo =  2.97531E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97531E-07
+    Backtracking number           76  lambda =   2.134685897557606E-005
+    Backtracking number           77  lambda =   1.008684786339500E-005
+    Backtracking number           78  lambda =   4.270118164713794E-006
+    Backtracking number           79  lambda =   1.437018535699490E-006
+    Backtracking number           80  lambda =   2.872454737528910E-007
+    Backtracking number           81  lambda =   1.676081094160595E-008
+    Backtracking number           82  lambda =   6.408301596718531E-011
+    Backtracking number           83  lambda =   9.439716454523012E-016
+    Backtracking number           84  lambda =   2.048348070039039E-025
+    Backtracking number           85  lambda =   9.644803246671474E-045
+   Iteration number 076     fo =  2.97532E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97532E-07
+    Backtracking number           87  lambda =   1.161702997688861E-005
+    Backtracking number           88  lambda =   5.478160828040673E-006
+    Backtracking number           89  lambda =   2.305400274092546E-006
+    Backtracking number           90  lambda =   7.647923999870297E-007
+    Backtracking number           91  lambda =   1.476935012180143E-007
+    Backtracking number           92  lambda =   7.949887439397101E-009
+    Backtracking number           93  lambda =   2.563581472084537E-011
+    Backtracking number           94  lambda =   2.682994390923510E-016
+    Backtracking number           95  lambda =   2.938827779842267E-026
+    Backtracking number           96  lambda =   3.526004644014673E-046
+   Iteration number 077     fo =  2.97533E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97533E-07
+    Backtracking number           98  lambda =   1.954369489435093E-005
+    Backtracking number           99  lambda =   9.184959960908923E-006
+    Backtracking number          100  lambda =   3.827906303991410E-006
+    Backtracking number          101  lambda =   1.240420355084287E-006
+    Backtracking number          102  lambda =   2.264078277208584E-007
+    Backtracking number          103  lambda =   1.068660098452020E-008
+    Backtracking number          104  lambda =   2.615369758190893E-011
+    Backtracking number          105  lambda =   1.574147745987320E-016
+    Backtracking number          106  lambda =   5.702634118531602E-027
+    Backtracking number          107  lambda =   7.484030361129415E-048
+   Iteration number 078     fo =  2.97534E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97534E-07
+    Backtracking number          109  lambda =   2.677845527148086E-006
+    Backtracking number          110  lambda =   1.255899367023358E-006
+    Backtracking number          111  lambda =   5.202376725032747E-007
+    Backtracking number          112  lambda =   1.661140860632932E-007
+    Backtracking number          113  lambda =   2.926207047942353E-008
+    Backtracking number          114  lambda =   1.272023400869679E-009
+    Backtracking number          115  lambda =   2.620980220659949E-012
+    Backtracking number          116  lambda =   1.117353234021435E-017
+    Backtracking number          117  lambda =   2.030708967560179E-028
+    Backtracking number          118  lambda =   6.707521590776000E-050
+   Iteration number 079     fo =  2.97534E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97534E-07
+    Backtracking number          120  lambda =   8.016247599342903E-006
+    Backtracking number          121  lambda =   3.760480134501735E-006
+    Backtracking number          122  lambda =   1.558829934067435E-006
+    Backtracking number          123  lambda =   4.986079985440703E-007
+    Backtracking number          124  lambda =   8.820284267226936E-008
+    Backtracking number          125  lambda =   3.871658428876827E-009
+    Backtracking number          126  lambda =   8.141044887487615E-012
+    Backtracking number          127  lambda =   3.614702209460389E-017
+    Backtracking number          128  lambda =   7.126251273524959E-028
+    Backtracking number          129  lambda =   2.769735808251564E-049
+   Iteration number 080     fo =  2.97535E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97535E-07
+    Backtracking number          131  lambda =   2.002964069215194E-005
+    Backtracking number          132  lambda =   9.389006385646067E-006
+    Backtracking number          133  lambda =   3.883855412839450E-006
+    Backtracking number          134  lambda =   1.236071648959667E-006
+    Backtracking number          135  lambda =   2.160406840394972E-007
+    Backtracking number          136  lambda =   9.222564750687614E-009
+    Backtracking number          137  lambda =   1.829787738208931E-011
+    Backtracking number          138  lambda =   7.231390090619690E-017
+    Backtracking number          139  lambda =   1.129450952715294E-027
+    Backtracking number          140  lambda =   2.755234378498058E-049
+   Iteration number 081     fo =  2.97536E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97536E-07
+    Backtracking number          142  lambda =   2.030877990180972E-005
+    Backtracking number          143  lambda =   9.496022154122053E-006
+    Backtracking number          144  lambda =   3.899876040652471E-006
+    Backtracking number          145  lambda =   1.219708432284415E-006
+    Backtracking number          146  lambda =   2.044178986730533E-007
+    Backtracking number          147  lambda =   7.921105960756462E-009
+    Backtracking number          148  lambda =   1.284825015190094E-011
+    Backtracking number          149  lambda =   3.391321936704879E-017
+    Backtracking number          150  lambda =   2.362769645206744E-028
+    Backtracking number          151  lambda =   1.146901471980679E-050
+   Iteration number 082     fo =  2.97538E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97538E-07
+    Backtracking number          153  lambda =   1.986622265142893E-005
+    Backtracking number          154  lambda =   9.291713017892550E-006
+    Backtracking number          155  lambda =   3.819070082317355E-006
+    Backtracking number          156  lambda =   1.196783549616846E-006
+    Backtracking number          157  lambda =   2.015257726547593E-007
+    Backtracking number          158  lambda =   7.894449509444107E-009
+    Backtracking number          159  lambda =   1.309766416242797E-011
+    Backtracking number          160  lambda =   3.617251913063316E-017
+    Backtracking number          161  lambda =   2.758995314108969E-028
+    Backtracking number          162  lambda =   1.605075178230789E-050
+   Iteration number 083     fo =  2.97539E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97539E-07
+    Backtracking number          164  lambda =   1.938214796856973E-005
+    Backtracking number          165  lambda =   9.045886894273826E-006
+    Backtracking number          166  lambda =   3.695160764608325E-006
+    Backtracking number          167  lambda =   1.140803288137127E-006
+    Backtracking number          168  lambda =   1.853233779084394E-007
+    Backtracking number          169  lambda =   6.684602238353215E-009
+    Backtracking number          170  lambda =   9.345040734690428E-012
+    Backtracking number          171  lambda =   1.831498708445010E-017
+    Backtracking number          172  lambda =   7.034919868468097E-029
+    Backtracking number          173  lambda =   1.037920838340031E-051
+   Iteration number 084     fo =  2.97540E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97540E-07
+    Backtracking number          175  lambda =   1.890069675696556E-005
+    Backtracking number          176  lambda =   8.802201994585144E-006
+    Backtracking number          177  lambda =   3.573421310724585E-006
+    Backtracking number          178  lambda =   1.086813570687926E-006
+    Backtracking number          179  lambda =   1.703012458248296E-007
+    Backtracking number          180  lambda =   5.656030395173140E-009
+    Backtracking number          181  lambda =   6.665758757250506E-012
+    Backtracking number          182  lambda =   9.280019059646355E-018
+    Backtracking number          183  lambda =   1.798658150429920E-029
+    Backtracking number          184  lambda =   6.756910300694978E-053
+   Iteration number 085     fo =  2.97542E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97542E-07
+    Backtracking number          186  lambda =   1.842854935767255E-005
+    Backtracking number          187  lambda =   8.563769374686669E-006
+    Backtracking number          188  lambda =   3.455098730759718E-006
+    Backtracking number          189  lambda =   1.035148267802541E-006
+    Backtracking number          190  lambda =   1.564439246150374E-007
+    Backtracking number          191  lambda =   4.784329769114176E-009
+    Backtracking number          192  lambda =   4.755828011180871E-012
+    Backtracking number          193  lambda =   4.708684120603045E-018
+    Backtracking number          194  lambda =   4.615802840261844E-030
+    Backtracking number          195  lambda =   4.435500536683498E-054
+   Iteration number 086     fo =  2.97543E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97543E-07
+    Backtracking number          197  lambda =   1.796765520652929E-005
+    Backtracking number          198  lambda =   8.331472289769956E-006
+    Backtracking number          199  lambda =   3.340507024962453E-006
+    Backtracking number          200  lambda =   9.858374926189717E-007
+    Backtracking number          201  lambda =   1.436847558352575E-007
+    Backtracking number          202  lambda =   4.046449759253438E-009
+    Backtracking number          203  lambda =   3.394625502167795E-012
+    Backtracking number          204  lambda =   2.393072891255956E-018
+    Backtracking number          205  lambda =   1.189281476292892E-030
+    Backtracking number          206  lambda =   2.937258095625042E-055
+   Iteration number 087     fo =  2.97545E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97545E-07
+    Backtracking number          208  lambda =   1.751849432436761E-005
+    Backtracking number          209  lambda =   8.105503758001470E-006
+    Backtracking number          210  lambda =   3.229673708383247E-006
+    Backtracking number          211  lambda =   9.388214450292130E-007
+    Backtracking number          212  lambda =   1.319463678886351E-007
+    Backtracking number          213  lambda =   3.422177605649974E-009
+    Backtracking number          214  lambda =   2.424267728836955E-012
+    Backtracking number          215  lambda =   1.218293489728467E-018
+    Backtracking number          216  lambda =   3.076770098334211E-031
+    Backtracking number          217  lambda =   1.962371788563146E-056
+   Iteration number 088     fo =  2.97546E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97546E-07
+    Backtracking number          219  lambda =   1.708031748705273E-005
+    Backtracking number          220  lambda =   7.885486299992410E-006
+    Backtracking number          221  lambda =   3.122397646536102E-006
+    Backtracking number          222  lambda =   8.939747838910715E-007
+    Backtracking number          223  lambda =   1.211467923060810E-007
+    Backtracking number          224  lambda =   2.894045062750914E-009
+    Backtracking number          225  lambda =   1.732169113341896E-012
+    Backtracking number          226  lambda =   6.212696557824172E-019
+    Backtracking number          227  lambda =   7.992086164413493E-032
+    Backtracking number          228  lambda =   1.322574630915383E-057
+   Iteration number 089     fo =  2.97548E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97548E-07
+    Backtracking number          230  lambda =   1.664247541441380E-005
+    Backtracking number          231  lambda =   7.666484807392025E-006
+    Backtracking number          232  lambda =   3.016688170659479E-006
+    Backtracking number          233  lambda =   8.506720864919210E-007
+    Backtracking number          234  lambda =   1.111443359773055E-007
+    Backtracking number          235  lambda =   2.445800320803874E-009
+    Backtracking number          236  lambda =   1.237537412909618E-012
+    Backtracking number          237  lambda =   3.171556774249501E-019
+    Backtracking number          238  lambda =   2.083056349902657E-032
+    Backtracking number          239  lambda =   8.985827455110410E-059
+   Iteration number 090     fo =  2.97549E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97549E-07
+    Backtracking number          241  lambda =   1.553554457957094E-005
+    Backtracking number          242  lambda =   7.140793796389478E-006
+    Backtracking number          243  lambda =   2.792188825211303E-006
+    Backtracking number          244  lambda =   7.754313743547112E-007
+    Backtracking number          245  lambda =   9.766756277666192E-008
+    Backtracking number          246  lambda =   1.979807429155727E-009
+    Backtracking number          247  lambda =   8.471058417944338E-013
+    Backtracking number          248  lambda =   1.552168131956823E-019
+    Backtracking number          249  lambda =   5.211240223442453E-033
+   Iteration number 091     fo =  2.97550E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97550E-07
+    Backtracking number          251  lambda =   1.583889795962551E-005
+    Backtracking number          252  lambda =   7.264864459244726E-006
+    Backtracking number          253  lambda =   2.823665596643022E-006
+    Backtracking number          254  lambda =   7.728212710297372E-007
+    Backtracking number          255  lambda =   9.399428912383140E-008
+    Backtracking number          256  lambda =   1.762267475138640E-009
+    Backtracking number          257  lambda =   6.430800002340320E-013
+    Backtracking number          258  lambda =   8.569753103921387E-020
+    Backtracking number          259  lambda =   1.521861180611273E-033
+   Iteration number 092     fo =  2.97552E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97552E-07
+    Backtracking number          261  lambda =   1.546086396252603E-005
+    Backtracking number          262  lambda =   7.075759533120173E-006
+    Backtracking number          263  lambda =   2.732859668324792E-006
+    Backtracking number          264  lambda =   7.366057916294050E-007
+    Backtracking number          265  lambda =   8.636334940975412E-008
+    Backtracking number          266  lambda =   1.492297949350305E-009
+    Backtracking number          267  lambda =   4.611990754918862E-013
+    Backtracking number          268  lambda =   4.407807627329279E-020
+    Backtracking number          269  lambda =   4.026160865309058E-034
+   Iteration number 093     fo =  2.97553E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97553E-07
+    Backtracking number          271  lambda =   1.508343091236194E-005
+    Backtracking number          272  lambda =   6.887664415590969E-006
+    Backtracking number          273  lambda =   2.643419527832772E-006
+    Backtracking number          274  lambda =   7.016390422456950E-007
+    Backtracking number          275  lambda =   7.929421705605983E-008
+    Backtracking number          276  lambda =   1.262861778139354E-009
+    Backtracking number          277  lambda =   3.306692932358338E-013
+    Backtracking number          278  lambda =   2.268283795240172E-020
+    Backtracking number          279  lambda =   1.067344203358608E-034
+   Iteration number 094     fo =  2.97555E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97555E-07
+    Backtracking number          281  lambda =   1.471398209364497E-005
+    Backtracking number          282  lambda =   6.703953876605754E-006
+    Backtracking number          283  lambda =   2.556631633231144E-006
+    Backtracking number          284  lambda =   6.682334203561233E-007
+    Backtracking number          285  lambda =   7.278856722037555E-008
+    Backtracking number          286  lambda =   1.068619749992181E-009
+    Backtracking number          287  lambda =   2.371780619076113E-013
+    Backtracking number          288  lambda =   1.168880012224790E-020
+    Backtracking number          289  lambda =   2.838970029873561E-035
+   Iteration number 095     fo =  2.97556E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97556E-07
+    Backtracking number          291  lambda =   1.435274903185962E-005
+    Backtracking number          292  lambda =   6.524713382027101E-006
+    Backtracking number          293  lambda =   2.472494357489047E-006
+    Backtracking number          294  lambda =   6.363436232024010E-007
+    Backtracking number          295  lambda =   6.680549725679093E-008
+    Backtracking number          296  lambda =   9.042381658189846E-010
+    Backtracking number          297  lambda =   1.702013586212475E-013
+    Backtracking number          298  lambda =   6.032354954334428E-021
+    Backtracking number          299  lambda =   7.577651894559238E-036
+   Iteration number 096     fo =  2.97558E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97558E-07
+    Backtracking number          301  lambda =   1.399816010883773E-005
+    Backtracking number          302  lambda =   6.349208880807544E-006
+    Backtracking number          303  lambda =   2.390696128980136E-006
+    Backtracking number          304  lambda =   6.058461674304337E-007
+    Backtracking number          305  lambda =   6.129862740963640E-008
+    Backtracking number          306  lambda =   7.650733089577761E-010
+    Backtracking number          307  lambda =   1.221893247766783E-013
+    Backtracking number          308  lambda =   3.117686281545818E-021
+    Backtracking number          309  lambda =   2.029694749971356E-036
+   Iteration number 097     fo =  2.97559E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97559E-07
+    Backtracking number          311  lambda =   1.364522291893094E-005
+    Backtracking number          312  lambda =   6.175165732413306E-006
+    Backtracking number          313  lambda =   2.310357362434158E-006
+    Backtracking number          314  lambda =   5.764822004846654E-007
+    Backtracking number          315  lambda =   5.621212462267050E-008
+    Backtracking number          316  lambda =   6.470595206208973E-010
+    Backtracking number          317  lambda =   8.773195852688712E-014
+    Backtracking number          318  lambda =   1.613254098852737E-021
+    Backtracking number          319  lambda =   5.454974167520462E-037
+   Iteration number 098     fo =  2.97560E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97560E-07
+    Backtracking number          321  lambda =   1.327764500598286E-005
+    Backtracking number          322  lambda =   5.995231705205986E-006
+    Backtracking number          323  lambda =   2.228737067543814E-006
+    Backtracking number          324  lambda =   5.475523238448916E-007
+    Backtracking number          325  lambda =   5.145457135606294E-008
+    Backtracking number          326  lambda =   5.463875866905790E-010
+    Backtracking number          327  lambda =   6.293127345270767E-014
+    Backtracking number          328  lambda =   8.350220661284561E-022
+    Backtracking number          329  lambda =   1.470147223587908E-037
+   Iteration number 099     fo =  2.97562E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97562E-07
+    Backtracking number          331  lambda =   1.277659258164615E-005
+    Backtracking number          332  lambda =   5.755938298482612E-006
+    Backtracking number          333  lambda =   2.126141056531091E-006
+    Backtracking number          334  lambda =   5.143045321298680E-007
+    Backtracking number          335  lambda =   4.657965137850493E-008
+    Backtracking number          336  lambda =   4.564436963480934E-010
+    Backtracking number          337  lambda =   4.469621791141505E-014
+    Backtracking number          338  lambda =   4.286698643073938E-022
+    Backtracking number          339  lambda =   3.943004905129264E-038
+   Iteration number 100     fo =  2.97563E-07     fp =  0.00000E+00     wk =  1.00000E-05   objF =  2.97563E-07
   
  x = ori_xstrf/xstrf
-    0.0001    0.9569
-    5.2123    1.7635
-    2.0544    1.0332
-    0.4706    0.8174
-    4.2233    2.0260
-    2.8082    0.6731
-    2.8119    1.4671
-    0.0169    1.1727
-    2.4194    0.5341
-    0.0001    0.9939
-    5.2255    1.1435
-    2.8518    0.7076
-    0.0001    1.2344
-    1.2676    0.8885
-    0.3457    0.7914
-    0.2269    1.9600
-    3.6554    0.9368
-    0.0001    1.9747
-    0.0001    0.8523
-    0.8905    2.0632
-    0.5715    0.7202
-    1.4836    0.4847
-    0.3089    1.4410
-    3.5264    0.7102
-    2.5254    0.7529
-    0.3545    1.4014
-    2.6057    0.7540
-    1.4445    0.7452
-    0.3293    1.3701
-    2.3657    0.4844
-    1.3655    0.7233
-    0.5180    2.4086
-    1.6726    1.0610
-    0.1440    1.9352
-    1.1875    0.9266
-    0.6467    2.3551
-    2.4217    0.9136
-    0.2606    1.9751
-    0.3751    1.6172
-    2.5356    0.6761
-    0.3817    1.4499
-    0.4126    1.4055
-    2.5053    0.7060
-    0.3165    1.4214
-    0.3501    1.3842
-    2.5199    0.6954
-    0.4202    1.3654
-    0.4206    1.9778
-    2.5354    0.9244
-    0.4397    1.8454
-    0.3727    0.8185
-    1.4946    0.6921
-    1.8028    0.7013
-    0.4177    2.0037
-    2.5317    0.6801
-    0.3152    1.1875
-    0.2578    1.8937
-    2.3108    0.7604
-    2.4135    0.8540
-    0.2328    1.4380
-    2.4935    0.8764
-    2.5406    0.8097
-    0.2320    1.8471
-    0.3135    1.1792
-    2.5381    0.7026
-    0.2456    2.0091
-    1.2359    0.7633
-    1.3133    0.9942
-    0.0001    2.0158
-    4.1402    0.4981
-    0.3513    1.4105
-    0.3152    1.2282
-    2.5999    0.6888
-    0.3374    1.3612
-    2.9415    0.7899
-    2.4737    0.7378
-    0.1662    1.2729
-    2.5005    0.7710
-    2.4871    0.7745
-    0.3369    1.3137
-    2.6237    0.6874
-    0.3202    0.8504
-    0.3815    1.5428
-    2.2617    0.4202
-    0.0001    1.5370
-    2.4017    0.6213
-    0.3766    1.4506
-    2.5084    0.6769
-    0.2446    1.8852
-    0.2650    1.2990
-    2.5718    0.7436
-    0.3776    1.2539
-    0.3419    1.4431
-    2.6992    0.7035
-    0.3041    1.5108
-    0.3558    1.3291
-    2.5288    0.7324
-    0.3394    1.2478
-    0.2687    1.9810
-    2.5252    0.6646
-    0.3085    1.5008
-    2.4304    0.6744
-    0.2074    1.2660
-    2.5296    0.7028
-    0.3484    1.4361
-    2.7152    0.8117
-    2.4254    0.7306
-    0.3275    1.1850
-    3.9578    0.6760
-    1.3143    0.7360
-    0.4882    1.5142
-    1.7047    0.7667
-    2.3846    0.7401
-    0.2690    1.2761
-    2.5762    0.7870
-    2.4824    0.7316
-    0.3510    1.4797
-    2.4717    0.6799
-    0.3246    1.3394
-    0.3881    1.2833
-    2.4208    0.7605
-    0.2207    1.3879
-    2.2495    0.8009
-    2.4864    0.7719
-    0.1828    1.5368
-    1.5034    0.7582
-    1.2554    0.7725
-    0.5661    0.5697
-    0.6579    1.1335
-    1.6329    0.7612
-    0.3620    1.4873
-    2.5471    0.7358
-    2.4277    0.7713
-    0.5356    1.3991
-    2.5057    0.7852
-    0.3279    1.2567
-    2.3372    0.6190
-    0.3190    1.4013
-    2.4808    0.7162
-    0.4928    1.3487
-    0.3222    1.3623
-    2.6827    0.6888
-    0.4958    1.4604
-    0.4655    0.5800
-    2.4663    2.5867
-    0.6783    0.5862
-    0.3259    1.4674
-    2.6119    0.7059
-    0.3351    1.3243
-    0.1961    1.3628
-    2.5241    0.7170
-    0.3333    1.3510
-    2.3838    0.5962
-    0.0893    1.3393
-    2.5123    0.7419
-    0.2926    1.3897
-    2.4413    0.7711
-    2.5297    0.7655
-    0.2924    1.5532
-    1.4123    0.7845
-    1.2546    0.8678
-    0.6172    0.5530
-    0.7977    0.9526
-    1.7353    0.7647
-    0.2777    1.4387
-    2.5011    0.6868
-    1.8308    0.8007
-    0.2699    1.4159
-    2.4545    0.7844
-    0.3468    1.4788
-    0.3898    1.2578
-    2.4636    0.6562
-    0.3575    1.3615
-    2.4389    0.7229
-    2.8333    0.7971
-    0.2952    1.2625
-    2.8324    0.6705
-    2.5804    0.7498
-    0.5071    1.5035
-    1.8171    0.8044
-    2.4681    0.6790
-    0.3581    1.2235
-    2.8654    0.8913
-    2.4723    0.8178
-    0.2199    1.3587
-    2.4944    0.6962
-    0.1710    1.2121
-    2.4186    0.6846
-    0.3643    1.4797
-    2.5219    0.6687
-    0.2429    1.9702
-    0.3312    1.3210
-    2.7651    0.7335
-    0.3434    1.2516
-    0.3621    1.4676
-    2.7037    0.6973
-    0.2579    1.5404
-    0.3571    1.1427
-    2.5325    0.7673
-    0.3443    1.2304
-    0.3410    1.8463
-    2.5817    0.6926
-    0.3271    1.4332
-    2.3424    0.7317
-    0.0001    1.8766
-    2.6580    0.5023
-    0.3488    1.6409
-    0.2836    1.1147
-    2.6288    0.5914
-    0.2868    1.2960
-    2.9423    0.8085
-    2.1949    0.7313
-    0.1692    1.3225
-    2.7332    0.7566
-    2.4933    0.8319
-    0.2495    1.2999
-    2.6374    0.6617
-    0.3264    1.1614
-    0.4065    1.3370
-    2.3059    0.4981
-    0.0001    1.0223
-    1.0671    1.1208
-    1.7803    0.7243
-    0.2523    2.0595
-    2.5552    0.6785
-    0.3148    1.2914
-    0.2436    1.8309
-    2.4825    0.7703
-    2.4042    0.8337
-    0.4384    1.4473
-    2.0507    0.8132
-    2.8174    0.7543
-    0.2511    1.9129
-    0.3183    0.9881
-    2.5349    0.6940
-    0.2485    1.9395
-    1.3114    0.7028
-    1.2613    0.7042
-    0.7361    0.9844
-    0.5170    1.9982
-    2.5180    0.8968
-    0.4494    2.0312
-    0.3757    1.5298
-    2.5236    0.6745
-    0.3483    1.4597
-    0.4126    1.3566
-    2.4868    0.7094
-    0.3305    1.4031
-    0.3507    1.4365
-    2.5015    0.6684
-    0.3553    1.5240
-    0.3994    1.9674
-    2.4910    0.9318
-    0.5114    2.3220
-    0.6319    0.9709
-    0.2826    1.7816
-   16.8076    0.9015
-    0.5031    2.3516
-    1.7270    0.6927
-    2.8121    0.5208
-    0.3345    1.4283
-    2.4920    0.7127
-    2.4787    0.7492
-    0.1484    1.3787
-    2.4739    0.7891
-    2.4685    0.7159
-    0.3643    1.4806
-    2.6237    0.4456
-    1.7873    0.7602
-    0.5476    1.8955
-    0.8131    0.8640
-    2.5460    1.8503
-    1.3410    0.9792
-    1.5302    2.0430
-    0.7088    0.8821
-    1.4246    0.9281
-    0.0001    1.7681
-    2.3153    0.6444
-    0.3322    0.9779
-    0.3179    1.4518
-    2.3669    0.5785
-    0.2977    1.2136
-    0.3984    1.2026
-    2.4047    0.7267
-    0.0253    1.5029
-    1.0772    0.9893
-    2.9273    1.0914
-    0.1088    1.5529
-    1.5522    1.3739
+    0.9897    0.9455
+    1.0030    1.6035
+    1.0109    1.0220
+    1.0197    0.8639
+    1.0116    1.8626
+    1.0097    0.7015
+    1.0125    1.4073
+    0.9874    1.1763
+    1.0099    0.5716
+    1.0373    1.0199
+    1.0389    1.1424
+    1.0100    0.7320
+    0.9616    1.2609
+    0.9873    0.9128
+    0.9499    0.8222
+    0.9913    1.7354
+    0.9993    0.9325
+    0.9834    1.7554
+    1.0112    0.8469
+    0.9898    1.8254
+    1.0090    0.7480
+    1.0130    0.5421
+    0.9897    1.3838
+    1.0119    0.7371
+    1.0103    0.7683
+    0.9897    1.3583
+    1.0104    0.7673
+    1.0121    0.7662
+    0.9897    1.3232
+    1.0118    0.5419
+    1.0108    0.7502
+    0.9864    2.0694
+    1.0396    1.0302
+    0.9643    1.7068
+    0.9990    0.9353
+    0.9912    2.0338
+    1.0100    0.9037
+    0.9886    1.7693
+    0.9898    1.5104
+    1.0103    0.7094
+    0.9897    1.3888
+    0.9898    1.3583
+    1.0104    0.7302
+    0.9897    1.3705
+    0.9896    1.3341
+    1.0103    0.7260
+    0.9898    1.3157
+    0.9881    1.7569
+    1.0094    0.9214
+    0.9838    1.6465
+    0.9572    0.8357
+    1.0015    0.7547
+    1.0098    0.7360
+    0.9886    1.7904
+    1.0110    0.7116
+    0.9893    1.1946
+    0.9896    1.7063
+    1.0098    0.7826
+    1.0102    0.8558
+    0.9898    1.3825
+    1.0103    0.8737
+    1.0099    0.8249
+    0.9896    1.6645
+    0.9888    1.1895
+    1.0114    0.7336
+    0.9881    1.7795
+    1.0113    0.7885
+    0.9966    0.9871
+    0.9789    1.8694
+    1.0124    0.5514
+    0.9894    1.3616
+    0.9893    1.2270
+    1.0119    0.7132
+    0.9894    1.3182
+    1.0115    0.7965
+    1.0096    0.7547
+    0.9907    1.2644
+    1.0099    0.7820
+    1.0105    0.7849
+    0.9894    1.2820
+    1.0125    0.7135
+    0.9888    0.9082
+    0.9894    1.4756
+    1.0118    0.4844
+    0.9567    1.4785
+    1.0102    0.6499
+    0.9893    1.3934
+    1.0106    0.7068
+    0.9893    1.7051
+    0.9893    1.2726
+    1.0107    0.7618
+    0.9894    1.2434
+    0.9906    1.3925
+    1.0099    0.7274
+    0.9906    1.4375
+    0.9893    1.2955
+    1.0107    0.7529
+    0.9894    1.2342
+    0.9892    1.7735
+    1.0106    0.6986
+    0.9892    1.4365
+    1.0101    0.7007
+    0.9819    1.2498
+    1.0106    0.7265
+    0.9894    1.3823
+    1.0111    0.8210
+    1.0105    0.7462
+    0.9893    1.1928
+    1.0130    0.6941
+    1.0092    0.7538
+    0.9904    1.4424
+    1.0099    0.7835
+    1.0119    0.7489
+    0.9893    1.2580
+    1.0109    0.7936
+    1.0104    0.7569
+    0.9893    1.4159
+    1.0104    0.7093
+    0.9896    1.3072
+    0.9897    1.2616
+    1.0102    0.7751
+    0.9896    1.3439
+    1.0097    0.8111
+    1.0100    0.7846
+    0.9906    1.4605
+    1.0092    0.7717
+    1.0023    0.7934
+    1.0034    0.5970
+    1.0041    1.1140
+    1.0102    0.7796
+    0.9906    1.4189
+    1.0102    0.7529
+    1.0102    0.7878
+    0.9896    1.3513
+    1.0103    0.7959
+    0.9885    1.2402
+    1.0093    0.6504
+    0.9896    1.3535
+    1.0104    0.7397
+    0.9896    1.3151
+    0.9906    1.3319
+    1.0100    0.7147
+    0.9903    1.4045
+    1.0045    0.6090
+    1.0015    2.2930
+    1.0031    0.6127
+    0.9903    1.4063
+    1.0100    0.7303
+    0.9906    1.2995
+    0.9896    1.3234
+    1.0105    0.7406
+    0.9895    1.3167
+    1.0097    0.6308
+    0.9725    1.3050
+    1.0104    0.7593
+    0.9896    1.3448
+    1.0101    0.7868
+    1.0095    0.7778
+    0.9905    1.4719
+    1.0096    0.7959
+    1.0043    0.8812
+    1.0043    0.5821
+    1.0049    0.9592
+    1.0096    0.7820
+    0.9905    1.3856
+    1.0107    0.7109
+    1.0097    0.8125
+    0.9896    1.3633
+    1.0107    0.7958
+    0.9851    1.4149
+    0.9868    1.2503
+    1.0105    0.6882
+    0.9896    1.3285
+    1.0099    0.7486
+    1.0114    0.8011
+    0.9891    1.2469
+    1.0127    0.6914
+    1.0093    0.7678
+    0.9905    1.4360
+    1.0089    0.8155
+    1.0116    0.7009
+    0.9893    1.2134
+    1.0118    0.8806
+    1.0108    0.8308
+    0.9890    1.3158
+    1.0111    0.7242
+    0.9478    1.1974
+    1.0099    0.7098
+    0.9896    1.4157
+    1.0104    0.7016
+    0.9895    1.7636
+    0.9892    1.2876
+    1.0109    0.7535
+    0.9891    1.2401
+    0.9908    1.4096
+    1.0098    0.7222
+    0.9907    1.4611
+    0.9892    1.1538
+    1.0108    0.7837
+    0.9893    1.2156
+    0.9887    1.6653
+    1.0109    0.7237
+    0.9888    1.3666
+    1.0091    0.7546
+    0.9800    1.7299
+    1.0110    0.5563
+    0.9896    1.5301
+    0.9895    1.1340
+    1.0120    0.6300
+    0.9892    1.2698
+    1.0119    0.8104
+    1.0092    0.7497
+    0.9908    1.3008
+    1.0102    0.7704
+    1.0107    0.8332
+    0.9893    1.2652
+    1.0118    0.6915
+    0.9891    1.1745
+    0.9891    1.2951
+    1.0124    0.5540
+    0.9511    1.0939
+    0.9935    1.1039
+    1.0092    0.7523
+    0.9886    1.8328
+    1.0110    0.7105
+    0.9893    1.2747
+    0.9892    1.6632
+    1.0104    0.7882
+    1.0102    0.8382
+    0.9896    1.3881
+    1.0099    0.8219
+    1.0113    0.7760
+    0.9892    1.7232
+    0.9890    1.0253
+    1.0110    0.7247
+    0.9885    1.7357
+    1.0113    0.7313
+    0.9893    0.7562
+    1.0018    0.9748
+    0.9907    1.7758
+    1.0098    0.8882
+    0.9886    1.8124
+    0.9895    1.4483
+    1.0107    0.7056
+    0.9894    1.3990
+    0.9895    1.3227
+    1.0105    0.7331
+    0.9895    1.3568
+    0.9893    1.3823
+    1.0107    0.7018
+    0.9896    1.4478
+    0.9885    1.7544
+    1.0096    0.9254
+    0.9910    2.0048
+    0.9932    0.9714
+    0.9894    1.6111
+    1.0152    0.8902
+    0.9910    2.0314
+    1.0093    0.7267
+    1.0119    0.5702
+    0.9892    1.3768
+    1.0106    0.7323
+    1.0103    0.7653
+    0.9895    1.3396
+    1.0103    0.7981
+    1.0104    0.7400
+    0.9892    1.4146
+    1.0120    0.5063
+    1.0088    0.7820
+    0.9907    1.6925
+    1.0074    0.8601
+    0.9949    1.6531
+    1.0064    0.9636
+    0.9954    1.8075
+    1.0058    0.8908
+    1.0019    0.9509
+    0.9812    1.6618
+    1.0096    0.6750
+    0.9872    1.0009
+    0.9811    1.3993
+    1.0096    0.6132
+    0.9900    1.2078
+    0.9884    1.1942
+    1.0100    0.7483
+    0.9868    1.4580
+    1.0061    0.9914
+    1.0179    1.0706
+    0.9856    1.4285
+    1.0117    1.2840
   
  6. Updating Cross-section Files
  Writing XS file ./xsec_ETF/N001_ETF.PMAX

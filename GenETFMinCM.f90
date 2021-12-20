@@ -12,9 +12,8 @@ Module GenETFMinCM
     REAL(sdk), ALLOCATABLE :: vector(:), Matrix(:,:), F(:), gradF(:,:),grad2fk(:,:), x(:), dx(:), leakage(:,:,:),test_vector(:)
     REAL(sdk), ALLOCATABLE :: Mat1(:,:), Mat2(:,:)
     REAL(sdk), ALLOCATABLE :: gradpk(:), grad2pk(:,:), p(:)
-    REAL(sdk)              :: absF, tol, wk, sump, sumf
-    REAL(sdk), PARAMETER   :: two_third = 2.0/3.0, xmin = 1E-6, xmax = 1E4, alpha_L = 10.0, alpha_U = 1.0, wmax = 1.0E10
-    INTEGER(sik), PARAMETER :: maxit = 100, penalty_opt = 2
+    REAL(sdk)              :: absF, wk, sump, sumf
+    REAL(sdk), PARAMETER   :: two_third = 2.0/3.0
     
 CONTAINS
     

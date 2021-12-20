@@ -4,10 +4,9 @@ CNTL
       gen_ETF     T 'Serp3x3_res.m' './xsec_ETF/'
 PARAM
       nodal_kernel   FD
-      wielandt       0.04 10.0 1.0           ! eshift_r, eshift0, targetk [For a standard shift]
-      lsolver        2 1 20                  ! linearsolver, precond, ngmresvec
-      conv_ss        1.0E-8 1.0E-7 5.0E-7    ! epseig, epsl2, epslinf
-      n_iters_ss     10 500                  ! ninmax, noutmax
+      conv           1.0E-7 100              ! tol, maxit
+      limit          1.0E-4 1.0E4 10.0 1.0   ! xmin, xmax, alpha_L, alpha_U
+      penalty        2 1.0E-4 1.0E10         ! penalty_opt, w_init, wmax
 XSEC
       group_spec     2 1
 GEOM

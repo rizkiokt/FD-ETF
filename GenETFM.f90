@@ -10,10 +10,9 @@ Module GenETFM
     
     IMPLICIT NONE
     REAL(sdk), ALLOCATABLE :: F(:), J(:,:), x(:), leakage(:,:,:),test_vector(:)
-    REAL(sdk)              :: absF, tol
+    REAL(sdk)              :: absF
     REAL(sdk), PARAMETER   :: two_third = 2.0/3.0
     REAL(sdk), PARAMETER   :: xstr_min = 1E-5
-    INTEGER(sik), PARAMETER :: maxit = 100
     
 CONTAINS
     

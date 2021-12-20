@@ -11,9 +11,8 @@ Module GenETFMinM
     IMPLICIT NONE
     REAL(sdk), ALLOCATABLE :: vector(:), Matrix(:,:), F(:), gradF(:,:),grad2fk(:,:), x(:), dx(:), leakage(:,:,:),test_vector(:)
     REAL(sdk), ALLOCATABLE :: Mat1(:,:), Mat2(:,:)
-    REAL(sdk)              :: absF, tol
+    REAL(sdk)              :: absF
     REAL(sdk), PARAMETER   :: two_third = 2.0/3.0
-    INTEGER(sik), PARAMETER :: maxit = 100
     
 CONTAINS
     

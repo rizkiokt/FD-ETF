@@ -33,6 +33,8 @@
     CALL Intro
     WRITE(output_unit,*) 'Starting Program'
     WRITE(output_unit,*) '1. Reading Input File'
+    CALL InitItrcntl
+    CALL InitCntl
     CALL InputRead
     
     
@@ -40,8 +42,6 @@
     WRITE(output_unit,*) '2. Initializating Variables'
 
     CALL AllocXsec
-    CALL InitItrcntl
-    CALL InitCntl
     CALL InitialSerpent
     CALL InitialGenETF
     CALL InitFDCurCalc
